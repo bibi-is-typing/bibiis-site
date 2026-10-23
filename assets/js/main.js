@@ -326,7 +326,6 @@
           rio.observe(g);
         });
       });
-      document.querySelectorAll('[data-count]').forEach(function (b) { b.textContent = '0'; });
     }
   }
 })();
