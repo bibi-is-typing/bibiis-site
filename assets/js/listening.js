@@ -8,6 +8,15 @@
 
   document.getElementById('f-source').value = params.get('from') || 'direct';
 
+  var plans = { fixing: { name: '뒷수습', budget: '10만 원 이하' }, pitch: { name: '설득용 랜딩', budget: '10~50만' }, launch: { name: '출시 마무리', budget: '50~100만' }, folio: { name: '포트폴리오 사이트' } };
+  var plan = plans[params.get('plan')];
+  if (plan) {
+    document.getElementById('f-plan').value = plan.name;
+    document.getElementById('plan-hint').hidden = false;
+    var b = plan.budget && form.querySelector('input[name="budget"][value="' + plan.budget + '"]');
+    if (b) b.checked = true;
+  }
+
   var saved = null; try { saved = localStorage.getItem('bibi:idea'); } catch (e) {}
   if (saved && params.get('from') === 'try') {
     document.getElementById('f-idea').value = saved;

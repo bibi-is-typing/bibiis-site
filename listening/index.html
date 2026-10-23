@@ -21,7 +21,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=5">
+  <link rel="stylesheet" href="/assets/css/site.css?v=6">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
@@ -41,6 +41,11 @@
 
   <form id="intake" novalidate>
     <input type="hidden" name="source" id="f-source" value="">
+    <div class="field">
+      <label for="f-plan">관심 있는 상품</label>
+      <p class="hint" id="plan-hint" hidden>요금표에서 고른 상품을 미리 표시했습니다. 바꿔도 됩니다.</p>
+      <select id="f-plan" name="plan"><option value="">아직 모름</option><option value="뒷수습">뒷수습 · 10만 원부터</option><option value="설득용 랜딩">설득용 랜딩 · 50만 원</option><option value="출시 마무리">출시 마무리 · 100만 원부터</option><option value="포트폴리오 사이트">포트폴리오 사이트</option></select>
+    </div>
     <div class="field">
       <label for="f-name">1. 어떻게 불러드릴까요?</label>
       <input id="f-name" name="name" type="text" maxlength="40" required>
@@ -130,6 +135,6 @@
 
 <footer><div class="wrap"><span>bibi.is(listening) · 비비이즈 · hello@bibiis.ai</span><a href="/privacy/">개인정보처리방침</a></div></footer>
 <script src="/assets/js/config.js"></script>
-<script src="/assets/js/listening.js"></script>
+<script src="/assets/js/listening.js?v=6"></script>
 </body>
 </html>

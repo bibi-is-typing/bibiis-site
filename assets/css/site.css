@@ -410,3 +410,16 @@ fieldset { border: 0; margin: 0; padding: 0; }
 #intake { display: flex; flex-direction: column; gap: 30px; }
 #form-wrap { display: flex; flex-direction: column; gap: 10px; }
 .field legend { padding: 0; }
+
+/* hero facts, work tags, plan form link, reply promise */
+.facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.facts li { display: inline-flex; align-items: baseline; gap: 6px; padding: 8px 14px; border-radius: 999px; background: color-mix(in srgb, var(--color-bg-raised) 70%, transparent); border: 1px solid var(--color-border-default); font-size: 15px; color: var(--color-text-muted); }
+.facts b { color: var(--color-text-primary); font-weight: 800; }
+.motion .hero-copy > .facts { animation-delay: .37s; }
+.shiplog .tag { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; font: 700 11px/1.5 var(--font-body); font-style: normal; vertical-align: 2px; white-space: nowrap; }
+.shiplog .tag.live { background: color-mix(in srgb, var(--color-syntax-function) 18%, transparent); color: var(--color-syntax-function); }
+.shiplog .tag.client { background: color-mix(in srgb, var(--color-brand-primary) 20%, transparent); color: var(--color-brand-primary); }
+.shiplog .tag.own { background: var(--color-bg-raised); color: var(--color-text-muted); }
+.plan-form { align-self: center; font-size: 14px; color: var(--color-text-muted); text-decoration: none; margin-top: -4px; }
+.plan-form:hover { color: var(--color-brand-primary); }
+.promise { font-size: 14px; color: var(--color-syntax-function); }

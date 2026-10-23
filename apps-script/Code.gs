@@ -5,7 +5,7 @@
  */
 var SHEET_NAME = '상담';
 var NOTIFY_TO = 'hello@bibiis.ai';
-var FIELDS = ['submittedAt', 'source', 'name', 'channel', 'contact', 'situation', 'audience', 'action', 'idea', 'have', 'when', 'budget', 'agree'];
+var FIELDS = ['submittedAt', 'source', 'plan', 'name', 'channel', 'contact', 'situation', 'audience', 'action', 'idea', 'have', 'when', 'budget', 'agree'];
 
 function doPost(e) {
   var data = {};
