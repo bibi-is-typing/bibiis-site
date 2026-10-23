@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<style>
+@font-face { font-family: "Mono"; font-weight: 700; src: url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/files/jetbrains-mono-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Mono"; font-weight: 500; src: url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/files/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+* { box-sizing: border-box; margin: 0; }
+html, body { width: 1200px; height: 630px; overflow: hidden; }
+body { position: relative; background: #191A21; color: #F8F8F2; font-family: "Pretendard Variable", Pretendard, sans-serif; letter-spacing: -0.02em; }
+.grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(154,165,214,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(154,165,214,.09) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse 80% 80% at 40% 40%, #000 30%, transparent 80%); }
+.orb { position: absolute; border-radius: 50%; filter: blur(90px); }
+.a { width: 560px; height: 560px; right: -140px; top: -200px; background: #BD93F9; opacity: .45; }
+.b { width: 420px; height: 420px; left: -160px; bottom: -220px; background: #FF79C6; opacity: .3; }
+.copy { position: absolute; left: 72px; top: 64px; width: 640px; display: flex; flex-direction: column; gap: 28px; }
+.logo { font: 700 30px "Mono", monospace; letter-spacing: 0; }
+.logo .p { color: #FF79C6; } .logo .k { color: #BD93F9; } .logo .w { color: #F1FA8C; }
+.logo .c { display: inline-block; width: 3px; height: 30px; background: #FF79C6; vertical-align: -4px; margin-left: 4px; }
+h1 { font-size: 66px; line-height: 1.22; font-weight: 800; letter-spacing: -0.035em; margin-top: 22px; }
+h1 em { font-style: normal; background: linear-gradient(90deg, #BD93F9, #FF79C6); -webkit-background-clip: text; color: transparent; }
+.sub { font-size: 25px; color: #C9CFEA; font-weight: 500; line-height: 1.5; }
+.chips { position: absolute; left: 72px; bottom: 60px; display: flex; gap: 12px; }
+.chip { padding: 12px 20px; border-radius: 999px; background: rgba(68,71,90,.8); font-size: 21px; font-weight: 700; }
+.chip.on { background: #BD93F9; color: #191A21; }
+.browser { position: absolute; right: 56px; top: 120px; width: 400px; border-radius: 18px; overflow: hidden; background: #FFF8F0; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7), 0 0 0 1px rgba(189,147,249,.35); transform: perspective(1400px) rotateY(-10deg) rotateX(4deg); }
+.bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: #44475A; font: 500 13px "Mono", monospace; color: #C9CFEA; letter-spacing: 0; }
+.bar i { width: 10px; height: 10px; border-radius: 50%; } .bar i:nth-child(1) { background: #FF5555; } .bar i:nth-child(2) { background: #F1FA8C; } .bar i:nth-child(3) { background: #50FA7B; }
+.page { padding: 18px 20px 22px; color: #3B2A20; display: flex; flex-direction: column; gap: 10px; }
+.nav { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 15px; }
+.nav span { padding: 5px 11px; border-radius: 14px; background: #3B2A20; color: #FFF8F0; font-size: 12px; }
+.badge { align-self: flex-start; padding: 4px 10px; border-radius: 999px; background: #FDE7D3; color: #EA6A0C; font-size: 12px; font-weight: 700; margin-top: 8px; }
+.t { font-size: 27px; font-weight: 800; line-height: 1.25; letter-spacing: -0.03em; }
+.s { font-size: 13px; color: #7a6a5e; }
+.cta { align-self: flex-start; padding: 10px 16px; border-radius: 22px; background: #EA6A0C; color: #fff; font-size: 13px; font-weight: 800; }
+.rows { display: flex; flex-direction: column; gap: 7px; padding: 12px; border-radius: 22px; background: linear-gradient(140deg, #FCE1C8, #FDE9DA); margin-top: 6px; }
+.row { display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 16px; background: #fff; font-size: 12.5px; font-weight: 700; }
+.row i { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, #EA6A0C, #FDBA74); }
+.row em { margin-left: auto; font-style: normal; color: #EA6A0C; font-size: 11px; }
+.typed { position: absolute; right: 70px; top: 76px; padding: 10px 16px; border-radius: 12px; border: 2px solid #BD93F9; background: #282A36; font-size: 17px; font-weight: 600; box-shadow: 0 20px 40px -20px #BD93F9; }
+.typed b { display: inline-block; width: 2px; height: 18px; background: #FF79C6; vertical-align: -3px; margin-left: 3px; }
+</style></head>
+<body>
+<div class="grid"></div><i class="orb a"></i><i class="orb b"></i>
+<div class="copy">
+  <div class="logo">bibi<span class="p">.</span><span class="k">is</span>(<span class="w">building</span>)<span class="c"></span></div>
+  <h1>말로 하면 “그게 뭔데?”<br>보여주면, <em>끄덕.</em></h1>
+  <p class="sub">투자자·심사위원·첫 고객을 설득하는<br>랜딩페이지를 5일 만에.</p>
+</div>
+<div class="chips"><span class="chip on">설득용 랜딩 50만 원</span><span class="chip">48시간 무료 시안</span><span class="chip">bibiis.ai</span></div>
+<div class="browser">
+  <div class="bar"><i></i><i></i><i></i><span style="margin-left:6px">포포산책.com</span></div>
+  <div class="page">
+    <div class="nav">● 포포산책 <span>시작하기</span></div>
+    <span class="badge">오픈 준비 중</span>
+    <div class="t">우리 아이 산책,<br>믿고 맡기는 이웃.</div>
+    <div class="s">신원 확인을 마친 이웃만 연결합니다.</div>
+    <span class="cta">첫 산책 무료로 신청</span>
+    <div class="rows"><div class="row"><i></i>초코 · 3살<em>산책 중</em></div><div class="row"><i></i>보리 · 5살<em>매칭 완료</em></div></div>
+  </div>
+</div>
+<div class="typed">반려견 산책 매칭<b></b></div>
+</body></html>
