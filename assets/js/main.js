@@ -270,51 +270,20 @@
 
   /* ---------- motion ---------- */
   if (!reduceMotion) {
-    /* scroll progress + hero parallax */
+    /* scroll progress */
     var prog = document.getElementById('progress');
-    var heroBg = document.querySelector('.hero-bg');
     var ticking = false;
     window.addEventListener('scroll', function () {
       if (ticking) return; ticking = true;
       requestAnimationFrame(function () {
         var max = document.documentElement.scrollHeight - innerHeight;
         if (prog) prog.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
-        if (heroBg && scrollY < innerHeight * 1.2) heroBg.style.transform = 'translate3d(0,' + (scrollY * 0.35) + 'px,0)';
         ticking = false;
       });
     }, { passive: true });
 
-    /* hero spotlight + browser tilt (mouse only) */
-    var hero = document.getElementById('try'), browser = document.getElementById('browser');
-    if (hero && window.matchMedia('(pointer: fine)').matches) {
-      var pmFrame = 0;
-      hero.addEventListener('pointermove', function (ev) {
-        if (pmFrame) return;
-        pmFrame = requestAnimationFrame(function () { pmFrame = 0; onPointer(ev); });
-      });
-      var onPointer = function (e) {
-        var r = hero.getBoundingClientRect();
-        hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
-        if (!browser) return;
-        var b = browser.getBoundingClientRect();
-        var x = (e.clientX - (b.left + b.width / 2)) / b.width, y = (e.clientY - (b.top + b.height / 2)) / b.height;
-        browser.style.transform = 'perspective(1400px) rotateY(' + (x * 7).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg)';
-      };
-      hero.addEventListener('pointerleave', function () { if (browser) browser.style.transform = ''; });
-    }
-
     /* reveal on scroll, staggered inside each group */
     var groups = ['.section-head', '.g-grid', '.tabs', '.scenes', '.check', '.term', '.shiplog', '.steps', '.plans', '.extras', '.faq', '.listening .wrap', '.proof .col > .label', '.proof .col > h2'];
-    function countUp(b) {
-      var to = Number(b.dataset.count), t0 = null;
-      (function step(t) {
-        if (!t0) t0 = t;
-        var p = Math.min(1, (t - t0) / 700), e = 1 - Math.pow(1 - p, 4);
-        b.textContent = Math.round(to * e);
-        if (p < 1) requestAnimationFrame(step);
-      })(performance.now());
-    }
     if ('IntersectionObserver' in window) {
       var rio = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
@@ -322,7 +291,6 @@
           var g = en.target; rio.unobserve(g);
           var items = g.matches('.section-head, .g-grid, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];
           Array.prototype.forEach.call(items, function (n) { n.classList.add('is-in'); });
-          g.querySelectorAll('[data-count]').forEach(countUp);
         });
       }, { threshold: 0.04, rootMargin: '0px 0px -2% 0px' });
       groups.forEach(function (sel) {
