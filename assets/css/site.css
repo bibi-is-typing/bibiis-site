@@ -1,5 +1,6 @@
 /* bibi is building — site styles
-   Tokens mirror the Figma "Color" collection (Dark = Dracula, Light = Alucard). */
+   Tokens mirror the Figma "Color" collection (Dark = Dracula, Light = Alucard).
+   Dark is the default; data-theme="light" switches to Alucard. */
 
 @font-face { font-family: "Bibi Mono"; font-weight: 400; font-display: swap; src: url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/files/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Bibi Mono"; font-weight: 500; font-display: swap; src: url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/files/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
@@ -11,6 +12,20 @@
 @font-face { font-family: "Bibi Latin"; font-weight: 800; font-display: swap; unicode-range: U+0023-0026, U+002A-002B, U+002F-0039, U+003C-003E, U+0040-007E; src: url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.1.1/files/jetbrains-mono-latin-800-normal.woff2") format("woff2"); }
 
 :root {
+  --color-bg-canvas: #191A21; --color-bg-surface: #282A36; --color-bg-raised: #44475A;
+  --color-text-primary: #F8F8F2; --color-text-muted: #9AA5D6; --color-text-on-brand: #282A36;
+  --color-brand-primary: #BD93F9; --color-brand-caret: #FF79C6; --color-syntax-string: #F1FA8C;
+  --color-syntax-function: #50FA7B; --color-syntax-punctuation: #FF79C6; --color-border-default: #44475A;
+
+  --font-body: "Bibi Latin", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-mono: "Bibi Mono", "Pretendard Variable", Pretendard, ui-monospace, Menlo, monospace;
+
+  --gutter: max(20px, env(safe-area-inset-left, 0px));
+  --wrap: 1200px;
+  --radius: 14px;
+  color-scheme: dark;
+}
+:root[data-theme="light"]:not(.dracula) {
   --color-bg-canvas: #FFFBEB;
   --color-bg-surface: #EFEAD4;
   --color-bg-raised: #DED8C0;
@@ -23,25 +38,9 @@
   --color-syntax-function: #14710A;
   --color-syntax-punctuation: #A3144D;
   --color-border-default: #DED8C0;
-
-  --font-body: "Bibi Latin", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif;
-  --font-mono: "Bibi Mono", "Pretendard Variable", Pretendard, ui-monospace, Menlo, monospace;
-
-  --gutter: max(20px, env(safe-area-inset-left, 0px));
-  --wrap: 1200px;
-  --radius: 14px;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-bg-canvas: #191A21; --color-bg-surface: #282A36; --color-bg-raised: #44475A;
-    --color-text-primary: #F8F8F2; --color-text-muted: #9AA5D6; --color-text-on-brand: #282A36;
-    --color-brand-primary: #BD93F9; --color-brand-caret: #FF79C6; --color-syntax-string: #F1FA8C;
-    --color-syntax-function: #50FA7B; --color-syntax-punctuation: #FF79C6; --color-border-default: #44475A;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"], .dracula {
+.dracula {
   --color-bg-canvas: #191A21; --color-bg-surface: #282A36; --color-bg-raised: #44475A;
   --color-text-primary: #F8F8F2; --color-text-muted: #9AA5D6; --color-text-on-brand: #282A36;
   --color-brand-primary: #BD93F9; --color-brand-caret: #FF79C6; --color-syntax-string: #F1FA8C;
@@ -147,7 +146,7 @@ section { padding: 96px 0; scroll-margin-top: 72px; }
 .event strong { font-size: 18px; display: block; }
 .event .label { color: inherit; opacity: .85; }
 .event .btn-primary { background: var(--color-text-primary); color: var(--color-bg-canvas); }
-:root[data-theme="dark"] .event .btn-primary { background: #282A36; color: #F8F8F2; }
+:root:not([data-theme="light"]) .event .btn-primary { background: #282A36; color: #F8F8F2; }
 
 /* stuck */
 .tabs { display: inline-flex; gap: 6px; padding: 4px; border-radius: 12px; background: var(--color-bg-canvas); margin-bottom: 24px; }

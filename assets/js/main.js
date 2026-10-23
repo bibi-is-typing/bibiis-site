@@ -22,7 +22,7 @@
   /* ---------- theme ---------- */
   var themeBtn = document.getElementById('theme-toggle');
   if (themeBtn) themeBtn.addEventListener('click', function () {
-    var dark = root.dataset.theme ? root.dataset.theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var dark = root.dataset.theme !== 'light';
     root.dataset.theme = dark ? 'light' : 'dark';
     store.set('bibi:theme', root.dataset.theme);
   });
