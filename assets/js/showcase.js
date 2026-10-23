@@ -47,7 +47,7 @@
     var note = document.getElementById('st-note'); note.textContent = '';
     [['톤', it.r.cat.voice], ['화면', it.r.cat.look]].forEach(function (n) { note.appendChild(el('b', null, n[0])); note.appendChild(document.createTextNode(n[1] + ' ')); });
     var word = document.getElementById('st-word');
-    word.classList.remove('swap'); void word.offsetWidth; word.textContent = it.r.cat.label; word.classList.add('swap');
+    word.classList.remove('swap'); void word.offsetWidth; word.dataset.word = it.r.cat.label; word.classList.add('swap');
     word.dataset.dir = i > prev ? 'up' : 'down';
   }
   function go(i, scroll) {

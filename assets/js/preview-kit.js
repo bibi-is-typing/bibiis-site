@@ -10,7 +10,7 @@
       tone: { r: 22, w: 800, ls: '-0.02em' },
       palettes: [
         { bg: '#FFF8F0', fg: '#3B2A20', ac: '#C2410C', ac2: '#FDBA74', card: '#FFFFFF', on: '#FFFFFF' },
-        { bg: '#F7F3FF', fg: '#2E1065', ac: '#7C3AED', ac2: '#F9A8D4', card: '#FFFFFF', on: '#FFFFFF' }],
+        { bg: '#F3F7F0', fg: '#1F3326', ac: '#2E7D4F', ac2: '#F4B183', card: '#FFFFFF', on: '#FFFFFF' }],
       names: ['산책메이트', '포포산책', '발도장', '멍멍로드'],
       badge: '오픈 준비 중',
       heads: [['바쁜 날에도,\n산책은 거르지 않게.', '검증된 동네 산책 메이트가 우리 아이와 함께 걷습니다.'],
