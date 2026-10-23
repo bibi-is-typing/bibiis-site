@@ -6,9 +6,7 @@
   var err = document.getElementById('form-err');
   var labels = { name: '1번 이름', contact: '2번 답장 받을 곳', situation: '3번 지금 상황', audience: '4번 설득할 사람', action: '5번 해 줬으면 하는 일', idea: '6번 아이디어', when: '8번 언제까지', budget: '9번 예산', agree: '개인정보 동의' };
 
-  var source = params.get('event') === 'open' ? 'open-event' : (params.get('from') || 'direct');
-  document.getElementById('f-source').value = source;
-  if (source === 'open-event') document.getElementById('event-note').hidden = false;
+  document.getElementById('f-source').value = params.get('from') || 'direct';
 
   var saved = null; try { saved = localStorage.getItem('bibi:idea'); } catch (e) {}
   if (saved && params.get('from') === 'try') {
@@ -29,17 +27,17 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var data = collect(); var miss = missing(data);
-    if (miss.length) { err.textContent = labels[miss[0]] + ' 칸을 채워 주세요'; return; }
+    if (miss.length) { err.textContent = labels[miss[0]] + ' 칸을 채워 주세요.'; return; }
     err.textContent = '';
     data.submittedAt = new Date().toISOString();
     var btn = document.getElementById('submit'); btn.disabled = true; btn.textContent = '보내는 중…';
     var finish = function () {
-      form.hidden = true; document.getElementById('event-note').hidden = true; document.getElementById('form-wrap').hidden = true;
+      form.hidden = true; document.getElementById('form-wrap').hidden = true;
       document.getElementById('done').hidden = false; window.scrollTo(0, 0);
       try { localStorage.removeItem('bibi:idea'); } catch (e) {}
     };
     if (!C.formEndpoint) {
-      // 폼 서버가 아직 없으면 메일 앱으로 보내요
+      // 폼 서버가 아직 없으면 메일 앱으로 보낸다
       var body = Object.keys(data).map(function (k) { return k + ': ' + data[k]; }).join('\n');
       location.href = 'mailto:hello@bibiis.ai?subject=' + encodeURIComponent('[상담] ' + data.name) + '&body=' + encodeURIComponent(body);
       btn.disabled = false; btn.textContent = '보내기';
@@ -47,6 +45,6 @@
     }
     fetch(C.formEndpoint, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
       .then(finish)
-      .catch(function () { btn.disabled = false; btn.textContent = '보내기'; err.textContent = '보내지 못했어요. 잠시 뒤 다시 시도하거나 hello@bibiis.ai로 보내 주세요.'; });
+      .catch(function () { btn.disabled = false; btn.textContent = '보내기'; err.textContent = '보내지 못했습니다. 잠시 뒤 다시 시도하거나 hello@bibiis.ai로 보내 주세요.'; });
   });
 })();

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>상담 신청 · bibi is listening</title>
-  <meta name="description" content="어떤 아이디어인지 들려주세요. 3분이면 써요. 48시간 안에 답장드려요.">
+  <meta name="description" content="어떤 아이디어인지 들려주세요. 3분이면 됩니다. 48시간 안에 답장드립니다.">
   <meta name="theme-color" content="#191A21">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=4">
+  <link rel="stylesheet" href="/assets/css/site.css?v=5">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
@@ -21,12 +21,10 @@
 
 <main class="form-page">
   <div id="form-wrap">
-    <p class="label caret-text">bibi is listening…</p>
+    <p class="label caret-text">듣고 있습니다…</p>
     <h1 style="font-size:clamp(28px,4vw,40px)">어떤 아이디어인지 들려주세요</h1>
-    <p class="muted">3분이면 써요. 48시간 안에 답장드려요.</p>
+    <p class="muted">3분이면 됩니다. 48시간 안에 답장드립니다.</p>
   </div>
-
-  <p class="notice" id="event-note" hidden>오픈 기념 응원 프로젝트로 신청하고 있어요. 12월 2일에 결과를 알려드려요.</p>
 
   <form id="intake" novalidate>
     <input type="hidden" name="source" id="f-source" value="">
@@ -74,7 +72,7 @@
     </fieldset>
     <div class="field">
       <label for="f-idea">6. 아이디어를 한 줄로 써 주세요</label>
-      <p class="hint" id="idea-hint" hidden>아까 쓴 한 줄을 그대로 가져왔어요. 고쳐도 돼요.</p>
+      <p class="hint" id="idea-hint" hidden>앞에서 쓴 한 줄을 가져왔습니다. 고쳐도 됩니다.</p>
       <textarea id="f-idea" name="idea" maxlength="300" required></textarea>
     </div>
     <fieldset class="field">
@@ -102,7 +100,7 @@
       </div>
     </fieldset>
     <div class="field">
-      <label class="opts" style="margin:0"><span style="display:inline-flex;gap:8px;align-items:center"><input id="f-agree" name="agree" type="checkbox" required> 상담 연락에만 쓰고, 계약하지 않으면 3개월 뒤에 지워요. 동의해요.</span></label>
+      <label class="opts" style="margin:0"><span style="display:inline-flex;gap:8px;align-items:center"><input id="f-agree" name="agree" type="checkbox" required> 상담 연락에만 쓰고, 계약하지 않으면 3개월 뒤 삭제합니다. 동의합니다.</span></label>
       <a class="hint" href="/privacy/">개인정보처리방침 보기</a>
     </div>
     <p class="err" id="form-err" role="alert"></p>
@@ -110,9 +108,9 @@
   </form>
 
   <div class="done" id="done" hidden>
-    <p class="label caret-text">bibi is reading…</p>
-    <h2>잘 받았어요. 48시간 안에 답장드릴게요.</h2>
-    <p class="muted">그사이 궁금한 게 생기면 hello@bibiis.ai로 편하게 보내 주세요.</p>
+    <p class="label caret-text">읽고 있습니다…</p>
+    <h2>잘 받았습니다. 48시간 안에 답장드리겠습니다.</h2>
+    <p class="muted">그사이 궁금한 점은 hello@bibiis.ai로 보내 주세요.</p>
     <a class="btn btn-secondary" href="/" style="align-self:flex-start">처음으로</a>
   </div>
 </main>
