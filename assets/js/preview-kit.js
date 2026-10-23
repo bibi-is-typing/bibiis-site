@@ -9,7 +9,7 @@
       voice: '다정하고 포근하게', look: '둥근 모서리 · 크림톤 · 부드러운 그림자', layout: 'split',
       tone: { r: 22, w: 800, ls: '-0.02em' },
       palettes: [
-        { bg: '#FFF8F0', fg: '#3B2A20', ac: '#EA6A0C', ac2: '#FDBA74', card: '#FFFFFF', on: '#FFFFFF' },
+        { bg: '#FFF8F0', fg: '#3B2A20', ac: '#C2410C', ac2: '#FDBA74', card: '#FFFFFF', on: '#FFFFFF' },
         { bg: '#F7F3FF', fg: '#2E1065', ac: '#7C3AED', ac2: '#F9A8D4', card: '#FFFFFF', on: '#FFFFFF' }],
       names: ['산책메이트', '포포산책', '발도장', '멍멍로드'],
       badge: '오픈 준비 중',
@@ -25,7 +25,7 @@
       tone: { r: 3, w: 900, ls: '-0.045em', italic: true },
       palettes: [
         { bg: '#0A0A0A', fg: '#FAFAFA', ac: '#C6FF00', ac2: '#22D3EE', card: '#171717', on: '#0A0A0A' },
-        { bg: '#111827', fg: '#F9FAFB', ac: '#F43F5E', ac2: '#FB923C', card: '#1F2937', on: '#FFFFFF' }],
+        { bg: '#111827', fg: '#F9FAFB', ac: '#F43F5E', ac2: '#FB923C', card: '#1F2937', on: '#111827' }],
       names: ['짐타임', '핏스팟', '리프트', '무브'],
       badge: '지금 예약 가능',
       heads: [['비어 있는 1시간,\n지금 바로 운동.', '회원권 없이 1회권으로. 가장 가까운 빈자리부터.'],
@@ -128,7 +128,7 @@
       voice: '명확하고 똑똑하게', look: '다크 · 그라데이션 · 실제 화면 보여주기', layout: 'app',
       tone: { r: 12, w: 800, ls: '-0.035em' },
       palettes: [
-        { bg: '#0B1020', fg: '#E6EAF2', ac: '#7C5CFF', ac2: '#22D3EE', card: '#131A2E', on: '#FFFFFF' },
+        { bg: '#0B1020', fg: '#E6EAF2', ac: '#9277FF', ac2: '#5EEAD4', card: '#131A2E', on: '#0B1020' },
         { bg: '#FFFFFF', fg: '#0F172A', ac: '#4F46E5', ac2: '#06B6D4', card: '#F4F6FB', on: '#FFFFFF' }],
       names: ['플로우', '레버', '하이브', '오토'],
       badge: '14일 무료 체험',
@@ -142,7 +142,7 @@
       voice: '활기차고 반갑게', look: '알록달록 · 사람 중심 · 동그란 프로필', layout: 'split',
       tone: { r: 18, w: 800, ls: '-0.02em' },
       palettes: [
-        { bg: '#FFF7ED', fg: '#431407', ac: '#EA580C', ac2: '#8B5CF6', card: '#FFFFFF', on: '#FFFFFF' },
+        { bg: '#FFF7ED', fg: '#431407', ac: '#C2410C', ac2: '#8B5CF6', card: '#FFFFFF', on: '#FFFFFF' },
         { bg: '#F0FDF4', fg: '#052E16', ac: '#15803D', ac2: '#F59E0B', card: '#FFFFFF', on: '#FFFFFF' }],
       names: ['같이', '모여', '한자리', '온동네'],
       badge: '새 모임 모집 중',
@@ -241,7 +241,7 @@
       sk(el('span', 'pv-nbtn', cat.layout === 'profile' ? '연락하기' : '시작하기'))
     ]);
 
-    var titleEl = sk(el('h4', 'pv-title', title));
+    var titleEl = sk(el('p', 'pv-title', title));
     var copy = kids(el('div', 'pv-copy'), [
       sk(el('span', 'pv-badge', cat.badge)),
       sk(el('span', 'pv-eyebrow', idea.length > 30 ? idea.slice(0, 30) + '…' : idea)),
