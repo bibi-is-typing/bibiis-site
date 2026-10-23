@@ -423,3 +423,43 @@ fieldset { border: 0; margin: 0; padding: 0; }
 .plan-form { align-self: center; font-size: 14px; color: var(--color-text-muted); text-decoration: none; margin-top: -4px; }
 .plan-form:hover { color: var(--color-brand-primary); }
 .promise { font-size: 14px; color: var(--color-syntax-function); }
+
+/* industry gallery: scattered cards gather into a grid while the stage is pinned */
+.gallery { padding: 96px 0; }
+.g-head { margin-bottom: 36px; }
+.g-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.g-card { position: relative; display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: inherit; will-change: transform; }
+.g-shot { position: relative; aspect-ratio: 520 / 360; overflow: hidden; border-radius: 14px; border: 1px solid var(--color-border-default); background: var(--color-bg-surface); box-shadow: 0 24px 40px -28px rgba(0,0,0,.7); transition: box-shadow .3s, border-color .3s; }
+.g-inner { position: absolute; top: 0; left: 0; width: 520px; transform-origin: 0 0; pointer-events: none; }
+.g-tag { position: absolute; right: 8px; top: 8px; padding: 2px 8px; border-radius: 999px; background: rgba(25,26,33,.72); color: #F8F8F2; font-size: 11px; font-weight: 700; }
+.g-cap { display: flex; gap: 8px; align-items: baseline; font-size: 14px; color: var(--color-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.g-cap b { color: var(--color-text-primary); font-weight: 700; }
+.g-card:hover .g-shot { border-color: var(--color-brand-primary); box-shadow: 0 30px 50px -24px color-mix(in srgb, var(--color-brand-primary) 70%, transparent); }
+.g-cta { justify-content: center; align-items: flex-start; padding: 22px; border-radius: 14px; background: var(--color-brand-primary); color: var(--color-text-on-brand); aspect-ratio: 520 / 360; }
+.g-cta-t { white-space: pre-line; font-size: 22px; font-weight: 800; line-height: 1.3; letter-spacing: -0.02em; }
+.g-cta-a { font-size: 26px; font-weight: 800; }
+.gallery.is-scatter { height: 240vh; padding: 0; }
+.gallery.is-scatter .g-stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+.gallery.is-scatter .g-stage > .wrap { width: 100%; }
+.gallery.is-scatter .g-card[data-reveal] { opacity: 1; filter: none; transition: none; }
+.gallery.is-scatter .g-head { opacity: calc(.35 + var(--gp, 0) * .65); }
+@media (max-width: 1100px) { .g-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 899px) { .g-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; } .g-cap { font-size: 12.5px; } .g-cta-t { font-size: 17px; } }
+
+/* manifesto: words light up as you scroll */
+.manifesto { padding: 140px 0; }
+.m-text { max-width: 980px; font-size: clamp(30px, 4.6vw, 58px); line-height: 1.32; font-weight: 800; letter-spacing: -0.035em; text-wrap: balance; }
+.m-text .w { color: color-mix(in srgb, var(--color-text-primary) 18%, transparent); transition: color .35s ease; }
+.m-text .w.on { color: var(--color-text-primary); }
+.m-text .w.on:nth-last-child(-n+4) { color: var(--color-brand-primary); }
+@media (max-width: 700px) { .manifesto { padding: 88px 0; } }
+
+/* section counter */
+.sec-count { position: fixed; right: 24px; bottom: 22px; z-index: 30; display: flex; align-items: baseline; gap: 6px; padding: 8px 14px; border-radius: 999px; background: color-mix(in srgb, var(--color-bg-surface) 85%, transparent); backdrop-filter: blur(8px); border: 1px solid var(--color-border-default); font: 500 13px var(--font-body); color: var(--color-text-muted); opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; pointer-events: none; }
+.sec-count.show { opacity: 1; transform: none; }
+.sec-count b { color: var(--color-text-primary); font-weight: 800; }
+.sec-count span { margin-left: 4px; color: var(--color-text-primary); }
+@media (max-width: 899px) { .sec-count { display: none; } }
+.gallery.is-scatter .g-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.gallery.is-scatter .g-cap { font-size: 12.5px; }
+.gallery.is-scatter .g-cta { padding: 16px; } .gallery.is-scatter .g-cta-t { font-size: 17px; }

@@ -299,7 +299,7 @@
     }
 
     /* reveal on scroll, staggered inside each group */
-    var groups = ['.section-head', '.tabs', '.scenes', '.check', '.term', '.shiplog', '.steps', '.plans', '.extras', '.faq', '.listening .wrap', '.proof .col > .label', '.proof .col > h2'];
+    var groups = ['.section-head', '.g-grid', '.tabs', '.scenes', '.check', '.term', '.shiplog', '.steps', '.plans', '.extras', '.faq', '.listening .wrap', '.proof .col > .label', '.proof .col > h2'];
     function countUp(b) {
       var to = Number(b.dataset.count), t0 = null;
       (function step(t) {
@@ -314,14 +314,14 @@
         entries.forEach(function (en) {
           if (!en.isIntersecting) return;
           var g = en.target; rio.unobserve(g);
-          var items = g.matches('.section-head, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];
+          var items = g.matches('.section-head, .g-grid, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];
           Array.prototype.forEach.call(items, function (n) { n.classList.add('is-in'); });
           g.querySelectorAll('[data-count]').forEach(countUp);
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       groups.forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (g) {
-          var items = g.matches('.section-head, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];
+          var items = g.matches('.section-head, .g-grid, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];
           Array.prototype.forEach.call(items, function (n, i) { n.setAttribute('data-reveal', ''); n.style.setProperty('--i', Math.min(i, 8)); });
           rio.observe(g);
         });
