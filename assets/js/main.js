@@ -115,7 +115,7 @@
   function typeInto(node, text) {
     if (reduceMotion) { node.textContent = text; return; }
     var i = 0; node.textContent = '';
-    (function step() { i++; node.textContent = text.slice(0, i); if (i < text.length) timers.push(setTimeout(step, 38)); })();
+    (function step() { i++; node.textContent = text.slice(0, i); if (i < text.length) timers.push(setTimeout(step, 22)); })();
   }
 
   function autoScroll() {
@@ -129,6 +129,7 @@
     opts = opts || {};
     idea = idea.replace(/\s+/g, ' ').trim();
     if (!idea) { input.focus(); return; }
+    window.BibiPreview.loadFonts();
     var r = window.BibiPreview.render(idea);
     clearTimers();
     preview.classList.remove('empty', 'is-live', 'is-done');
@@ -137,9 +138,9 @@
     pvNote.replaceChildren.apply(pvNote, r.note.map(function (n) { var s = el('span'); s.appendChild(el('b', null, n[0])); s.appendChild(document.createTextNode(n[1])); return s; }));
     pvNote.hidden = false;
     setUrl('레이아웃 잡는 중…', true);
-    later(function () { preview.classList.remove('is-mono'); setUrl('색 입히는 중…', true); }, 650);
-    later(function () { preview.classList.remove('is-sk'); preview.classList.add('is-live'); setUrl('문구 쓰는 중…', true); typeInto(r.titleEl, r.title); }, 1300);
-    later(function () { preview.classList.add('is-done'); setUrl(r.domain); autoScroll(); }, 2400);
+    later(function () { preview.classList.remove('is-mono'); setUrl('색 입히는 중…', true); }, 280);
+    later(function () { preview.classList.remove('is-sk'); preview.classList.add('is-live'); setUrl('문구 쓰는 중…', true); typeInto(r.titleEl, r.title); }, 580);
+    later(function () { preview.classList.add('is-done'); setUrl(r.domain); autoScroll(); }, 1150);
     if (opts.demo) return;
     after.hidden = false;
     if (typingLine) { typingLine.dataset.locked = '1'; typingLine.textContent = 'bibi · 만드는 중'; }
@@ -167,9 +168,9 @@
     (function type() {
       if (!demoOn) return;
       input.value = idea.slice(0, ++i);
-      if (i < idea.length) { demoT = setTimeout(type, 70); return; }
+      if (i < idea.length) { demoT = setTimeout(type, 45); return; }
       demoTyping = false;
-      demoT = setTimeout(function () { build(idea, { demo: true }); demoT = setTimeout(demoStep, 6500); }, 350);
+      demoT = setTimeout(function () { build(idea, { demo: true }); demoT = setTimeout(demoStep, 5000); }, 200);
     })();
   }
   function stopDemo() {
@@ -178,7 +179,7 @@
   }
   if (demoOn) {
     ['focus', 'pointerdown', 'keydown'].forEach(function (ev) { input.addEventListener(ev, stopDemo); });
-    demoT = setTimeout(demoStep, 1400);
+    demoT = setTimeout(demoStep, 500);
   }
 
   if (form) form.addEventListener('submit', function (e) { e.preventDefault(); var v = input.value; stopDemo(); input.value = v; build(v); });
@@ -286,7 +287,12 @@
     /* hero spotlight + browser tilt (mouse only) */
     var hero = document.getElementById('try'), browser = document.getElementById('browser');
     if (hero && window.matchMedia('(pointer: fine)').matches) {
-      hero.addEventListener('pointermove', function (e) {
+      var pmFrame = 0;
+      hero.addEventListener('pointermove', function (ev) {
+        if (pmFrame) return;
+        pmFrame = requestAnimationFrame(function () { pmFrame = 0; onPointer(ev); });
+      });
+      var onPointer = function (e) {
         var r = hero.getBoundingClientRect();
         hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
         hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
@@ -294,7 +300,7 @@
         var b = browser.getBoundingClientRect();
         var x = (e.clientX - (b.left + b.width / 2)) / b.width, y = (e.clientY - (b.top + b.height / 2)) / b.height;
         browser.style.transform = 'perspective(1400px) rotateY(' + (x * 7).toFixed(2) + 'deg) rotateX(' + (-y * 6).toFixed(2) + 'deg)';
-      });
+      };
       hero.addEventListener('pointerleave', function () { if (browser) browser.style.transform = ''; });
     }
 
@@ -304,7 +310,7 @@
       var to = Number(b.dataset.count), t0 = null;
       (function step(t) {
         if (!t0) t0 = t;
-        var p = Math.min(1, (t - t0) / 1100), e = 1 - Math.pow(1 - p, 4);
+        var p = Math.min(1, (t - t0) / 700), e = 1 - Math.pow(1 - p, 4);
         b.textContent = Math.round(to * e);
         if (p < 1) requestAnimationFrame(step);
       })(performance.now());
@@ -318,7 +324,7 @@
           Array.prototype.forEach.call(items, function (n) { n.classList.add('is-in'); });
           g.querySelectorAll('[data-count]').forEach(countUp);
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0.04, rootMargin: '0px 0px -2% 0px' });
       groups.forEach(function (sel) {
         document.querySelectorAll(sel).forEach(function (g) {
           var items = g.matches('.section-head, .g-grid, .scenes, .term, .shiplog, .steps, .plans, .faq, .listening .wrap, .tabs') ? g.children : [g];

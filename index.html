@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=7">
+  <link rel="stylesheet" href="/assets/css/site.css?v=8">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibi is building","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"IR, 데모데이, 지원사업에 쓸 설득용 랜딩페이지 제작과 AI로 만든 사이트 뒷수습.","makesOffer":[
@@ -114,15 +114,21 @@
     </div>
   </div>
 
-  <section class="gallery" id="gallery" data-word="building" aria-labelledby="gallery-title">
-    <div class="g-stage">
-      <div class="wrap">
-        <div class="section-head g-head">
+  <section class="stage" id="gallery" data-word="building" aria-labelledby="stage-title">
+    <div class="st-pin" id="st-pin">
+      <div class="st-word" id="st-word" aria-hidden="true"></div>
+      <div class="wrap st-wrap">
+        <div class="st-copy">
           <span class="label">01 · 업종별 예시</span>
-          <h2 id="gallery-title">업종이 바뀌면,<br>첫 화면도 바뀝니다.</h2>
-          <p class="muted">같은 틀에 이름만 바꾸지 않습니다. 업종마다 말투, 색, 모서리, 구성을 다르게 잡습니다. 아래는 모두 “만들어 보기”로 만든 예시입니다.</p>
+          <h2 id="stage-title">업종이 바뀌면,<br>첫 화면도 바뀝니다.</h2>
+          <ol class="st-list" id="st-list"></ol>
+          <p class="st-note" id="st-note"></p>
+          <a class="st-try" id="st-try" href="#try">이 업종으로 만들어 보기 →</a>
         </div>
-        <div class="g-grid" id="g-grid"></div>
+        <div class="st-frame">
+          <div class="st-bar"><i></i><i></i><i></i><span id="st-url"></span><em>예시</em></div>
+          <div class="st-screens" id="st-screens"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -172,7 +178,7 @@
 
   <section class="manifesto" aria-label="일하는 방식">
     <div class="wrap">
-      <p class="m-text" id="m-text">보는 사람이 누구인지, 그 사람이 어디서 고개를 끄덕일지부터 정합니다. 화면은 그다음입니다. 정한 이유는 전부 기록으로 남깁니다.</p>
+      <p class="m-text" id="m-text">보는 사람이 누구인지,<br>그 사람이 어디서<br class="m"> 고개를 끄덕일지부터<br>정합니다.<br class="m"> 화면은 그다음입니다.<br>정한 이유는 전부<br class="m"> 기록으로 남깁니다.</p>
     </div>
   </section>
 
@@ -302,8 +308,8 @@
 </footer>
 
 <script src="/assets/js/config.js"></script>
-<script src="/assets/js/preview-kit.js?v=7"></script>
-<script src="/assets/js/showcase.js?v=7"></script>
-<script src="/assets/js/main.js?v=7"></script>
+<script src="/assets/js/preview-kit.js?v=8"></script>
+<script src="/assets/js/showcase.js?v=8"></script>
+<script src="/assets/js/main.js?v=8"></script>
 </body>
 </html>

@@ -1,76 +1,99 @@
-/* bibi is building — industry gallery (scatter → grid), manifesto word light-up, section counter */
+/* bibi is building — industry stage, manifesto word light-up, section counter */
 (function () {
   'use strict';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var wide = window.matchMedia('(min-width: 1100px) and (min-height: 640px)');
+  var wide = window.matchMedia('(min-width: 1000px) and (min-height: 620px)');
 
-  /* ---------- gallery ---------- */
-  var grid = document.getElementById('g-grid');
+  /* ---------- industry stage: the whole screen takes on each industry ---------- */
   var section = document.getElementById('gallery');
-  var ideas = ['반려견 산책 매칭', '동네 헬스장 빈 시간 예약', '갓 구운 빵 미리 주문', '중학생 수학 과외', '1인 세무 상담', '내 포트폴리오 사이트',
-    '핸드메이드 소품 스토어', '바다 앞 독채 스테이', '반복 업무 자동화 AI', '주말 보드게임 모임', '중고 장난감 교환'];
-  var cards = [];
+  var screensEl = document.getElementById('st-screens');
+  var featured = ['반려견 산책 매칭', '동네 헬스장 빈 시간 예약', '1인 세무 상담', '갓 구운 빵 미리 주문', '내 포트폴리오 사이트', '반복 업무 자동화 AI'];
+  var items = [], active = -1;
 
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
 
-  if (grid && window.BibiPreview) {
-    ideas.forEach(function (idea, i) {
+  if (section && screensEl && window.BibiPreview) {
+    var list = document.getElementById('st-list');
+    featured.forEach(function (idea, i) {
       var r = window.BibiPreview.render(idea);
-      var a = el('a', 'g-card'); a.href = '#try'; a.dataset.idea = idea;
-      var shot = el('div', 'g-shot'), inner = el('div', 'g-inner');
-      inner.appendChild(r.page); shot.appendChild(inner); shot.appendChild(el('span', 'g-tag', '예시'));
-      var cap = el('span', 'g-cap'); cap.appendChild(el('b', null, r.cat.label)); cap.appendChild(document.createTextNode(idea));
-      a.appendChild(shot); a.appendChild(cap);
-      var h = window.BibiPreview.hash(idea + i);
-      a._scatter = { x: ((h % 1000) / 1000 - 0.5), y: (((h >>> 10) % 1000) / 1000 - 0.5), r: (((h >>> 20) % 1000) / 1000 - 0.5) * 50 };
-      grid.appendChild(a); cards.push(a);
+      var pal = r.page.style;
+      var scr = el('div', 'st-screen'); scr.appendChild(r.page); screensEl.appendChild(scr);
+      var li = el('li'); var btn = el('button', null); btn.type = 'button';
+      btn.appendChild(el('span', 'n', String(i + 1).padStart(2, '0'))); btn.appendChild(document.createTextNode(r.cat.label));
+      li.appendChild(btn); list.appendChild(li);
+      btn.addEventListener('click', function () { go(i, true); });
+      items.push({ idea: idea, r: r, scr: scr, li: li, bg: pal.getPropertyValue('--bg'), fg: pal.getPropertyValue('--fg'), ac: pal.getPropertyValue('--ac'), on: pal.getPropertyValue('--on'), font: r.cat.font });
     });
-    var cta = el('a', 'g-card g-cta'); cta.href = '#try';
-    cta.appendChild(el('span', 'g-cta-t', '내 아이디어로\n만들어 보기'));
-    cta.appendChild(el('span', 'g-cta-a', '→'));
-    grid.appendChild(cta); cta._scatter = { x: 0.1, y: 0.4, r: -8 }; cards.push(cta);
-
-    grid.addEventListener('click', function (e) {
-      var a = e.target.closest('.g-card[data-idea]'); if (!a) return;
+    document.getElementById('st-try').addEventListener('click', function (e) {
       e.preventDefault();
-      var input = document.getElementById('idea'), form = document.getElementById('try-form');
+      var it = items[Math.max(0, active)], input = document.getElementById('idea'), form = document.getElementById('try-form');
       document.getElementById('try').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-      if (input && form) { input.dispatchEvent(new Event('focus')); input.value = a.dataset.idea; form.requestSubmit(); }
+      if (input && form) { input.dispatchEvent(new Event('focus')); input.value = it.idea; form.requestSubmit(); }
     });
-
-    var scale = function () {
-      cards.forEach(function (c) {
-        var shot = c.querySelector('.g-shot'), inner = c.querySelector('.g-inner');
-        if (shot && inner) inner.style.transform = 'scale(' + (shot.clientWidth / 520) + ')';
-      });
-    };
-    scale(); window.addEventListener('resize', scale);
   }
 
-  var scatterOn = function () { return !reduceMotion && wide.matches; };
-  function applyScatter() {
-    if (!section) return;
-    section.classList.toggle('is-scatter', scatterOn());
-    if (!scatterOn()) { cards.forEach(function (c) { c.style.transform = ''; c.style.opacity = ''; }); return; }
+  var pinOn = function () { return !reduceMotion && wide.matches; };
+  function setActive(i) {
+    if (i === active || !items[i]) return;
+    var it = items[i], prev = active; active = i;
+    var st = section.style;
+    st.setProperty('--sbg', it.bg); st.setProperty('--sfg', it.fg); st.setProperty('--sac', it.ac); st.setProperty('--son', it.on);
+    st.setProperty('--sdf', it.font ? "'" + it.font.family + "', 'Pretendard Variable', sans-serif" : "'Pretendard Variable', Pretendard, sans-serif");
+    items.forEach(function (x, k) {
+      x.scr.classList.toggle('is-on', k <= i); x.scr.classList.toggle('is-top', k === i);
+      x.li.classList.toggle('is-on', k === i);
+    });
+    document.getElementById('st-url').textContent = it.r.domain;
+    var note = document.getElementById('st-note'); note.textContent = '';
+    [['톤', it.r.cat.voice], ['화면', it.r.cat.look]].forEach(function (n) { note.appendChild(el('b', null, n[0])); note.appendChild(document.createTextNode(n[1] + ' ')); });
+    var word = document.getElementById('st-word');
+    word.classList.remove('swap'); void word.offsetWidth; word.textContent = it.r.cat.label; word.classList.add('swap');
+    word.dataset.dir = i > prev ? 'up' : 'down';
+  }
+  function go(i, scroll) {
+    if (!pinOn() || !scroll) { setActive(i); return; }
+    var total = section.offsetHeight - innerHeight;
+    window.scrollTo({ top: section.offsetTop + total * ((i + 0.5) / items.length), behavior: 'smooth' });
+  }
+  function applyStage() {
+    if (!section || !items.length) return;
+    section.classList.toggle('is-pin', pinOn());
+    if (!pinOn()) { if (active < 0) setActive(0); return; }
     var rect = section.getBoundingClientRect();
     var total = section.offsetHeight - innerHeight;
-    var p = Math.min(1, Math.max(0, -rect.top / Math.max(1, total)));
-    var t = Math.min(1, p / 0.75), e = 1 - Math.pow(1 - t, 3), k = 1 - e;
-    cards.forEach(function (c) {
-      var s = c._scatter;
-      c.style.transform = 'translate3d(' + (s.x * innerWidth * 0.9 * k).toFixed(1) + 'px,' + (s.y * innerHeight * 0.9 * k).toFixed(1) + 'px,0) rotate(' + (s.r * k).toFixed(2) + 'deg) scale(' + (1 - 0.12 * k).toFixed(3) + ')';
-    });
-    section.style.setProperty('--gp', e.toFixed(3));
+    var p = Math.min(0.999, Math.max(0, -rect.top / Math.max(1, total)));
+    setActive(Math.floor(p * items.length));
+  }
+  if (items.length) {
+    setActive(0);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { if (en[0].isIntersecting) window.BibiPreview.loadFonts(); }, { rootMargin: '600px 0px' }).observe(section);
+    }
+    if (!pinOn()) {
+      // not pinned: cycle on its own while in view
+      var auto = null;
+      new IntersectionObserver(function (en) {
+        clearInterval(auto);
+        if (en[0].isIntersecting && !pinOn() && !reduceMotion) auto = setInterval(function () { setActive((active + 1) % items.length); }, 2600);
+      }, { threshold: 0.4 }).observe(section);
+    }
   }
 
   /* ---------- manifesto ---------- */
   var m = document.getElementById('m-text'), words = [];
   if (m) {
-    var text = m.textContent.trim(); m.textContent = '';
-    text.split(' ').forEach(function (w, i, arr) {
-      var s = el('span', 'w', w); m.appendChild(s); words.push(s);
-      if (i < arr.length - 1) m.appendChild(document.createTextNode(' '));
+    // wrap each word in a span, keep the hand-placed <br> line breaks
+    Array.prototype.slice.call(m.childNodes).forEach(function (node) {
+      if (node.nodeType !== 3) return;
+      var frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+        var s = el('span', 'w', part); frag.appendChild(s); words.push(s);
+      });
+      m.replaceChild(frag, node);
     });
+    words.slice(-4).forEach(function (w) { w.classList.add('hl'); });
     if (reduceMotion) words.forEach(function (w) { w.classList.add('on'); });
   }
   function applyWords() {
@@ -86,7 +109,7 @@
   if (counter && 'IntersectionObserver' in window) {
     var heads = [];
     document.querySelectorAll('main section').forEach(function (sec) {
-      var lab = sec.querySelector('.section-head .label, .col > .label');
+      var lab = sec.querySelector('.section-head .label, .col > .label, .st-copy > .label');
       var m2 = lab && lab.textContent.match(/^(\d\d) · (.+)$/);
       if (m2) heads.push({ sec: sec, n: m2[1], name: m2[2] });
     });
@@ -105,10 +128,10 @@
   var ticking = false;
   function onScroll() {
     if (ticking) return; ticking = true;
-    requestAnimationFrame(function () { applyScatter(); applyWords(); ticking = false; });
+    requestAnimationFrame(function () { applyStage(); applyWords(); ticking = false; });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   if (wide.addEventListener) wide.addEventListener('change', onScroll);
-  applyScatter(); applyWords();
+  applyStage(); applyWords();
 })();

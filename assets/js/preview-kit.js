@@ -5,7 +5,7 @@
   'use strict';
 
   var CATS = [
-    { id: 'pet', label: '반려동물', test: /반려|강아지|고양이|펫|산책|애견|애묘|댕댕/,
+    { id: 'pet', font: { family: 'Jua', weight: 400, q: 'Jua' }, label: '반려동물', test: /반려|강아지|고양이|펫|산책|애견|애묘|댕댕/,
       voice: '다정하고 포근하게', look: '둥근 모서리 · 크림톤 · 부드러운 그림자', layout: 'split',
       tone: { r: 22, w: 800, ls: '-0.02em' },
       palettes: [
@@ -20,7 +20,7 @@
       stats: [['1,240명', '대기 신청'], ['4.9', '보호자 만족도'], ['10분', '평균 매칭']],
       rows: [['초코 · 3살', '산책 중'], ['보리 · 5살', '매칭 완료'], ['콩이 · 1살', '리포트 도착']] },
 
-    { id: 'fit', label: '운동·헬스', test: /헬스|운동|요가|필라테스|PT|러닝|다이어트|체육|크로스핏|짐/,
+    { id: 'fit', font: { family: 'Black Han Sans', weight: 400, q: 'Black+Han+Sans' }, label: '운동·헬스', test: /헬스|운동|요가|필라테스|PT|러닝|다이어트|체육|크로스핏|짐/,
       voice: '에너지 있고 단호하게', look: '각진 모서리 · 강한 대비 · 기울인 굵은 제목', layout: 'center',
       tone: { r: 3, w: 900, ls: '-0.045em', italic: true },
       palettes: [
@@ -34,7 +34,7 @@
       feats: [['1회권부터', '부담 없이 한 번만'], ['가까운 순', '걸어서 5분 거리부터'], ['바로 입장', '예약 즉시 입장 코드 발급']],
       stats: [['38곳', '제휴 헬스장'], ['5분', '평균 거리'], ['9,900원', '1회권부터']] },
 
-    { id: 'food', label: '음식·카페', test: /카페|식당|맛집|음식|베이커리|빵|커피|요리|밀키트|도시락|디저트|케이크|반찬/,
+    { id: 'food', font: { family: 'Gowun Batang', weight: 700, q: 'Gowun+Batang:wght@700' }, label: '음식·카페', test: /카페|식당|맛집|음식|베이커리|빵|커피|요리|밀키트|도시락|디저트|케이크|반찬/,
       voice: '따뜻하고 군침 돌게', look: '크림·브라운 · 넉넉한 여백 · 메뉴 중심', layout: 'product',
       tone: { r: 14, w: 700, ls: '-0.01em' },
       palettes: [
@@ -49,7 +49,7 @@
       stats: [['07:30', '첫 픽업'], ['12종', '오늘의 메뉴'], ['320명', '단골 손님']],
       products: [['소금빵', '3,500원'], ['크루아상', '4,200원'], ['바게트', '5,000원']] },
 
-    { id: 'edu', label: '교육·클래스', test: /과외|강의|클래스|레슨|코칭|교육|스터디|학원|튜터|수업|영어|수학|코딩/,
+    { id: 'edu', font: { family: 'IBM Plex Sans KR', weight: 700, q: 'IBM+Plex+Sans+KR:wght@700' }, label: '교육·클래스', test: /과외|강의|클래스|레슨|코칭|교육|스터디|학원|튜터|수업|영어|수학|코딩/,
       voice: '믿음직하고 친절하게', look: '밝은 블루 · 정돈된 카드 · 진도 그래프', layout: 'app',
       tone: { r: 12, w: 800, ls: '-0.02em' },
       palettes: [
@@ -63,7 +63,7 @@
       feats: [['수준 진단', '첫 수업에서 정확하게'], ['맞춤 커리큘럼', '나에게 맞는 순서로'], ['주간 리포트', '보호자에게도 공유']],
       stats: [['4주', '평균 체감 기간'], ['92%', '재등록률'], ['1:1', '맞춤 수업']] },
 
-    { id: 'pro', label: '전문 상담', test: /상담|세무|법률|노무|회계|컨설팅|보험|부동산|변호|세금|특허/,
+    { id: 'pro', font: { family: 'Noto Serif KR', weight: 700, q: 'Noto+Serif+KR:wght@700' }, label: '전문 상담', test: /상담|세무|법률|노무|회계|컨설팅|보험|부동산|변호|세금|특허/,
       voice: '단정하고 신뢰감 있게', look: '네이비·골드 · 직선 · 넉넉한 행간', layout: 'trust',
       tone: { r: 2, w: 700, ls: '-0.01em' },
       palettes: [
@@ -94,7 +94,7 @@
       projects: [['2026', '결제 전환율 18% 개선'], ['2025', '신규 서비스 0→1 출시'], ['2024', '사내 업무 자동화']],
       stats: [['3년', '실무 경력'], ['12개', '출시한 기능'], ['18%', '최고 개선율']] },
 
-    { id: 'shop', label: '쇼핑·브랜드', test: /쇼핑|판매|스토어|브랜드|굿즈|옷|의류|화장품|커머스|구독|소품|가구|향수/,
+    { id: 'shop', font: { family: 'Nanum Myeongjo', weight: 800, q: 'Nanum+Myeongjo:wght@800' }, label: '쇼핑·브랜드', test: /쇼핑|판매|스토어|브랜드|굿즈|옷|의류|화장품|커머스|구독|소품|가구|향수/,
       voice: '감각적이고 짧게', look: '넓은 여백 · 제품 중심 · 가격 강조', layout: 'product',
       tone: { r: 6, w: 700, ls: '-0.035em' },
       palettes: [
@@ -109,7 +109,7 @@
       stats: [['4.8', '구매 후기'], ['2,400+', '재구매'], ['30일', '무료 교환']],
       products: [['데일리 머그', '18,000원'], ['린넨 앞치마', '32,000원'], ['우드 트레이', '24,000원']] },
 
-    { id: 'trip', label: '여행·숙소', test: /여행|숙소|캠핑|투어|호텔|펜션|게스트하우스|스테이|휴가/,
+    { id: 'trip', font: { family: 'Gowun Dodum', weight: 400, q: 'Gowun+Dodum' }, label: '여행·숙소', test: /여행|숙소|캠핑|투어|호텔|펜션|게스트하우스|스테이|휴가/,
       voice: '설레고 여유롭게', look: '바다색 · 큰 풍경 · 부드러운 곡선', layout: 'split',
       tone: { r: 20, w: 800, ls: '-0.02em' },
       palettes: [
@@ -138,7 +138,7 @@
       feats: [['10분 연결', '쓰던 도구 그대로'], ['자동 보고서', '매주 월요일 아침'], ['팀 요금제', '쓰는 만큼만']],
       stats: [['10시간', '주당 절약'], ['24종', '연결 도구'], ['14일', '무료 체험']] },
 
-    { id: 'club', label: '모임·커뮤니티', test: /모임|커뮤니티|동호회|네트워킹|매칭|친구|소모임|클럽/,
+    { id: 'club', font: { family: 'Gaegu', weight: 700, q: 'Gaegu:wght@700' }, label: '모임·커뮤니티', test: /모임|커뮤니티|동호회|네트워킹|매칭|친구|소모임|클럽/,
       voice: '활기차고 반갑게', look: '알록달록 · 사람 중심 · 동그란 프로필', layout: 'split',
       tone: { r: 18, w: 800, ls: '-0.02em' },
       palettes: [
@@ -233,6 +233,7 @@
     var st = page.style;
     ['bg', 'fg', 'ac', 'ac2', 'card', 'on'].forEach(function (k) { st.setProperty('--' + k, pal[k]); });
     st.setProperty('--r', cat.tone.r + 'px'); st.setProperty('--w', cat.tone.w); st.setProperty('--ls', cat.tone.ls);
+    if (cat.font) { st.setProperty('--df', "'" + cat.font.family + "', 'Pretendard Variable', Pretendard, sans-serif"); st.setProperty('--dw', cat.font.weight); }
 
     var nav = kids(el('div', 'pv-nav'), [
       kids(sk(el('span', 'pv-logo')), [el('i'), document.createTextNode(name)]),
@@ -274,5 +275,20 @@
     };
   }
 
-  window.BibiPreview = { render: render, hash: hash };
+  /* Display fonts per industry, fetched once and only for the letters the titles use. */
+  var fontsLoaded = false;
+  function loadFonts() {
+    if (fontsLoaded) return; fontsLoaded = true;
+    var chars = {}, fams = [];
+    CATS.forEach(function (c) {
+      if (!c.font) return;
+      fams.push('family=' + c.font.q);
+      [c.label].concat(c.names, c.heads.map(function (h) { return h[0]; })).join('').split('').forEach(function (ch) { if (ch.trim()) chars[ch] = 1; });
+    });
+    var link = document.createElement('link'); link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?' + fams.join('&') + '&display=swap&text=' + encodeURIComponent(Object.keys(chars).join(''));
+    document.head.appendChild(link);
+  }
+
+  window.BibiPreview = { render: render, hash: hash, cats: CATS, loadFonts: loadFonts };
 })();
