@@ -6,7 +6,16 @@
   if (!list) return;
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
 
+  function redraw(kind) {
+    if (kind !== 'checkin') return '';
+    return '<div class="redraw" role="img" aria-label="다시 그린 화면: 매장 QR을 찍고, 처음 한 번 본인을 등록하고, 매장 와이파이에서 출근 버튼을 누름">' +
+      '<span class="cap">다시 그린 화면</span>' +
+      '<span class="ph"><b>매장 QR</b><i class="qr"></i>찍어서 들어가기</span>' +
+      '<span class="ph"><b>처음 한 번</b><i class="field on"></i><i class="field"></i>본인 등록</span>' +
+      '<span class="ph"><b>출근</b><i class="go">출근</i><i class="wifi">매장 와이파이 ✓</i></span></div>';
+  }
   function shots(w) {
+    if (w.illustration) return redraw(w.illustration);
     if (!w.shots || !w.shots.length) return '<div class="locked">🔒 ' + esc(w.locked || '화면 비공개') + '</div>';
     var figs = w.shots.map(function (s, i) {
       var big = s.kind === 'mobile' ? ' width="640" height="1385"' : '';

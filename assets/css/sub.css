@@ -107,7 +107,7 @@
 @media (max-width:1000px){
   .ask{grid-template-columns:1fr;gap:32px;padding-top:40px}
   .ask-side{position:static}
-  .case-item{grid-template-columns:1fr}
+  .case-item{grid-template-columns:minmax(0,1fr)}
   .case-shots{min-height:0}
 }
 @media (max-width:640px){
