@@ -47,7 +47,7 @@
     var note = document.getElementById('st-note'); note.textContent = '';
     [['톤', it.r.cat.voice], ['화면', it.r.cat.look]].forEach(function (n) { note.appendChild(el('b', null, n[0])); note.appendChild(document.createTextNode(n[1] + ' ')); });
     var word = document.getElementById('st-word');
-    word.classList.remove('swap'); void word.offsetWidth; word.dataset.word = it.r.cat.label; word.classList.add('swap');
+    word.classList.remove('swap'); void word.offsetWidth; word.textContent = it.r.cat.label; word.classList.add('swap');
     word.dataset.dir = i > prev ? 'up' : 'down';
   }
   function go(i, scroll) {
@@ -110,13 +110,14 @@
     var heads = [];
     document.querySelectorAll('main section').forEach(function (sec) {
       var lab = sec.querySelector('.section-head .label, .col > .label, .st-copy > .label');
-      if (lab && !heads.some(function (h) { return h.sec === sec; })) heads.push({ sec: sec, n: String(heads.length + 1), name: lab.textContent.trim() });
+      var m2 = lab && lab.textContent.match(/^(\d\d) · (.+)$/);
+      if (m2) heads.push({ sec: sec, n: m2[1], name: m2[2] });
     });
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (!en.isIntersecting) return;
         var h = heads.find(function (x) { return x.sec === en.target; });
-        if (h) { counter.querySelector('b').textContent = h.n; counter.childNodes[1].textContent = ' / ' + heads.length + ' '; counter.querySelector('span').textContent = h.name; counter.classList.add('show'); }
+        if (h) { counter.querySelector('b').textContent = h.n; counter.querySelector('span').textContent = h.name; counter.classList.add('show'); }
         else counter.classList.remove('show');
       });
     }, { rootMargin: '-50% 0px -49% 0px' });
