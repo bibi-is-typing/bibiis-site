@@ -1,0 +1,90 @@
+{
+  "_안내": "새 작업은 맨 위에 추가하세요. 이미지는 assets/work/<slug>/01.webp, 02.webp … 로 넣고 shots에 적습니다. kind는 pc 또는 mobile. home: true인 작업만 첫 화면에 나옵니다(최대 4개).",
+  "works": [
+    {
+      "slug": "pria",
+      "title": "PRIA",
+      "line": "PR 담당자용 기자 매칭·피칭 초안 AI",
+      "date": "2026.01",
+      "tag": "PoC",
+      "tagKind": "own",
+      "home": true,
+      "problem": "PR 담당자는 이슈마다 맞는 기자를 찾아 피칭 자료를 만드는데, 많은 기자의 관심사와 보도 성향을 손으로 추적하기 어렵습니다.",
+      "built": "매체별 기사를 자동 수집해 기자 프로파일을 만들고, 이슈를 넣으면 맞는 기자를 추천하고 피칭 초안을 만듭니다. 지불 의사 설문과 현업 인터뷰로 검증한 뒤, 기능을 크게 덜어내고 다시 만들었습니다.",
+      "stack": ["Next.js", "SQLite", "Claude API", "Gemini", "Claude Code"],
+      "shots": [
+        { "src": "01.webp", "kind": "pc", "caption": "기자 검색. 도메인별 필터와 기자 프로파일 미리보기." },
+        { "src": "02.webp", "kind": "pc", "caption": "기자 프로파일. 관심사 변화와 피칭 전략." },
+        { "src": "03.webp", "kind": "pc", "caption": "캠페인 매칭. 이슈를 넣으면 맞는 기자를 추천." }
+      ]
+    },
+    {
+      "slug": "attendance",
+      "title": "사내 근태·결재 플랫폼",
+      "line": "슬랙 기반 전사 근태·휴가·결재, 개발자 없이 직접 제작",
+      "date": "2026.06",
+      "tag": "운영 중",
+      "tagKind": "live",
+      "home": true,
+      "problem": "두 개의 SaaS로 나뉘어 있던 근태 관리를 하나로 합쳐야 했고, 인사 정책은 문서 없이 운영되고 있었습니다.",
+      "built": "정책부터 근거와 함께 명문화한 뒤 슬랙 기반 플랫폼 하나로 통합했습니다. 오픈 첫 주 문의를 분류해 보니 기능이 없어서가 아니라 규칙을 몰라서 생긴 문의라, 알림 기능을 더하는 대신 규칙 공지와 확인 창 하나만 추가했습니다.",
+      "stack": ["Next.js", "Firestore", "Slack Bolt", "Google Workspace", "Cloud Run", "Claude Code"],
+      "shots": [
+        { "src": "01.webp", "kind": "pc", "caption": "개인 홈. 출퇴근, 월 근태 요약, 휴가·연장근무 신청." },
+        { "src": "02.webp", "kind": "pc", "caption": "휴가 신청. 유형을 고르고 결재로 넘김." }
+      ]
+    },
+    {
+      "slug": "restaurant",
+      "title": "식당 출퇴근·급여 앱",
+      "line": "소규모 매장용 1탭 근태, 사장님 확인은 최소로",
+      "date": "2026.09",
+      "tag": "운영 중 · 새 버전 제작 중",
+      "tagKind": "live",
+      "home": true,
+      "problem": "어머니가 운영하는 식당에서 사장님 혼자 직원 출퇴근과 급여 정산을 챙겨야 했습니다. 직원은 바빠서 화면을 읽을 여유가 없고, 사장님은 모든 기록을 확인할 수 없었습니다.",
+      "built": "첫 버전은 매장 와이파이로 출퇴근을 검증하고 구글 시트에서 월 정산까지 끝내며 지금 매장에서 쓰고 있습니다. 새 버전은 직원이 얼굴만 누르면 되고, 사장님에게는 의심스러운 기록만 묻습니다.",
+      "stack": ["Cloudflare Workers", "D1", "Preact", "face-api.js", "Web Push", "Claude Code"],
+      "shots": [
+        { "src": "01.webp", "kind": "mobile", "caption": "매장 공용 폰. 자기 얼굴을 누르면 출근." },
+        { "src": "02.webp", "kind": "mobile", "caption": "출근 완료. 증빙 사진과 되돌리기." },
+        { "src": "03.webp", "kind": "mobile", "caption": "사장님 폰. 달라 보인 기록만 확인." },
+        { "src": "04.webp", "kind": "pc", "caption": "담당자 화면. 직원·기기·매장 인터넷·월별 내려받기." }
+      ]
+    },
+    {
+      "slug": "listenote",
+      "title": "listenote",
+      "line": "유튜브 영상으로 영어 리스닝 연습지 PDF를 만드는 AI 서비스",
+      "date": "2026.10",
+      "tag": "운영 중",
+      "tagKind": "live",
+      "home": true,
+      "url": "https://listenote.bibiis.ai",
+      "problem": "아이패드·태블릿으로 영어를 공부하는 학습자를 위해 만들었습니다.",
+      "built": "영상 링크를 넣으면 AI가 스크립트를 뽑아 레벨에 맞는 빈칸 채우기 연습지와 발음기호·정답지를 PDF로 만들어 줍니다. 같은 영어학원 수강생들이 실제로 쓰고 있습니다.",
+      "stack": ["React", "TypeScript", "Vite", "Cloudflare Workers", "Gemini", "Claude Code"],
+      "shots": [
+        { "src": "01.webp", "kind": "pc", "caption": "첫 화면. 유튜브 링크를 넣거나 샘플을 둘러봄." },
+        { "src": "02.webp", "kind": "pc", "caption": "스크립트. 타임스탬프 자막과 내보내기." },
+        { "src": "03.webp", "kind": "pc", "caption": "연습지 미리보기와 PDF 내려받기." }
+      ]
+    },
+    {
+      "slug": "bibiis",
+      "title": "bibiis.ai",
+      "line": "이름부터 사이트까지 직접 만든 외주 사이트",
+      "date": "2026.10",
+      "tag": "운영 중",
+      "tagKind": "live",
+      "home": false,
+      "url": "https://bibiis.ai",
+      "problem": "외주를 받을 이름과 사이트가 필요했습니다.",
+      "built": "이름, 색, 로고, 이 사이트까지 직접 만들었습니다. 아이디어 한 줄을 넣으면 첫 화면 시안이 바로 생깁니다.",
+      "stack": ["HTML", "CSS", "JS", "GitHub Pages", "Claude Code"],
+      "shots": [
+        { "src": "01.webp", "kind": "pc", "caption": "첫 화면." }
+      ]
+    }
+  ]
+}
