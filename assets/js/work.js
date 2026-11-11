@@ -3,18 +3,23 @@
   'use strict';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var img = function (w, s, lazy) { return '<img src="/assets/work/' + esc(w.slug) + '/' + esc(s.src) + '" alt="' + esc(s.caption) + '"' + (lazy ? ' loading="lazy"' : '') + ' class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '">'; };
+  var frame = function (w, s, lazy) {
+    return s.kind === 'mobile'
+      ? '<span class="dev-phone"><span class="dev-notch" aria-hidden="true"></span>' + img(w, s, lazy) + '</span>'
+      : '<span class="dev-browser"><span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i></span>' + img(w, s, lazy) + '</span>';
+  };
   var tag = function (w) { return w.tag ? '<i class="tag ' + esc(w.tagKind || 'own') + '">' + esc(w.tag) + '</i>' : ''; };
 
   function card(w) {
     var s = w.shots && w.shots[0];
     return '<a class="work-card" href="/work/#' + esc(w.slug) + '">' +
-      '<span class="work-thumb' + (s && s.kind === 'mobile' ? ' is-mobile' : '') + '">' + (s ? img(w, s, true) : '') + '</span>' +
+      '<span class="work-thumb' + (s && s.kind === 'mobile' ? ' is-mobile' : '') + '">' + (s ? frame(w, s, true) : '') + '</span>' +
       '<span class="work-meta"><span class="d">' + esc(w.date) + '</span>' + tag(w) + '</span>' +
       '<b class="work-title">' + esc(w.title) + '</b><span class="work-line">' + esc(w.line) + '</span></a>';
   }
 
   function detail(w) {
-    var shots = (w.shots || []).map(function (s) { return '<figure class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '">' + img(w, s, true) + '<figcaption>' + esc(s.caption) + '</figcaption></figure>'; }).join('');
+    var shots = (w.shots || []).map(function (s) { return '<figure class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '">' + frame(w, s, true) + '<figcaption>' + esc(s.caption) + '</figcaption></figure>'; }).join('');
     return '<article class="work-item" id="' + esc(w.slug) + '">' +
       '<header><span class="work-meta"><span class="d">' + esc(w.date) + '</span>' + tag(w) + '</span>' +
       '<h2>' + esc(w.title) + '</h2><p class="work-line">' + esc(w.line) + '</p></header>' +
