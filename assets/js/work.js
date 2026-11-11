@@ -8,11 +8,10 @@
 
   function redraw(kind) {
     if (kind !== 'checkin') return '';
-    return '<div class="redraw" role="img" aria-label="다시 그린 화면: 매장 QR을 찍고, 처음 한 번 본인을 등록하고, 매장 와이파이에서 출근 버튼을 누름">' +
+    return '<div class="redraw" role="img" aria-label="다시 그린 화면: 매장에 붙은 QR로 들어와 처음 한 번 등록하면, 매장 와이파이에 연결돼 있을 때만 출근 버튼이 눌림">' +
       '<span class="cap">다시 그린 화면</span>' +
-      '<span class="ph"><b>매장 QR</b><i class="qr"></i>찍어서 들어가기</span>' +
-      '<span class="ph"><b>처음 한 번</b><i class="field on"></i><i class="field"></i>본인 등록</span>' +
-      '<span class="ph"><b>출근</b><i class="go">출근</i><i class="wifi">매장 와이파이 ✓</i></span></div>';
+      '<span class="phone"><span class="hi">처음 한 번만 등록</span><span class="go">출근하기</span><span class="wifi">매장 와이파이 연결됨</span><i></i><i></i></span>' +
+      '<span class="qr-card"><img src="/assets/work/store-checkin-qr.svg" alt="" width="64" height="64"><b>매장 QR</b></span></div>';
   }
   function shots(w) {
     if (w.illustration) return redraw(w.illustration);
