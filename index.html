@@ -16,13 +16,13 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="말로 하면 “그게 뭔데?” 보여주면, 끄덕. 창업팀 PoC·MVP 제작, 48시간 무료 시안">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#191A21">
+  <meta name="theme-color" content="#F4F2EC">
   <link rel="canonical" href="https://bibiis.ai/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=14">
+  <link rel="stylesheet" href="/assets/css/home.css?v=1">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibi is building","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"창업팀을 위한 AI 기반 PoC·MVP 제작, 사업계획서 검증 자료, 설득용 랜딩페이지.","makesOffer":[
@@ -34,271 +34,228 @@
   </script>
 </head>
 <body>
-<a class="visually-hidden" href="#try">본문으로 건너뛰기</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
-<div class="sec-count" id="sec-count" aria-hidden="true"><b>1</b> / 7 <span>업종별 예시</span></div>
-
-<div class="status dracula" role="status">
-  <div class="wrap"><span class="dot" aria-hidden="true"></span><span id="status-text">지금 2건 제작 중 · 새 작업은 11.12부터</span></div>
-</div>
-
+<a class="visually-hidden" href="#work">본문으로 건너뛰기</a>
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="bibi is building 처음으로"><span>bibi</span><span class="p">.</span><span class="k">is</span><span>(</span><span class="w" id="logo-word">building</span><span>)</span><span class="cursor" aria-hidden="true"></span></a>
+    <a class="logo" href="/" aria-label="bibi is building 처음으로">bibi.is(<span class="w">building</span>)</a>
     <nav class="nav-links" aria-label="페이지 안내">
-      <a href="#try">만들어 보기</a>
-      <a href="#stuck">이런 팀께</a>
-      <a href="#shipping">작업</a>
-      <a href="#pricing">맡길 일</a>
+      <a href="#work">작업</a>
+      <a href="#plans">맡길 일</a>
+      <a href="#process">진행 방식</a>
+      <a href="#faq">자주 묻는 질문</a>
     </nav>
-    <div class="nav-tools">
-      <button class="icon-btn" id="src-toggle" type="button" aria-pressed="false" title="이 페이지의 코드 보기">&lt;/&gt;<span class="src-label">코드 보기</span></button>
-      <button class="icon-btn" id="theme-toggle" type="button" aria-label="화면 밝기 바꾸기">◐</button>
-      <a class="btn btn-secondary btn-sm" href="/listening/" data-track="nav_listening">상담<span class="s-long"> 신청</span></a>
-    </div>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="화면 밝기 바꾸기">◐</button>
+    <a class="btn btn-primary btn-sm" href="/listening/" data-track="nav_listening">상담 신청</a>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="try" data-src data-word="building">
+  <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <p class="label caret-text" id="typing-line">bibi · 듣는 중…</p>
-        <h1 class="lines"><span class="ln"><span>말로 하면 “그게 뭔데?”</span></span><span class="ln"><span>보여주면, <em class="nod">끄덕.</em></span></span></h1>
-        <p class="lead">아이디어 한 줄이면 <span id="lead-where">오른쪽에</span> 첫 화면이 바로 생깁니다. 그 화면을 실제로 써 볼 수 있는 PoC·MVP까지 만듭니다.</p>
-        <ul class="facts" aria-label="핵심 조건">
-          <li><b>PoC·MVP</b> AI로 직접 제작</li>
+        <span class="label">창업팀 PoC·MVP 제작</span>
+        <h1><span class="ln">말로 하면 “그게 뭔데?”</span><span class="ln">보여주면, <em>끄덕.</em></span></h1>
+        <p class="lead">아이디어를 실제로 써 볼 수 있는 PoC·MVP로 만듭니다. 기획한 사람이 직접 만들고, 지금도 현장에서 쓰이는 것들을 만들어 왔습니다.</p>
+        <div class="row">
+          <a class="btn btn-primary" href="/listening/?plan=poc" data-track="hero_poc">PoC 상담 신청</a>
+          <a class="btn btn-line" href="#work">작업 먼저 보기</a>
+        </div>
+        <ul class="offer" aria-label="핵심 조건">
+          <li><b>PoC·MVP</b> 직접 제작</li>
           <li><b>사업계획서</b> 검증 자료까지</li>
           <li><b>48시간</b> 무료 시안</li>
         </ul>
-        <form class="try-form" id="try-form" autocomplete="off">
-          <label class="visually-hidden" for="idea">아이디어 한 줄</label>
-          <input id="idea" name="idea" type="text" maxlength="80" placeholder="예) 동네 헬스장 빈 시간을 빌려주는 서비스">
-          <button class="btn btn-primary" type="submit">만들어 보기</button>
-        </form>
-        <div class="chips" aria-label="예시로 만들어 보기">
-          <span class="label">예시</span>
-          <button class="chip" type="button" data-idea="반려견 산책 매칭">반려견 산책 매칭</button>
-          <button class="chip" type="button" data-idea="1인 세무 상담">1인 세무 상담</button>
-          <button class="chip" type="button" data-idea="동네 빵집 미리 주문">동네 빵집 미리 주문</button>
-          <button class="chip" type="button" data-idea="내 포트폴리오 사이트">내 포트폴리오 사이트</button>
+      </div>
+      <figure class="hero-shot">
+        <div class="phones">
+          <span class="phone"><img src="/assets/work/restaurant/01.webp" alt="매장 공용 폰. 자기 얼굴을 누르면 출근."></span>
+          <span class="phone"><img src="/assets/work/restaurant/02.webp" alt="출근 완료 화면."></span>
+          <span class="phone"><img src="/assets/work/restaurant/03.webp" alt="사장님 폰. 달라 보인 기록만 확인."></span>
         </div>
-        <div class="after" id="after" hidden>
-          <p class="note">심사위원과 첫 고객이 “아, 이거구나” 하는 화면. 여기서부터 실제로 돌아가게 만듭니다.</p>
-          <div class="row">
-            <a class="btn btn-primary" href="/listening/?plan=poc&amp;from=try" data-track="try_poc">이 아이디어로 PoC 상담하기</a>
-            <a class="btn btn-secondary" data-link="kmongPitch" data-track="try_kmong" href="/listening/?plan=pitch&amp;from=try">랜딩만 필요해요 · 크몽</a>
+        <figcaption class="hero-cap"><b>식당 출퇴근 앱.</b> 직원은 얼굴만 누르고, 사장님은 이상한 기록만 확인합니다. 실제 식당에서 매일 쓰고 있습니다. <a href="/work/#restaurant">자세히 →</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="work" class="line-top">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">작업</span><h2>직접 만들고, 실제로 쓰이는 것.</h2></div>
+        <p class="muted">회사 이름, 직원 이름, 실적 숫자는 싣지 않습니다.</p>
+      </div>
+      <div class="works">
+        <article class="work wip">
+          <div class="work-thumb"><div class="wip-box"><div><b>화면 비공개</b>고객사 요청으로 진행 중인 화면은 싣지 않습니다.</div></div></div>
+          <div class="work-body">
+            <span class="work-meta">2026.11 <i class="tag wip">PoC 진행 중</i> <i class="tag own">외주</i></span>
+            <h3>건물청소 B2B 운영 PoC</h3>
+            <p>현장 직원이 영상·음성으로 보고하면 AI가 예정 작업과 대조하고, 관리자는 원본 근거를 보며 확인합니다.</p>
+            <span class="point">창업팀 아이템을 받아 심사용 시연까지 만드는 중</span>
           </div>
-          <p class="promise">● 문의하면 48시간 안에 답장드립니다.</p>
-        </div>
+        </article>
+        <a class="work" href="/work/#listenote">
+          <div class="work-thumb"><span class="browser"><span class="bar"><i></i><i></i><i></i></span><img src="/assets/work/listenote/01.webp" alt="listenote 첫 화면" loading="lazy"></span></div>
+          <div class="work-body">
+            <span class="work-meta">2026.10 <i class="tag live">운영 중</i></span>
+            <h3>listenote</h3>
+            <p>유튜브 영상 링크를 넣으면 영어 리스닝 연습지 PDF가 나오는 AI 서비스.</p>
+            <span class="point">같은 학원 수강생들이 실제로 쓰는 중</span>
+          </div>
+        </a>
+        <a class="work" href="/work/#pria">
+          <div class="work-thumb"><span class="browser"><span class="bar"><i></i><i></i><i></i></span><img src="/assets/work/pria/01.webp" alt="PRIA 기자 검색 화면" loading="lazy"></span></div>
+          <div class="work-body">
+            <span class="work-meta">2026.01 <i class="tag own">PoC</i></span>
+            <h3>PRIA</h3>
+            <p>이슈를 넣으면 맞는 기자를 추천하고 피칭 초안을 만드는 PR 담당자용 AI.</p>
+            <span class="point">설문·인터뷰로 검증한 뒤 기능을 크게 덜어내고 다시 만듦</span>
+          </div>
+        </a>
+        <a class="work" href="/work/#attendance">
+          <div class="work-thumb"><span class="browser"><span class="bar"><i></i><i></i><i></i></span><img src="/assets/work/attendance/01.webp" alt="근태 플랫폼 개인 홈" loading="lazy"></span></div>
+          <div class="work-body">
+            <span class="work-meta">2026.06 <i class="tag live">운영 중</i></span>
+            <h3>사내 근태·결재 플랫폼</h3>
+            <p>두 개의 SaaS로 나뉘어 있던 근태·휴가·결재를 슬랙 기반 하나로 합침.</p>
+            <span class="point">개발자 없이 만들어 전 직원이 매일 씀</span>
+          </div>
+        </a>
       </div>
-      <div class="browser" id="browser" aria-live="polite">
-        <div class="browser-bar">
-          <i></i><i></i><i></i>
-          <span class="url" id="pv-url">bibiis.ai/미리보기</span>
-          <span class="seg" role="group" aria-label="미리보기 크기">
-            <button type="button" data-view="pc" aria-pressed="true">PC</button><button type="button" data-view="mobile" aria-pressed="false">모바일</button>
-          </span>
-        </div>
-        <div class="preview empty" id="preview">
-          <p>여기에 첫 화면이 생깁니다</p>
-        </div>
-        <div class="pv-note" id="pv-note" hidden></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="stage" id="gallery" data-word="building" aria-labelledby="stage-title">
-    <div class="st-pin" id="st-pin">
-      <div class="st-word" id="st-word" aria-hidden="true"></div>
-      <div class="wrap st-wrap">
-        <div class="st-copy">
-          <span class="label">업종별 예시</span>
-          <h2 id="stage-title">업종이 바뀌면,<br>첫 화면도 바뀝니다.</h2>
-          <ol class="st-list" id="st-list"></ol>
-          <p class="st-note" id="st-note"></p>
-          <a class="st-try" id="st-try" href="#try">이 업종으로 만들어 보기 →</a>
-        </div>
-        <div class="st-frame">
-          <div class="st-bar"><i></i><i></i><i></i><span id="st-url"></span><em>예시</em></div>
-          <div class="st-screens" id="st-screens"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="surface" id="stuck" data-src data-word="fixing">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="label">이런 팀께</span>
-        <h2>지금, 이 단계라면.</h2>
-      </div>
-      <div class="tabs" role="tablist" aria-label="상황 고르기">
-        <button class="tab" role="tab" id="tab-founder" aria-selected="true" aria-controls="panel-founder">아이디어 단계</button>
-        <button class="tab" role="tab" id="tab-job" aria-selected="false" aria-controls="panel-job" tabindex="-1">만들고 있는 중</button>
-      </div>
-      <div class="scenes" role="tabpanel" id="panel-founder" aria-labelledby="tab-founder">
-        <a class="scene" href="#pricing"><q>지원사업 서류에 시제품 화면을 넣어야 하는데, 아직 아무것도 없어요.</q><span>→ <b>PoC</b> · 핵심 기능 하나부터</span></a>
-        <a class="scene" href="#pricing"><q>이 아이디어에 돈 낼 사람이 있는지 먼저 알고 싶어요.</q><span>→ <b>PoC</b> · 검증 계획까지</span></a>
-        <a class="scene" href="#pricing"><q>사업계획서의 문제·해결·검증 칸이 비어 있어요.</q><span>→ <b>사업계획서 지원</b></span></a>
-        <a class="scene" href="#pricing"><q>데모데이·IR에 보여줄 링크가 없어요.</q><span>→ <b>설득용 랜딩</b> · 5일</span></a>
-      </div>
-      <div class="scenes" role="tabpanel" id="panel-job" aria-labelledby="tab-job" hidden>
-        <a class="scene" href="#pricing"><q>첫 고객 10명에게 실제로 써 보게 하고 싶어요.</q><span>→ <b>MVP</b> · 로그인·데이터 저장·관리자 화면</span></a>
-        <a class="scene" href="#pricing"><q>기능은 계속 늘어나는데, 뭘 빼야 할지 모르겠어요.</q><span>→ <b>PoC</b> · 만들지 않을 것부터</span></a>
-        <a class="scene" href="#fix-check"><q>AI로 90%는 만들었는데, 결제에서 3일째 막혀 있어요.</q><span>→ <b>뒷수습</b> · 1~3일</span></a>
-        <a class="scene" href="#pricing"><q>설명하면 다들 고개는 끄덕이는데, 신청은 안 해요.</q><span>→ <b>설득용 랜딩</b> · 신청 동선부터 다시</span></a>
-      </div>
-      <div class="check" id="fix-check">
-        <p><strong>지금 막힌 곳을 체크해 주세요.</strong></p>
-        <div class="check-list">
-          <label><input type="checkbox"> 인터넷에 공개(배포)</label>
-          <label><input type="checkbox"> 도메인 연결</label>
-          <label><input type="checkbox"> 모바일 화면</label>
-          <label><input type="checkbox"> 문의 폼</label>
-          <label><input type="checkbox"> 결제</label>
-          <label><input type="checkbox"> 고칠수록 더 꼬임</label>
-        </div>
-        <p class="check-result" id="check-result" aria-live="polite"></p>
-        <div class="check-row">
-          <a class="btn btn-primary" data-link="kmongFixing" data-track="fixing_kmong" href="/listening/?plan=fixing">뒷수습 맡기기</a>
-          <span class="muted">저도 매일 AI 도구로 만듭니다. 어디서 자주 꼬이는지 압니다.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="manifesto" aria-label="일하는 방식">
-    <div class="wrap">
-      <p class="m-text" id="m-text">만들 기능을 고르기 전에,<br>누가 돈을 낼지부터<br class="m"> 확인합니다.<br>만들지 않을 것을<br class="m"> 먼저 정하고,<br>정한 이유는 전부<br class="m"> 기록으로 남깁니다.</p>
-    </div>
-  </section>
-
-  <section class="proof" id="maker" data-src data-word="building">
-    <div class="wrap">
-      <div class="col">
-        <span class="label">만든 사람</span>
-        <h2>기획한 것을<br>직접 만드는 PM.</h2>
-        <div class="term dracula">
-          <div class="row"><span class="bullet">●</span><span class="k">지금 하는 일</span><span class="v">이커머스 회사 PM. 현업의 반복 업무를 AI로 바꾸는 일을 기획하고 직접 만듭니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">검증 먼저</span><span class="v">인터뷰와 지불 의사 설문으로 범위를 줄인 뒤 만듭니다. 검증 결과를 보고 기능 절반 이상을 덜어낸 뒤 며칠 만에 다시 만든 적이 있습니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">직접 운영</span><span class="v">슬랙과 연결한 근태 플랫폼을 개발자 없이 만들어 전 직원이 매일 씁니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">쉬운 설명</span><span class="v">개발 용어 없이, 팀이 결정할 것만 짚어 드립니다. 진행 상황은 매일 공유합니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">경력 7년</span><span class="v">마케터 2년 8개월, 커뮤니케이션 그룹 리더 3년 8개월, 프로젝트 매니저. 심사위원과 고객이 어디서 고개를 끄덕이는지 압니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">소유권</span><span class="v">코드, 도메인, 계정은 처음부터 팀 이름으로.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="surface" id="shipping" data-src data-word="shipping">
-    <div class="wrap">
-      <div class="section-head"><span class="label">작업</span><h2>직접 만들고, 실제로 쓰이는 것.</h2></div>
-      <div class="work-cards" id="work-cards"></div>
       <a class="work-more" href="/work/">작업 전체 보기 →</a>
     </div>
   </section>
 
-  <section class="surface" id="process" data-src data-word="building">
+  <section class="belief" aria-label="일하는 방식">
     <div class="wrap">
-      <div class="section-head"><span class="label">진행 방식</span><h2>연락부터 인계까지, 6단계.</h2></div>
+      <p>화면을 읽을 여유가 없는 사람들이 쓰는 도구를 주로 만들었습니다. <span>그래서 기능을 더하기 전에, 누르는 횟수부터 줄입니다.</span></p>
+    </div>
+  </section>
+
+  <section id="plans">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="label">맡길 수 있는 일</span><h2>무엇을 맡길 수 있나요.</h2></div>
+        <p class="muted">범위와 비용은 상담에서 함께 정합니다. 문의하면 48시간 안에 답장드립니다.</p>
+      </div>
+      <div class="plans">
+        <article class="plan rec">
+          <i class="tag">가장 먼저 하는 일</i>
+          <span class="name">PoC</span>
+          <p class="who">되는지 먼저 확인해야 하는 팀</p>
+          <ul><li>핵심 기능 1개가 실제 데이터로 도는 화면</li><li>검증 계획(누구에게 무엇을 물을지)</li><li>심사·IR용 화면 캡처</li></ul>
+          <a class="btn btn-primary" href="/listening/?plan=poc" data-track="price_poc">PoC 상담 신청</a>
+        </article>
+        <article class="plan">
+          <span class="name">MVP</span>
+          <p class="who">실사용자를 받아 봐야 하는 팀</p>
+          <ul><li>로그인</li><li>데이터 저장·관리자 화면</li><li>배포</li><li>사용 기록·방문 분석</li></ul>
+          <a class="btn btn-line" href="/listening/?plan=launch" data-track="price_launch">상담으로 범위 정하기</a>
+        </article>
+        <article class="plan">
+          <span class="name">사업계획서 지원</span>
+          <p class="who">서류 마감이 다가오는 팀</p>
+          <ul><li>아이디어 구체화</li><li>문제·해결·검증 계획 문구</li><li>PoC 화면·자료 정리</li></ul>
+          <a class="btn btn-line" href="/listening/?plan=plan" data-track="price_plan">상담 신청</a>
+        </article>
+      </div>
+      <p class="extras">그 밖에 설득용 랜딩페이지, <a href="/listening/?plan=fixing">AI로 만들다 막힌 사이트 뒷수습</a>, 월 운영 관리도 맡을 수 있습니다. 코드·도메인·계정은 처음부터 팀 이름으로 만듭니다.</p>
+    </div>
+  </section>
+
+  <section id="process" class="line-top">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="label">진행 방식</span><h2>연락부터 인계까지, 6단계.</h2></div></div>
       <ol class="steps">
-        <li><span class="n">01</span><h3>상담</h3><p>누구에게 보여줄 PoC인지(심사위원, 투자자, 첫 고객), 마감이 언제인지부터 듣습니다.</p></li>
-        <li><span class="n">02</span><h3>범위 한 장</h3><p>검증할 가설 하나와, 그걸 보여주는 데 필요 없는 기능을 한 장에 적습니다.</p></li>
+        <li><span class="n">01</span><h3>상담</h3><p>누구에게 보여줄 PoC인지, 마감이 언제인지부터 듣습니다.</p></li>
+        <li><span class="n">02</span><h3>범위 한 장</h3><p>검증할 가설 하나와, 지금 만들지 않을 기능을 한 장에 적습니다.</p></li>
         <li><span class="n">03</span><h3>48시간 무료 시안</h3><p>첫 화면을 먼저 보여드립니다. 마음에 들 때 계약합니다.</p></li>
         <li><span class="n">04</span><h3>제작</h3><p>매일 진행 상황을 링크로 보내고, 결정한 이유는 기록으로 남깁니다.</p></li>
-        <li><span class="n">05</span><h3>검증</h3><p>실제 사용자에게 써 보게 하고, 사업계획서에 넣을 화면과 숫자를 정리합니다.</p></li>
+        <li><span class="n">05</span><h3>검증</h3><p>실제 사용자에게 써 보게 하고, 사업계획서에 넣을 화면을 정리합니다.</p></li>
         <li><span class="n">06</span><h3>인계</h3><p>코드, 계정과 함께 운영 설명서를 문서로 넘겨드립니다.</p></li>
       </ol>
     </div>
   </section>
 
-  <section id="pricing" data-src data-word="building">
+  <section class="maker" id="maker">
     <div class="wrap">
-      <div class="section-head"><span class="label">맡길 수 있는 일</span><h2>무엇을 맡길 수 있나요.</h2><p class="muted">범위와 비용은 상담에서 함께 정합니다. 문의하면 48시간 안에 답장드립니다.</p></div>
-      <div class="plans">
-        <article class="plan rec">
-          <span class="tag">가장 먼저 하는 일</span>
-          <span class="name">PoC</span>
-          <p class="muted">되는지 먼저 확인해야 하는 팀</p>
-          <ul><li>핵심 기능 1개가 실제 데이터로 도는 화면</li><li>검증 계획(누구에게 무엇을 물을지)</li><li>심사·IR용 화면 캡처</li></ul>
-          <span class="when">범위에 따라</span>
-          <a class="btn btn-primary" href="/listening/?plan=poc" data-track="price_poc">PoC 상담 신청</a>
-          <a class="plan-form" href="/listening/?plan=poc" data-track="plan_form_poc">신청서에 이 상품으로 표시됩니다</a>
-        </article>
-        <article class="plan">
-          <span class="tag"></span>
-          <span class="name">MVP</span>
-          <p class="muted">실사용자를 받아 봐야 하는 팀</p>
-          <ul><li>로그인</li><li>데이터 저장·관리자 화면</li><li>배포</li><li>사용 기록·방문 분석</li></ul>
-          <span class="when">2~3주</span>
-          <a class="btn btn-secondary" href="/listening/?plan=launch" data-track="price_launch">상담으로 범위 정하기</a>
-          <a class="plan-form" href="/listening/?plan=launch" data-track="plan_form_launch">신청서에 이 상품으로 표시됩니다</a>
-        </article>
-        <article class="plan">
-          <span class="tag"></span>
-          <span class="name">사업계획서 지원</span>
-          <p class="muted">서류 마감이 다가오는 팀</p>
-          <ul><li>아이디어 구체화</li><li>문제·해결·검증 계획 문구</li><li>PoC 화면·자료 정리</li></ul>
-          <span class="when">마감에 맞춰</span>
-          <a class="btn btn-secondary" href="/listening/?plan=plan" data-track="price_plan">상담 신청</a>
-          <a class="plan-form" href="/listening/?plan=plan" data-track="plan_form_plan">신청서에 이 상품으로 표시됩니다</a>
-        </article>
+      <div><span class="label">만든 사람</span><h2>기획한 것을<br>직접 만드는 PM.</h2></div>
+      <ul class="facts">
+        <li><b>지금 하는 일</b><span>이커머스 회사 PM. 현업의 반복 업무를 AI로 바꾸는 일을 기획하고 직접 만듭니다.</span></li>
+        <li><b>검증 먼저</b><span>인터뷰와 지불 의사 설문으로 범위를 줄인 뒤 만듭니다.</span></li>
+        <li><b>쉬운 설명</b><span>개발 용어 없이, 팀이 결정할 것만 짚어 드립니다. 진행 상황은 매일 공유합니다.</span></li>
+        <li><b>경력 7년</b><span>마케터, 커뮤니케이션 그룹 리더, 프로젝트 매니저. 심사위원과 고객이 어디서 고개를 끄덕이는지 압니다.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="try" id="try">
+    <div class="wrap">
+      <div>
+        <span class="label">아직 아이디어만 있다면</span>
+        <h2>한 줄만 적어 주세요.<br>첫 화면부터 보여드립니다.</h2>
+        <p class="muted">정리가 덜 됐어도 괜찮습니다.</p>
       </div>
-      <div class="extras">
-        <p>그 밖에 설득용 랜딩페이지(5일), <a href="/listening/?plan=fixing">AI로 만들다 막힌 사이트 뒷수습</a>(1~3일), 월 운영 관리도 맡을 수 있습니다.</p>
-        <p>도메인과 서버는 팀 계정으로 직접 만들어 처음부터 팀 소유로 둡니다.</p>
+      <div>
+        <form class="try-form" id="try-form" action="/listening/" method="get">
+          <label class="visually-hidden" for="idea">아이디어 한 줄</label>
+          <input id="idea" name="idea" type="text" maxlength="80" placeholder="예) 동네 헬스장 빈 시간을 빌려주는 서비스">
+          <button class="btn btn-primary" type="submit">시안 요청하기</button>
+        </form>
+        <div class="chips" aria-label="예시">
+          <button class="chip" type="button" data-idea="반려견 산책 매칭">반려견 산책 매칭</button>
+          <button class="chip" type="button" data-idea="1인 세무 상담">1인 세무 상담</button>
+          <button class="chip" type="button" data-idea="동네 빵집 미리 주문">동네 빵집 미리 주문</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="surface" id="faq" data-src data-word="listening">
+  <section id="faq">
     <div class="wrap">
-      <div class="section-head"><h2>자주 묻는 질문.</h2></div>
+      <div class="sec-head"><div><span class="label">자주 묻는 질문</span><h2>궁금한 것.</h2></div></div>
       <div class="faq">
-        <details><summary>AI로 만드세요?</summary><p>네. Claude Code·Codex 같은 AI 도구로 빠르게 만들고, 기획과 검수는 직접 합니다. AI로 만든 이미지를 쓸 때는 미리 말씀드립니다.</p></details>
-        <details><summary>지원사업 서류에 쓸 수 있나요?</summary><p>네. PoC 화면 캡처, 검증 계획, 사용자 반응을 사업계획서에 바로 넣을 수 있게 정리해 드립니다.</p></details>
+        <details><summary>AI로 만드세요?</summary><p>네. Claude Code·Codex 같은 AI 도구로 빠르게 만들고, 기획과 검수는 직접 합니다.</p></details>
         <details><summary>PoC와 MVP는 뭐가 다른가요?</summary><p>PoC는 “이게 되나?”를 확인하는 단계라 핵심 기능 하나만 만듭니다. MVP는 실제 사용자가 가입하고 계속 쓰는 단계라 로그인, 데이터 저장, 관리자 화면이 들어갑니다. 대부분 PoC부터 권합니다.</p></details>
-        <details><summary>디자이너가 따로 있나요?</summary><p>정리된 디자인 체계 위에서 직접 맞춥니다. 결제 전에 첫 화면을 먼저 보고 정하시면 됩니다.</p></details>
-        <details><summary>코드와 도메인은 누구 소유인가요?</summary><p>처음부터 고객님 이름으로 만듭니다. 제가 없어도 사이트는 그대로 돌아가고, 다른 개발자에게 넘겨도 이어서 쓸 수 있습니다.</p></details>
-        <details><summary>끝나고 나서 직접 고칠 수 있나요?</summary><p>네. 글자와 사진 바꾸는 법, 자주 묻는 문제 해결법을 문서로 정리해 드립니다. 개발자가 아니어도 따라 할 수 있게 씁니다.</p></details>
-        <details><summary>검색에 등록하면 상위에 뜨나요?</summary><p>검색 등록은 구글과 네이버가 사이트를 찾을 수 있게 하는 작업입니다. 순위는 누구도 보장할 수 없어서 약속하지 않습니다. 대신 제목, 설명, 공유 이미지까지 검색과 공유에 맞게 정리해 드립니다.</p></details>
+        <details><summary>지원사업 서류에 쓸 수 있나요?</summary><p>네. PoC 화면 캡처, 검증 계획, 사용자 반응을 사업계획서에 바로 넣을 수 있게 정리해 드립니다.</p></details>
+        <details><summary>코드와 도메인은 누구 소유인가요?</summary><p>처음부터 고객님 이름으로 만듭니다. 제가 없어도 그대로 돌아가고, 다른 개발자에게 넘겨도 이어서 쓸 수 있습니다.</p></details>
         <details><summary>시안이 마음에 안 들면요?</summary><p>무료 시안 단계라 비용 없이 그만두실 수 있습니다.</p></details>
         <details><summary>해외에서도 진행되나요?</summary><p>처음부터 끝까지 비대면입니다. 시차가 있어도 하루 안에 답장드립니다.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="listening" id="listening" data-src data-word="listening">
+  <section class="contact-sec line-top" id="listening">
     <div class="wrap">
-      <p class="label caret-text">듣고 있습니다…</p>
-      <h2>어떤 아이디어인지 들려주세요.</h2>
-      <p class="muted">정리가 덜 됐어도 괜찮습니다. 한 줄이면 충분합니다.</p>
+      <span class="label">상담</span>
+      <h2>어떤 아이디어인지<br>들려주세요.</h2>
+      <p class="muted">문의하면 48시간 안에 답장드립니다. 주말에도 확인합니다.</p>
       <div class="row">
-        <a class="btn btn-primary" data-link="kmongProfile" data-track="cta_kmong" href="/listening/">크몽에서 문의하기</a>
-        <a class="btn btn-secondary" data-link="soomgo" data-track="cta_soomgo" href="/listening/">숨고에서 문의하기</a>
-        <a class="btn btn-ghost" href="/listening/" data-track="cta_form">상담 신청서 쓰기 (3분)</a>
+        <a class="btn btn-primary" href="/listening/" data-track="cta_form">상담 신청서 쓰기 (3분)</a>
+        <a class="btn btn-line" data-link="kmongProfile" data-track="cta_kmong" href="/listening/">크몽에서 문의하기</a>
       </div>
-      <p class="promise">● 어느 쪽으로 보내도 48시간 안에 답장드립니다. 주말에도 확인합니다.</p>
-      <div class="contact">
-        <span>hello@bibiis.ai</span><button class="copy" type="button" data-copy="hello@bibiis.ai">복사</button>
-        <span id="threads-line" hidden>· 스레드 <a id="threads-link" href="#"></a></span>
-      </div>
+      <p class="mail">hello@bibiis.ai</p>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>bibi.is(building) · 비비이즈 · bibiis.ai · hello@bibiis.ai</span>
+    <span>bibi.is(building) · 비비이즈 · bibiis.ai</span>
     <a href="/privacy/">개인정보처리방침</a>
   </div>
 </footer>
 
 <script src="/assets/js/config.js"></script>
-<script src="/assets/js/preview-kit.js?v=12"></script>
-<script src="/assets/js/showcase.js?v=12"></script>
-<script src="/assets/js/main.js?v=10"></script>
-<script src="/assets/js/work.js?v=2"></script>
+<script>
+(function(){
+  var L=(window.BIBI&&BIBI.links)||{};
+  document.querySelectorAll('[data-link]').forEach(function(a){var u=L[a.dataset.link];if(u)a.href=u;});
+  var t=document.getElementById('theme-toggle');
+  t&&t.addEventListener('click',function(){var r=document.documentElement,d=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);r.dataset.theme=d?'light':'dark';try{localStorage.setItem('bibi:theme',r.dataset.theme);}catch(e){}});
+  var i=document.getElementById('idea'),f=document.getElementById('try-form');
+  f&&f.addEventListener('submit',function(){try{localStorage.setItem('bibi:idea',i.value);}catch(e){}});
+  document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){i.value=c.dataset.idea;i.focus();});});
+})();
+</script>
 </body>
 </html>
