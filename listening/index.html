@@ -3,138 +3,171 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>무료 상담 신청, 48시간 안에 답장 | bibi is building</title>
-  <meta name="description" content="아이디어 한 줄이면 충분합니다. 3분 신청서를 보내면 48시간 안에 진행 방향과 첫 화면 방향을 보내드립니다.">
-  <meta property="og:title" content="아이디어 한 줄이면 충분합니다">
-  <meta property="og:description" content="3분 신청서. 48시간 안에 진행 방향과 첫 화면 방향을 보내드립니다.">
+  <title>문의서 | bibi is building</title>
+  <meta name="description" content="매주 반복되는 일을 한 줄로 알려 주세요. 3분이면 쓰고, 48시간 안에 답장드려요.">
+  <meta property="og:title" content="매주 반복되는 일, 하나만 알려 주세요">
+  <meta property="og:description" content="3분 문의서. 48시간 안에 줄일 수 있는 부분과 첫 시안 방향을 보내드려요.">
   <meta property="og:url" content="https://bibiis.ai/listening/">
   <link rel="canonical" href="https://bibiis.ai/listening/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="bibi is building">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:image" content="https://bibiis.ai/og.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="말로 하면 “그게 뭔데?” 보여주면, 끄덕. 창업팀 PoC·MVP 제작, 48시간 무료 시안">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#191A21">
+  <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/site.css?v=12">
+  <link rel="stylesheet" href="/assets/css/home.css?v=4">
+  <link rel="stylesheet" href="/assets/css/sub.css?v=1">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="/"><span>bibi</span><span class="p">.</span><span class="k">is</span><span>(</span><span class="w">listening</span><span>)</span><span class="cursor" aria-hidden="true"></span></a>
-    <div class="nav-tools"><a class="btn btn-ghost btn-sm" href="/">처음으로</a></div>
+    <a class="logo" href="/" aria-label="bibi is building 처음으로"><i></i>bibi is building</a>
+    <nav class="nav-links" aria-label="페이지 안내">
+      <a href="/#ladder">하는 일</a>
+      <a href="/work/">만든 것</a>
+      <a href="/#plans">맡길 일</a>
+      <a href="/#process">진행 방식</a>
+    </nav>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="화면 밝기 바꾸기"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
   </div>
 </header>
 
-<main class="form-page">
-  <div id="form-wrap">
-    <p class="label caret-text">듣고 있습니다…</p>
-    <h1 style="font-size:clamp(28px,4vw,40px)">어떤 아이디어인지 들려주세요</h1>
-    <p class="muted">3분이면 됩니다. 48시간 안에 답장드립니다.</p>
-  </div>
+<main>
+  <div class="wrap ask">
+    <aside class="ask-side">
+      <span class="eyebrow">문의서</span>
+      <h1>매주 반복되는 일,<br>하나만 알려 주세요.</h1>
+      <p>정리가 안 돼도 괜찮아요. 한 줄이면 충분하고, 3분이면 써요.</p>
+      <ol class="ask-steps">
+        <li><span class="n">1</span><div><b>48시간 안에 답장</b>줄일 수 있는 부분과 지금 안 해도 될 부분을 짚어 드려요.</div></li>
+        <li><span class="n">2</span><div><b>30분 진단</b>필요하면 화면을 같이 보며 범위를 한 장으로 정해요.</div></li>
+        <li><span class="n">3</span><div><b>시안 먼저</b>돌아가는 모습을 보고 나서 계약해요.</div></li>
+      </ol>
+      <div class="ask-alt">
+        글보다 대화가 편하면
+        <div class="row">
+          <a class="btn btn-soft btn-sm" data-link="telegram" data-track="ask_telegram" href="#" hidden>텔레그램</a>
+          <a class="btn btn-soft btn-sm" href="mailto:hello@bibiis.ai" data-track="ask_mail">hello@bibiis.ai</a>
+        </div>
+      </div>
+    </aside>
 
-  <form id="intake" novalidate>
-    <input type="hidden" name="source" id="f-source" value="">
-    <div class="field">
-      <label for="f-plan">관심 있는 상품</label>
-      <p class="hint" id="plan-hint" hidden>요금표에서 고른 상품을 미리 표시했습니다. 바꿔도 됩니다.</p>
-      <select id="f-plan" name="plan"><option value="">아직 모름</option><option value="PoC">PoC</option><option value="MVP">MVP</option><option value="사업계획서 지원">사업계획서 지원</option><option value="설득용 랜딩">설득용 랜딩</option><option value="뒷수습">뒷수습</option><option value="포트폴리오 사이트">포트폴리오 사이트</option></select>
-    </div>
-    <div class="field">
-      <label for="f-name">1. 어떻게 불러드릴까요?</label>
-      <input id="f-name" name="name" type="text" maxlength="40" required>
-    </div>
-    <div class="field">
-      <label for="f-contact">2. 답장 받을 곳</label>
-      <div class="inline">
-        <label class="visually-hidden" for="f-channel">답장 받을 서비스</label>
-        <select id="f-channel" name="channel"><option>이메일</option><option>크몽</option><option>숨고</option></select>
-        <input id="f-contact" name="contact" type="text" maxlength="80" placeholder="주소나 아이디" required>
-      </div>
-    </div>
-    <fieldset class="field">
-      <legend>3. 지금 어떤 상황이세요?</legend>
-      <div class="opts">
-        <label><input type="radio" name="situation" value="창업 준비 중" required> 창업 준비 중</label>
-        <label><input type="radio" name="situation" value="이미 운영 중"> 이미 운영 중</label>
-        <label><input type="radio" name="situation" value="취업 준비 중"> 취업 준비 중</label>
-        <label><input type="radio" name="situation" value="그 밖에"> 그 밖에</label>
-      </div>
-    </fieldset>
-    <fieldset class="field">
-      <legend>4. 만든 것을 누구에게 보여주고 싶나요?</legend>
-      <div class="opts">
-        <label><input type="checkbox" name="audience" value="투자자"> 투자자</label>
-        <label><input type="checkbox" name="audience" value="지원사업 심사위원"> 지원사업 심사위원</label>
-        <label><input type="checkbox" name="audience" value="첫 고객"> 첫 고객</label>
-        <label><input type="checkbox" name="audience" value="함께할 사람"> 함께할 사람</label>
-        <label><input type="checkbox" name="audience" value="채용 담당자"> 채용 담당자</label>
-        <label><input type="checkbox" name="audience" value="그 밖에"> 그 밖에</label>
-      </div>
-    </fieldset>
-    <fieldset class="field">
-      <legend>5. 그 사람이 보고 나서 해 줬으면 하는 일 하나</legend>
-      <div class="opts">
-        <label><input type="radio" name="action" value="사전 신청" required> 사전 신청</label>
-        <label><input type="radio" name="action" value="미팅 요청"> 미팅 요청</label>
-        <label><input type="radio" name="action" value="결제"> 결제</label>
-        <label><input type="radio" name="action" value="면접 연락"> 면접 연락</label>
-        <label><input type="radio" name="action" value="그 밖에"> 그 밖에</label>
-      </div>
-    </fieldset>
-    <div class="field">
-      <label for="f-idea">6. 아이디어를 한 줄로 써 주세요</label>
-      <p class="hint" id="idea-hint" hidden>앞에서 쓴 한 줄을 가져왔습니다. 고쳐도 됩니다.</p>
-      <textarea id="f-idea" name="idea" maxlength="300" required></textarea>
-    </div>
-    <fieldset class="field">
-      <legend>7. 지금 가진 건요?</legend>
-      <div class="opts">
-        <label><input type="checkbox" name="have" value="아이디어만"> 아이디어만</label>
-        <label><input type="checkbox" name="have" value="기획서"> 기획서</label>
-        <label><input type="checkbox" name="have" value="디자인 시안"> 디자인 시안</label>
-        <label><input type="checkbox" name="have" value="AI로 만든 사이트"> AI로 만든 사이트</label>
-        <label><input type="checkbox" name="have" value="운영 중인 사이트"> 운영 중인 사이트</label>
-      </div>
-    </fieldset>
-    <div class="field">
-      <label for="f-when">8. 언제까지 필요하세요? 그날 무슨 일이 있나요?</label>
-      <input id="f-when" name="when" type="text" maxlength="120" placeholder="예) 11월 15일, 지원사업 서류 마감" required>
-    </div>
-    <fieldset class="field">
-      <legend>9. 생각하는 예산</legend>
-      <div class="opts">
-        <label><input type="radio" name="budget" value="10만 원 이하" required> 10만 원 이하</label>
-        <label><input type="radio" name="budget" value="10~50만"> 10~50만</label>
-        <label><input type="radio" name="budget" value="50~100만"> 50~100만</label>
-        <label><input type="radio" name="budget" value="100만 이상"> 100만 이상</label>
-        <label><input type="radio" name="budget" value="아직 모름"> 아직 모름</label>
-      </div>
-    </fieldset>
-    <div class="field">
-      <label class="opts" style="margin:0"><span style="display:inline-flex;gap:8px;align-items:center"><input id="f-agree" name="agree" type="checkbox" required> 상담 연락에만 쓰고, 계약하지 않으면 3개월 뒤 삭제합니다. 동의합니다.</span></label>
-      <a class="hint" href="/privacy/">개인정보처리방침 보기</a>
-    </div>
-    <p class="err" id="form-err" role="alert"></p>
-    <button class="btn btn-primary" type="submit" id="submit" style="width:100%">보내기</button>
-  </form>
+    <div class="form-card">
+      <form id="intake" novalidate>
+        <input type="hidden" name="source" id="f-source" value="">
 
-  <div class="done" id="done" hidden>
-    <p class="label caret-text">읽고 있습니다…</p>
-    <h2>잘 받았습니다. 48시간 안에 답장드리겠습니다.</h2>
-    <p class="muted">그사이 궁금한 점은 hello@bibiis.ai로 보내 주세요.</p>
-    <a class="btn btn-secondary" href="/" style="align-self:flex-start">처음으로</a>
+        <fieldset class="q-block" data-q="plan">
+          <legend>어떤 일을 맡기고 싶으세요?</legend>
+          <p class="hint" id="plan-hint" hidden>앞에서 고른 걸 미리 골라 뒀어요. 바꿔도 돼요.</p>
+          <div class="picks big">
+            <label><input type="radio" name="plan" value="반복 업무 자동화"><span>반복 업무 자동화<small>시트·메신저 안에서 끝나게</small></span></label>
+            <label><input type="radio" name="plan" value="출퇴근·정산"><span>출퇴근·정산<small>매장·작은 팀용, 구독료 없이</small></span></label>
+            <label><input type="radio" name="plan" value="창업팀 PoC·MVP"><span>창업팀 PoC·MVP<small>아이디어를 써 볼 수 있게</small></span></label>
+            <label><input type="radio" name="plan" value="아직 모름"><span>아직 모르겠어요<small>들어 보고 같이 정해요</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="q-block" data-q="idea">
+          <label for="f-idea">무엇이 귀찮거나, 무엇을 만들고 싶으세요?</label>
+          <p class="hint" id="idea-hint" hidden>앞에서 쓴 한 줄을 가져왔어요. 고쳐도 돼요.</p>
+          <textarea id="f-idea" name="idea" maxlength="500" required placeholder="예) 매달 말 직원 출퇴근 기록을 모아서 급여를 손으로 계산해요"></textarea>
+        </div>
+
+        <fieldset class="q-block" data-q="tools">
+          <legend>지금 쓰는 도구<span class="opt">여러 개 골라도 돼요</span></legend>
+          <div class="picks">
+            <label><input type="checkbox" name="tools" value="구글 시트"><span>구글 시트</span></label>
+            <label><input type="checkbox" name="tools" value="엑셀"><span>엑셀</span></label>
+            <label><input type="checkbox" name="tools" value="카카오톡"><span>카카오톡</span></label>
+            <label><input type="checkbox" name="tools" value="슬랙"><span>슬랙</span></label>
+            <label><input type="checkbox" name="tools" value="텔레그램"><span>텔레그램</span></label>
+            <label><input type="checkbox" name="tools" value="종이·수기"><span>종이·수기</span></label>
+            <label><input type="checkbox" name="tools" value="그 밖에"><span>그 밖에</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-block" data-q="situation">
+          <legend>지금 어디에서 일하세요?</legend>
+          <div class="picks">
+            <label><input type="radio" name="situation" value="가게·매장 운영" required><span>가게·매장 운영</span></label>
+            <label><input type="radio" name="situation" value="회사·팀"><span>회사·팀</span></label>
+            <label><input type="radio" name="situation" value="창업 준비"><span>창업 준비</span></label>
+            <label><input type="radio" name="situation" value="그 밖에"><span>그 밖에</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-block" data-q="size">
+          <legend>함께 쓸 사람<span class="opt">선택</span></legend>
+          <div class="picks">
+            <label><input type="radio" name="size" value="혼자"><span>혼자</span></label>
+            <label><input type="radio" name="size" value="2~10명"><span>2~10명</span></label>
+            <label><input type="radio" name="size" value="11~50명"><span>11~50명</span></label>
+            <label><input type="radio" name="size" value="50명 넘게"><span>50명 넘게</span></label>
+          </div>
+        </fieldset>
+
+        <div class="q-block" data-q="when">
+          <label for="f-when">언제까지 필요하세요?<span class="opt">선택</span></label>
+          <input id="f-when" name="when" type="text" maxlength="120" placeholder="예) 다음 달 정산 전까지">
+        </div>
+
+        <fieldset class="q-block" data-q="budget">
+          <legend>생각하는 예산<span class="opt">선택</span></legend>
+          <div class="picks">
+            <label><input type="radio" name="budget" value="아직 모름"><span>아직 모름</span></label>
+            <label><input type="radio" name="budget" value="50만 원 이하"><span>50만 원 이하</span></label>
+            <label><input type="radio" name="budget" value="50~100만"><span>50~100만</span></label>
+            <label><input type="radio" name="budget" value="100만 이상"><span>100만 이상</span></label>
+          </div>
+        </fieldset>
+
+        <div class="q-block" data-q="name">
+          <label for="f-name">어떻게 불러 드릴까요?</label>
+          <input id="f-name" name="name" type="text" maxlength="40" required placeholder="이름이나 가게 이름">
+        </div>
+
+        <div class="q-block" data-q="contact">
+          <label for="f-contact">답장 받을 곳</label>
+          <div class="contact-row">
+            <label class="visually-hidden" for="f-channel">답장 받을 방법</label>
+            <select id="f-channel" name="channel"><option>이메일</option><option>텔레그램</option><option>전화번호</option></select>
+            <input id="f-contact" name="contact" type="text" maxlength="80" required placeholder="name@example.com">
+          </div>
+        </div>
+
+        <div class="q-block" data-q="agree">
+          <label class="agree"><input id="f-agree" name="agree" type="checkbox" value="동의" required><span>답장에만 쓰고, 계약하지 않으면 3개월 뒤 지워요. 동의합니다. <a href="/privacy/">개인정보처리방침</a></span></label>
+        </div>
+
+        <p class="err" id="form-err" role="alert"></p>
+        <div class="send">
+          <div class="left"><b id="left-text">필수 5칸 남았어요</b><div class="meter" aria-hidden="true"><i id="meter"></i></div></div>
+          <button class="btn btn-dark" type="submit" id="submit">보내기</button>
+        </div>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <div class="note-card"><span class="ic bibi">b</span><div><b id="done-line">문의서가 도착했어요</b><small>bibi · 방금</small></div></div>
+        <h2>잘 받았어요. 48시간 안에 답장드릴게요.</h2>
+        <p>그사이 더 떠오르는 게 있으면 hello@bibiis.ai로 보내 주세요.</p>
+        <a class="btn btn-soft" href="/work/">그동안 만든 것 보기</a>
+      </div>
+    </div>
   </div>
 </main>
 
-<footer><div class="wrap"><span>bibi.is(listening) · 비비이즈 · hello@bibiis.ai</span><a href="/privacy/">개인정보처리방침</a></div></footer>
-<script src="/assets/js/config.js"></script>
-<script src="/assets/js/listening.js?v=6"></script>
+<footer>
+  <div class="wrap">
+    <span>bibi is building · 비비이즈 · bibiis.ai</span>
+    <a href="/privacy/">개인정보처리방침</a>
+  </div>
+</footer>
+<script src="/assets/js/config.js?v=4"></script>
+<script src="/assets/js/sub.js?v=1"></script>
+<script src="/assets/js/listening.js?v=7"></script>
 </body>
 </html>
