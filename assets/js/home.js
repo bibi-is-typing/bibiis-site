@@ -21,7 +21,7 @@
   /* ---------- 바깥 링크 ---------- */
   document.querySelectorAll('[data-link]').forEach(function (a) {
     var url = (C.links || {})[a.dataset.link];
-    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+    if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.hidden = false; }
   });
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-track]'); if (a) track('cta_click', { id: a.dataset.track });
