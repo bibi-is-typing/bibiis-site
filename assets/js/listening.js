@@ -8,7 +8,7 @@
 
   document.getElementById('f-source').value = params.get('from') || 'direct';
 
-  var plans = { fixing: { name: '뒷수습', budget: '10만 원 이하' }, pitch: { name: '설득용 랜딩', budget: '10~50만' }, launch: { name: '출시 마무리', budget: '50~100만' }, folio: { name: '포트폴리오 사이트' } };
+  var plans = { poc: { name: 'PoC' }, plan: { name: '사업계획서 지원' }, fixing: { name: '뒷수습', budget: '10만 원 이하' }, pitch: { name: '설득용 랜딩', budget: '10~50만' }, launch: { name: 'MVP', budget: '50~100만' }, folio: { name: '포트폴리오 사이트' } };
   var plan = plans[params.get('plan')];
   if (plan) {
     document.getElementById('f-plan').value = plan.name;
