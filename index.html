@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/home.css?v=5">
+  <link rel="stylesheet" href="/assets/css/home.css?v=6">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibi is building","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"작은 매장과 팀의 반복 업무 자동화, 구독료 없는 출퇴근·정산, 창업팀 PoC·MVP 제작.","makesOffer":[
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="feed" aria-label="이런 일이 알아서 끝나요 (예시)">
-      <p class="feed-label">방금 끝난 일 <span>· 예시</span></p>
+      <p class="feed-label">방금 끝난 일 <span>(예시)</span></p>
       <div class="ticker"><div class="track" id="feed-a"></div></div>
       <div class="ticker rev"><div class="track" id="feed-b"></div></div>
     </div>
@@ -79,9 +79,9 @@
       <div class="scene-copy">
         <span class="eyebrow">식당 출퇴근 앱</span>
         <h2>사장님은 이상한 기록만<br>대답하면 됩니다.</h2>
-        <p>직원은 매장 폰에서 자기 얼굴만 누르고, 나머지 기록과 정산은 알아서 쌓입니다. 사장님에게는 평소와 달라 보이는 것만 묻습니다. 실제 식당에서 매일 쓰고 있어요.</p>
+        <p>직원은 매장 폰에서 자기 얼굴만 누르고, 기록과 정산은 알아서 쌓여요. 사장님에게는 평소와 달라 보이는 것만 물어요. 첫 버전은 식당에서 매일 쓰고 있고, 지금은 이 새 버전을 만들고 있어요.</p>
         <p class="hint"><span class="pc">← 왼쪽</span><span class="mo">↑ 위</span> 대화에서 직접 답해 보세요.</p>
-        <a class="more" href="#restaurant">실제 화면 보기 →</a>
+        <a class="more" href="#restaurant">실제 화면 보기</a>
       </div>
     </div>
   </section>
@@ -89,12 +89,11 @@
   <section class="ladder" id="ladder" data-src>
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">작게 시작해서, 크게</span>
         <h2>자동화 하나가<br>프로덕트가 되기까지</h2>
         <p>처음부터 큰 걸 만들지 않아요. 쓰이는 걸 확인한 만큼만 키웁니다.</p>
       </div>
       <ol class="steps3">
-        <li class="step" data-reveal>
+        <li class="step">
           <span class="pill">1단계</span>
           <h3>자동화</h3>
           <p class="sub">이미 쓰는 도구에 붙이기</p>
@@ -102,7 +101,7 @@
           <ul><li>구글 시트와 메신저 알림(슬랙·텔레그램)</li><li>며칠이면 돌아가요</li><li>구독료 없음</li></ul>
           <p class="case"><b>실제 사례</b>식당 앱 첫 버전. 매장 와이파이로 출퇴근을 확인하고 시트에서 월 정산까지.</p>
         </li>
-        <li class="step" data-reveal>
+        <li class="step">
           <span class="pill">2단계</span>
           <h3>전용 앱</h3>
           <p class="sub">우리 가게·팀만의 화면</p>
@@ -110,7 +109,7 @@
           <ul><li>직원 화면과 관리자 화면</li><li>기록 수정 이력과 권한</li><li>사람이 덜 누르게 설계</li></ul>
           <p class="case"><b>실제 사례</b>식당 앱 새 버전. 얼굴만 누르면 출근, 사장님은 이상한 기록만 확인.</p>
         </li>
-        <li class="step" data-reveal>
+        <li class="step">
           <span class="pill">3단계</span>
           <h3>프로덕트</h3>
           <p class="sub">여러 팀이 쓰는 서비스</p>
@@ -135,7 +134,6 @@
   <section class="try" id="try">
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">직접 해 보기</span>
         <h2>매주 반복되는 일을<br>한 줄로 적어 보세요</h2>
         <p>어떻게 바뀌는지 바로 보여 드릴게요.</p>
       </div>
@@ -161,12 +159,11 @@
   <section id="work" data-src>
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">만든 것</span>
         <h2>실제로 매일 쓰이는 것들</h2>
         <p>받은 요청을 그대로 만들지 않고, 먼저 진짜 문제를 다시 물었습니다.</p>
       </div>
 
-      <article class="feature" id="restaurant" data-reveal>
+      <article class="feature" id="restaurant">
         <div class="flow-demo">
           <button class="flow-phone" type="button" id="flow-phone" aria-label="다음 화면 보기">
             <img class="on" src="/assets/work/restaurant/01.webp" alt="매장 공용 폰. 자기 얼굴을 누르면 출근." width="640" height="1385">
@@ -194,7 +191,7 @@
       </article>
 
       <div class="works">
-        <article class="work" data-reveal>
+        <article class="work">
           <div class="work-thumb t-blue"><div class="shots" data-shots>
             <span class="frames">
               <img class="on" src="/assets/work/attendance/01.webp" alt="근태 플랫폼 개인 홈." loading="lazy">
@@ -209,7 +206,7 @@
             <div class="qa"><p class="q">Q. 기능이 모자란 걸까, 규칙을 모르는 걸까?</p><p class="a">A. 기능을 더하지 않고, 규칙 안내와 확인 창 하나로 풀었어요.</p></div>
           </div>
         </article>
-        <article class="work" data-reveal>
+        <article class="work">
           <div class="work-thumb t-green"><div class="locked">🔒 고객사 요청으로 화면 비공개</div></div>
           <div class="work-body">
             <span class="tag">진행 중</span>
@@ -218,7 +215,7 @@
             <div class="qa"><p class="q">Q. 입력을 하나도 늘리지 않고 작업 완료를 알 수 있을까?</p><p class="a">A. 말로 보고하면 AI가 예정 작업과 맞춰 보고, 사람은 예외만 봐요.</p></div>
           </div>
         </article>
-        <article class="work" data-reveal>
+        <article class="work">
           <div class="work-thumb t-purple"><div class="shots" data-shots>
             <span class="frames">
               <img class="on" src="/assets/work/pria/01.webp" alt="PRIA 기자 검색 화면." loading="lazy">
@@ -235,35 +232,33 @@
           </div>
         </article>
       </div>
-      <p class="smalls"><span>작은 AI 도구도 만들어요</span><a href="/work/#listenote">listenote · 유튜브로 영어 리스닝 연습지</a><span class="chip-s">디스코드 영어 작문 도우미</span></p>
+      <p class="smalls"><span>작은 AI 도구도 만들어요</span><a href="/work/#listenote"><b>listenote</b> 유튜브로 영어 리스닝 연습지</a><span class="chip-s">디스코드 영어 작문 도우미</span></p>
     </div>
   </section>
 
   <section class="plans-sec" id="plans" data-src>
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">맡길 수 있는 일</span>
         <h2>이런 일을 맡겨 주세요</h2>
         <p>범위와 비용은 이야기를 듣고 함께 정해요. 30분 진단은 무료예요.</p>
       </div>
       <div class="plans">
-        <article class="plan rec" data-reveal>
-          <p class="top"><span class="emo" aria-hidden="true">🔁</span><span class="pill">가장 많이 맡기는 일</span></p>
+        <article class="plan rec">
+          <p class="top"><span class="pill">가장 많이 맡기는 일</span></p>
           <h3>반복 업무 자동화</h3>
           <p class="who">매주 같은 일을 손으로 하는 가게·팀</p>
           <ul><li>어디서 시간이 새는지 같이 찾기</li><li>가장 귀찮은 일 하나부터</li><li>구글 시트·메신저 안에서</li><li>원하면 월 관리</li></ul>
           <a class="btn btn-dark" href="/listening/?plan=auto" data-track="plan_auto">문의하기</a>
         </article>
-        <article class="plan" data-reveal>
-          <p class="top"><span class="emo" aria-hidden="true">⏰</span><span class="pill">구독료 0원</span></p>
+        <article class="plan">
+          <p class="top"><span class="pill">구독료 0원</span></p>
           <h3>출퇴근·정산</h3>
           <p class="who">작은 매장·사무실</p>
           <ul><li>매장 폰이나 와이파이로 출퇴근</li><li>구글 시트에 자동 기록, 3년 보관</li><li>우리 가게 규칙대로 월말 정산</li><li>매달 나가는 구독료 없음</li></ul>
           <a class="btn btn-soft" href="/listening/?plan=attendance" data-track="plan_attendance">문의하기</a>
         </article>
-        <article class="plan" data-reveal>
-          <p class="top"><span class="emo" aria-hidden="true">🚀</span></p>
-          <h3>창업팀 PoC·MVP</h3>
+        <article class="plan">
+                    <h3>창업팀 PoC·MVP</h3>
           <p class="who">심사·투자 미팅 전에 보여 줄 게 필요한 팀</p>
           <ul><li>핵심 기능이 실제로 도는 화면</li><li>누구에게 무엇을 물을지 검증 계획</li><li>심사용 화면·자료 정리</li><li>MVP는 로그인·저장·관리자까지</li></ul>
           <a class="btn btn-soft" href="/listening/?plan=poc" data-track="plan_poc">문의하기</a>
@@ -275,16 +270,15 @@
   <section id="deliver">
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">받게 되는 것</span>
         <h2>끝나면 이렇게 넘겨드려요</h2>
       </div>
       <ul class="tiles">
-        <li data-reveal><span aria-hidden="true">📱</span><b>작동하는 도구</b>링크나 매장 폰에서 바로 써요</li>
-        <li data-reveal><span aria-hidden="true">📄</span><b>범위 한 장</b>무엇을 바꾸고, 무엇을 안 할지</li>
-        <li data-reveal><span aria-hidden="true">🗺️</span><b>흐름도·화면 초안</b>만들기 전에 같이 봐요</li>
-        <li data-reveal><span aria-hidden="true">📘</span><b>인계 문서</b>관리 방법·계정·결정 기록</li>
-        <li data-reveal><span aria-hidden="true">🛠️</span><b>한 달 무상 수정</b>써 보고 불편한 점을 고쳐요</li>
-        <li data-reveal><span aria-hidden="true">🔑</span><b>모든 계정은 내 이름으로</b>제가 빠져도 그대로 돌아가요</li>
+        <li><b>작동하는 도구</b>링크나 매장 폰에서 바로 써요</li>
+        <li><b>범위 한 장</b>무엇을 바꾸고, 무엇을 안 할지</li>
+        <li><b>흐름도·화면 초안</b>만들기 전에 같이 봐요</li>
+        <li><b>인계 문서</b>관리 방법·계정·결정 기록</li>
+        <li><b>한 달 무상 수정</b>써 보고 불편한 점을 고쳐요</li>
+        <li><b>모든 계정은 내 이름으로</b>제가 빠져도 그대로 돌아가요</li>
       </ul>
     </div>
   </section>
@@ -292,21 +286,20 @@
   <section class="process-sec" id="process" data-src>
     <div class="wrap">
       <div class="head">
-        <span class="eyebrow">진행 방식</span>
         <h2>연락부터 인계까지 네 단계</h2>
       </div>
       <ol class="steps4">
-        <li data-reveal><span class="n">1</span><b>30분 진단</b>매주 반복되는 일을 듣고, 줄일 수 있는 부분을 짚어요.</li>
-        <li data-reveal><span class="n">2</span><b>범위 한 장</b>바꿀 일 하나와, 지금 안 할 일을 정해요.</li>
-        <li data-reveal><span class="n">3</span><b>48시간 시안</b>먼저 돌아가는 모습을 보여 드려요. 마음에 들 때 계약해요.</li>
-        <li data-reveal><span class="n">4</span><b>적용·인계</b>실제 업무에 붙이고, 관리 방법을 문서로 넘겨요.</li>
+        <li><span class="n">1</span><b>30분 진단</b>매주 반복되는 일을 듣고, 줄일 수 있는 부분을 짚어요.</li>
+        <li><span class="n">2</span><b>범위 한 장</b>바꿀 일 하나와, 지금 안 할 일을 정해요.</li>
+        <li><span class="n">3</span><b>48시간 시안</b>먼저 돌아가는 모습을 보여 드려요. 마음에 들 때 계약해요.</li>
+        <li><span class="n">4</span><b>적용·인계</b>실제 업무에 붙이고, 관리 방법을 문서로 넘겨요.</li>
       </ol>
     </div>
   </section>
 
   <section id="faq">
     <div class="wrap narrow">
-      <div class="head"><span class="eyebrow">자주 묻는 질문</span><h2>궁금한 것</h2></div>
+      <div class="head"><h2>궁금한 것</h2></div>
       <div class="faq">
         <details><summary>정말 서버비가 안 드나요?</summary><p>작은 매장·팀 규모라면 대부분 구글 시트, 앱스 스크립트, 슬랙·텔레그램처럼 이미 쓰는 도구 안에서 돌아가게 만들어요. 규모가 커져 별도 서버가 필요해지면 미리 말씀드리고 비용을 같이 정해요.</p></details>
         <details><summary>AI로 만드세요?</summary><p>네. Claude Code 같은 AI 도구로 빠르게 만들고, 무엇을 만들지 정하는 기획과 검수는 직접 합니다.</p></details>
@@ -332,12 +325,12 @@
 
 <footer>
   <div class="wrap">
-    <span>bibi is building · 비비이즈 · bibiis.ai</span>
+    <span>bibi is building (비비이즈)</span>
     <a href="/privacy/">개인정보처리방침</a>
   </div>
 </footer>
 
 <script src="/assets/js/config.js?v=4"></script>
-<script src="/assets/js/home.js?v=5"></script>
+<script src="/assets/js/home.js?v=6"></script>
 </body>
 </html>

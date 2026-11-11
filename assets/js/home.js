@@ -201,7 +201,7 @@
     } else {
       thumb = '<div class="locked">🔒 ' + h(w.locked || '화면 비공개') + '</div>';
     }
-    return '<article class="work" data-reveal><div class="work-thumb ' + h(w.tint || 't-blue') + '">' + thumb + '</div>' +
+    return '<article class="work"><div class="work-thumb ' + h(w.tint || 't-blue') + '">' + thumb + '</div>' +
       '<div class="work-body"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + h(w.tag) + '</span>' +
       '<h3><a href="/work/#' + h(w.slug) + '">' + h(w.title) + '</a></h3><p class="what">' + h(w.line) + '</p>' +
       '<div class="qa"><p class="q">Q. ' + h(w.q) + '</p><p class="a">A. ' + h(w.cardA || w.a) + '</p></div></div></article>';
@@ -216,12 +216,11 @@
       if (cards.length) {
         worksBox.innerHTML = cards.map(workCard).join('');
         bindShots(worksBox);
-        worksBox.querySelectorAll('[data-reveal]').forEach(function (n) { n.classList.add('is-in'); });
       }
       var smalls = all.filter(function (w) { return w.small; });
       if (smallsBox && smalls.length) {
         smallsBox.innerHTML = '<span>작은 AI 도구도 만들어요</span>' + smalls.map(function (w) {
-          var label = h(w.title) + (w.smallLine ? ' · ' + h(w.smallLine) : '');
+          var label = '<b>' + h(w.title) + '</b>' + (w.smallLine ? ' ' + h(w.smallLine) : '');
           return w.draft ? '<span class="chip-s">' + label + '</span>' : '<a href="/work/#' + h(w.slug) + '">' + label + '</a>';
         }).join('');
       }
@@ -275,14 +274,4 @@
     track('view_source', { on: on });
   });
 
-  /* ---------- 스크롤하면 차례로 나타나기 ---------- */
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    var items = document.querySelectorAll('[data-reveal]');
-    var rio = new IntersectionObserver(function (en) {
-      en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); rio.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    items.forEach(function (n, i) { n.style.setProperty('--i', i % 4); rio.observe(n); });
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach(function (n) { n.classList.add('is-in'); });
-  }
 })();
