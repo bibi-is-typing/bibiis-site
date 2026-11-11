@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>창업팀 PoC·MVP 제작 | bibi is building</title>
-  <meta name="description" content="지원사업·데모데이·투자 미팅 전에 실제로 돌아가는 PoC·MVP를 AI로 빠르게 만듭니다. 사업계획서에 넣을 검증 계획과 화면 자료까지. 48시간 무료 시안.">
-  <meta property="og:title" content="말로 하면 “그게 뭔데?” 보여주면, 끄덕.">
-  <meta property="og:description" content="아이디어 한 줄이면 첫 화면이 바로 생깁니다. 실제로 써 볼 수 있는 PoC·MVP까지 만듭니다.">
+  <title>반복 업무 자동화부터 프로덕트까지 | bibi is building</title>
+  <meta name="description" content="출퇴근 기록, 월말 정산, 주문 정리처럼 매주 반복되는 일을 카톡·슬랙·구글 시트 안에서 끝나게 만듭니다. 작은 자동화부터 전용 앱, 프로덕트까지 직접 만듭니다.">
+  <meta property="og:title" content="매주 하던 귀찮은 일, 이제 알아서 끝나 있게.">
+  <meta property="og:description" content="반복 업무 자동화부터 전용 앱, 프로덕트까지 직접 만듭니다. 30분 진단은 무료.">
   <meta property="og:url" content="https://bibiis.ai/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="bibi is building">
@@ -16,14 +16,13 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="말로 하면 “그게 뭔데?” 보여주면, 끄덕. 창업팀 PoC·MVP 제작, 48시간 무료 시안">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#F4F2EC">
+  <meta name="theme-color" content="#FFFFFF">
   <link rel="canonical" href="https://bibiis.ai/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/home.css?v=2">
-  <link rel="stylesheet" href="/assets/css/preview.css?v=1">
+  <link rel="stylesheet" href="/assets/css/home.css?v=3">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibi is building","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"창업팀을 위한 AI 기반 PoC·MVP 제작, 사업계획서 검증 자료, 설득용 랜딩페이지.","makesOffer":[
@@ -38,70 +37,135 @@
 <a class="visually-hidden" href="#work">본문으로 건너뛰기</a>
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="bibi is building 처음으로">bibi.is(<span class="w">building</span>)</a>
+    <a class="logo" href="/" aria-label="bibi is building 처음으로"><i></i>bibi is building</a>
     <nav class="nav-links" aria-label="페이지 안내">
-      <a href="#work">작업</a>
+      <a href="#ladder">하는 일</a>
+      <a href="#work">만든 것</a>
       <a href="#plans">맡길 일</a>
       <a href="#process">진행 방식</a>
-      <a href="#faq">자주 묻는 질문</a>
     </nav>
     <button class="icon-btn src-btn" id="src-toggle" type="button" aria-pressed="false" title="이 페이지의 코드 보기">&lt;/&gt;<span class="src-label">코드 보기</span></button>
     <button class="icon-btn" id="theme-toggle" type="button" aria-label="화면 밝기 바꾸기"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
-    <a class="btn btn-primary btn-sm" href="/listening/" data-track="nav_listening">문의하기</a>
+    <a class="btn btn-dark btn-sm" href="/listening/" data-track="nav_listening">문의하기</a>
   </div>
 </header>
 
 <main>
-  <!-- 1. 체험 먼저: 아이디어 한 줄 → 첫 화면 -->
-  <section class="hero" id="try">
+  <section class="hero">
     <div class="wrap">
-      <div class="hero-copy">
-        <span class="label">창업팀 PoC·MVP 제작</span>
-        <h1><span class="ln">말로 하면 “그게 뭔데?”</span><span class="ln">보여주면, <em>끄덕.</em></span></h1>
-        <p class="lead">아이디어를 한 줄 적어 보세요. 첫 화면이 바로 생깁니다. 이 화면을 실제로 눌러 볼 수 있는 PoC·MVP로 만드는 게 제 일입니다. 기획부터 화면, 개발까지 한 사람이 맡습니다.</p>
-        <form class="try-form" id="try-form" action="/listening/" method="get">
-          <label class="visually-hidden" for="idea">아이디어 한 줄</label>
-          <input id="idea" name="idea" type="text" maxlength="80" autocomplete="off" placeholder="예) 동네 헬스장 빈 시간을 빌려주는 서비스">
-          <button class="btn btn-primary" type="submit">첫 화면 만들기</button>
-        </form>
-        <div class="chips" aria-label="예시">
-          <button class="chip" type="button" data-idea="반려견 산책 매칭">반려견 산책 매칭</button>
-          <button class="chip" type="button" data-idea="1인 세무 상담">1인 세무 상담</button>
-          <button class="chip" type="button" data-idea="동네 빵집 미리 주문">동네 빵집 미리 주문</button>
-        </div>
-        <div class="after" id="after" hidden>
-          <p class="note">이 화면은 방금 이 페이지가 직접 그렸습니다. 여기서부터 실제로 돌아가게 만듭니다.</p>
-          <div class="row">
-            <a class="btn btn-primary" id="after-cta" href="/listening/?plan=poc&amp;from=try" data-track="try_poc">이 아이디어로 문의하기</a>
-            <a class="btn btn-line" href="#work">만든 것 먼저 보기</a>
-          </div>
-        </div>
-        <ul class="offer" aria-label="핵심 조건">
-          <li><b>48시간</b> 무료 시안</li>
-          <li><b>PRD·화면·코드</b>까지</li>
-          <li><b>사업계획서</b> 검증 자료</li>
-        </ul>
+      <span class="badge"><i></i>업무 자동화부터 프로덕트까지 직접 만듭니다</span>
+      <h1>매주 하던 귀찮은 일,<br>이제 알아서 끝나 있게.</h1>
+      <p class="lead">출퇴근 기록, 월말 정산, 주문 정리처럼 손이 가는 일을 <br class="pc">이미 쓰는 카톡·슬랙·구글 시트 안에서 끝나게 만들어 드립니다.</p>
+      <div class="row center">
+        <a class="btn btn-dark" href="#try" data-track="hero_try">반복 업무 알려 주기</a>
+        <a class="btn btn-soft" href="#work">만든 것 보기</a>
       </div>
-      <div class="browser" id="browser" aria-live="polite">
-        <div class="browser-bar">
-          <i></i><i></i><i></i>
-          <span class="url" id="pv-url">bibiis.ai/미리보기</span>
-          <span class="seg" role="group" aria-label="미리보기 크기">
-            <button type="button" data-view="pc" aria-pressed="true">PC</button><button type="button" data-view="mobile" aria-pressed="false">모바일</button>
-          </span>
+    </div>
+    <div class="feed" aria-label="이런 일이 알아서 끝나요 (예시)">
+      <p class="feed-label">방금 끝난 일 <span>· 예시</span></p>
+      <div class="ticker"><div class="track" id="feed-a"></div></div>
+      <div class="ticker rev"><div class="track" id="feed-b"></div></div>
+    </div>
+  </section>
+
+  <section class="scene" id="scene">
+    <div class="wrap">
+      <div class="chat" id="chat" aria-live="polite">
+        <p class="chat-head"><i></i>매장 알림 <span>사장님 폰</span></p>
+        <div class="chat-body" id="chat-body"></div>
+        <div class="chat-reply" id="chat-reply" hidden>
+          <button type="button" data-reply="ok">응 그렇게 해 줘</button>
+          <button type="button" data-reply="no">아니, 17시에 퇴근했어</button>
         </div>
-        <div class="preview empty" id="preview"><p>여기에 첫 화면이 생깁니다</p></div>
-        <div class="pv-note" id="pv-note" hidden></div>
+      </div>
+      <div class="scene-copy">
+        <span class="eyebrow">식당 출퇴근 앱</span>
+        <h2>사장님은 이상한 기록만<br>대답하면 됩니다.</h2>
+        <p>직원은 매장 폰에서 자기 얼굴만 누르고, 나머지 기록과 정산은 알아서 쌓입니다. 사장님에게는 평소와 달라 보이는 것만 묻습니다. 실제 식당에서 매일 쓰고 있어요.</p>
+        <p class="hint"><span class="pc">← 왼쪽</span><span class="mo">↑ 위</span> 대화에서 직접 답해 보세요.</p>
+        <a class="more" href="#restaurant">실제 화면 보기 →</a>
       </div>
     </div>
   </section>
 
-  <!-- 2. 만든 것들 -->
-  <section id="work" class="line-top" data-src>
+  <section class="ladder" id="ladder" data-src>
     <div class="wrap">
-      <div class="sec-head">
-        <div><span class="label">작업</span><h2>만든 것들.</h2></div>
-        <p class="muted">받은 요청을 그대로 만들지 않고, 먼저 질문을 다시 세웠습니다. 회사·직원 이름과 실적 숫자는 싣지 않습니다.</p>
+      <div class="head">
+        <span class="eyebrow">작게 시작해서, 크게</span>
+        <h2>자동화 하나가<br>프로덕트가 되기까지</h2>
+        <p>처음부터 큰 걸 만들지 않아요. 쓰이는 걸 확인한 만큼만 키웁니다.</p>
+      </div>
+      <ol class="steps3">
+        <li class="step" data-reveal>
+          <span class="pill">1단계</span>
+          <h3>자동화</h3>
+          <p class="sub">이미 쓰는 도구에 붙이기</p>
+          <div class="vis vis-sheet" aria-hidden="true"><span class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b>정산 완료</b></div>
+          <ul><li>구글 시트·카톡 알림·슬랙</li><li>며칠이면 돌아가요</li><li>구독료 없음</li></ul>
+          <p class="case"><b>실제 사례</b>식당 앱 첫 버전. 매장 와이파이로 출퇴근을 확인하고 시트에서 월 정산까지.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="pill">2단계</span>
+          <h3>전용 앱</h3>
+          <p class="sub">우리 가게·팀만의 화면</p>
+          <div class="vis vis-phones" aria-hidden="true"><span class="ph"><i></i><i></i><i></i></span><span class="ph"><i></i><i></i><i></i></span><em>직원 / 사장님</em></div>
+          <ul><li>직원 화면과 관리자 화면</li><li>기록 수정 이력과 권한</li><li>사람이 덜 누르게 설계</li></ul>
+          <p class="case"><b>실제 사례</b>식당 앱 새 버전. 얼굴만 누르면 출근, 사장님은 이상한 기록만 확인.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="pill">3단계</span>
+          <h3>프로덕트</h3>
+          <p class="sub">여러 팀이 쓰는 서비스</p>
+          <div class="vis vis-app" aria-hidden="true"><span class="win"><span class="dots3"><i></i><i></i><i></i></span><span class="body"><i class="side"></i><span class="lines"><i></i><i></i><i></i></span></span></span></div>
+          <ul><li>PRD·유저 플로우·화면 설계</li><li>로그인·결제·운영 도구</li><li>검증하고 덜어내며 키우기</li></ul>
+          <p class="case"><b>실제 사례</b>여러 법인이 매일 쓰는 근태·결재 플랫폼. 검증 후 다시 만든 PRIA.</p>
+        </li>
+      </ol>
+      <div class="craft">
+        <h3>프로덕트로 갈 때는 이것까지 같이 만들어요</h3>
+        <ul>
+          <li><b>PRD</b>무엇을, 왜, 어디까지</li>
+          <li><b>유저 플로우</b>처음 들어와서 목적을 이룰 때까지</li>
+          <li><b>와이어프레임</b>개발 전에 같이 보는 화면</li>
+          <li><b>결정 기록</b>무엇을 덜어냈고, 왜</li>
+          <li><b>사용 기록</b>어디서 막히는지 보이게</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="try" id="try">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">직접 해 보기</span>
+        <h2>매주 반복되는 일을<br>한 줄로 적어 보세요</h2>
+        <p>어떻게 바뀌는지 바로 보여 드릴게요.</p>
+      </div>
+      <form class="try-form" id="try-form">
+        <label class="visually-hidden" for="chore">반복되는 일 한 줄</label>
+        <input id="chore" name="chore" type="text" maxlength="60" autocomplete="off" placeholder="예) 매달 알바 근무시간 계산">
+        <button class="btn btn-brand" type="submit">어떻게 바뀌는지 보기</button>
+      </form>
+      <div class="chips" aria-label="예시">
+        <button class="chip" type="button" data-chore="매달 알바 근무시간 계산">매달 알바 근무시간 계산</button>
+        <button class="chip" type="button" data-chore="주문 엑셀 정리하고 재고 확인">주문 엑셀 정리</button>
+        <button class="chip" type="button" data-chore="휴가 신청 받고 결재">휴가 결재</button>
+        <button class="chip" type="button" data-chore="예약 확인 문자 보내기">예약 안내</button>
+      </div>
+      <div class="flow" id="flow" aria-live="polite" hidden>
+        <div class="lane before"><p class="lane-h">지금 <span id="flow-before-n"></span></p><ol id="flow-before"></ol></div>
+        <div class="lane after"><p class="lane-h">바꾸면 <span id="flow-after-n"></span></p><ol id="flow-after"></ol></div>
+        <p class="flow-foot"><span id="flow-tools"></span><a class="btn btn-dark btn-sm" id="flow-cta" href="/listening/?plan=auto&amp;from=try">이 일로 문의하기</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" data-src>
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">만든 것</span>
+        <h2>실제로 매일 쓰이는 것들</h2>
+        <p>받은 요청을 그대로 만들지 않고, 먼저 진짜 문제를 다시 물었습니다.</p>
       </div>
 
       <article class="feature" id="restaurant" data-reveal>
@@ -119,191 +183,149 @@
           </ol>
         </div>
         <div class="feature-copy">
-          <span class="work-meta">2026.09 <i class="tag live">매장에서 사용 중</i> <i class="tag wip">새 버전 제작 중</i></span>
+          <span class="tag live">매장에서 사용 중</span>
           <h3>식당 출퇴근 앱</h3>
           <p class="what">작은 식당의 직원 출퇴근 기록과 급여 정산을 챙기는 앱</p>
           <dl class="scqa">
             <div><dt>상황</dt><dd>작은 식당에서 사장님 혼자 직원 출퇴근과 급여 정산을 챙기고 있었습니다.</dd></div>
             <div><dt>문제</dt><dd>직원은 손님을 받느라 화면을 읽을 틈이 없고, 사장님은 모든 기록을 일일이 확인할 수 없었습니다.</dd></div>
             <div class="q"><dt>질문</dt><dd>직원도 사장님도 거의 아무것도 하지 않아도 기록이 맞게 남으려면?</dd></div>
-            <div class="a"><dt>답</dt><dd>직원은 매장 공용 폰에서 자기 얼굴만 누르고, 사장님에게는 평소와 달라 보이는 기록만 묻습니다.</dd></div>
+            <div class="a"><dt>답</dt><dd>직원은 자기 얼굴만 누르고, 사장님에게는 평소와 달라 보이는 기록만 묻습니다.</dd></div>
           </dl>
-          <a class="more" href="/work/#restaurant">자세히 보기 →</a>
         </div>
       </article>
 
       <div class="works">
         <article class="work" data-reveal>
-          <div class="work-thumb"><div class="shots" data-shots>
-            <span class="browser-mini"><span class="bar"><i></i><i></i><i></i></span><span class="frames">
-              <img class="on" src="/assets/work/attendance/01.webp" alt="근태 플랫폼 개인 홈. 출퇴근과 월 근태 요약." loading="lazy">
+          <div class="work-thumb t-blue"><div class="shots" data-shots>
+            <span class="frames">
+              <img class="on" src="/assets/work/attendance/01.webp" alt="근태 플랫폼 개인 홈." loading="lazy">
               <img src="/assets/work/attendance/02.webp" alt="휴가 신청 화면." loading="lazy">
-            </span></span>
+            </span>
             <span class="dots" role="group" aria-label="화면 넘기기"><button type="button" aria-label="1번 화면" aria-pressed="true"></button><button type="button" aria-label="2번 화면" aria-pressed="false"></button></span>
           </div></div>
           <div class="work-body">
-            <span class="work-meta">2026.06 <i class="tag live">운영 중</i></span>
+            <span class="tag">운영 중</span>
             <h3>사내 근태·결재 플랫폼</h3>
             <p class="what">슬랙에서 출퇴근, 휴가, 결재를 한곳에서 처리하는 사내 도구</p>
-            <p class="q"><b>질문</b>기능이 모자란 걸까, 규칙을 모르는 걸까?</p>
-            <p class="a"><b>답</b>기능을 더하지 않고, 규칙 안내와 확인 창 하나로 풀었습니다.</p>
-            <a class="more" href="/work/#attendance">자세히 보기 →</a>
+            <div class="qa"><p class="q">Q. 기능이 모자란 걸까, 규칙을 모르는 걸까?</p><p class="a">A. 기능을 더하지 않고, 규칙 안내와 확인 창 하나로 풀었어요.</p></div>
           </div>
         </article>
-
         <article class="work" data-reveal>
-          <div class="work-thumb"><div class="shots" data-shots>
-            <span class="browser-mini"><span class="bar"><i></i><i></i><i></i></span><span class="frames">
+          <div class="work-thumb t-green"><div class="locked">🔒 고객사 요청으로 화면 비공개</div></div>
+          <div class="work-body">
+            <span class="tag">진행 중</span>
+            <h3>건물청소 운영 PoC</h3>
+            <p class="what">현장 직원의 영상·음성 보고로 청소가 끝났는지 확인하는 운영 도구</p>
+            <div class="qa"><p class="q">Q. 입력을 하나도 늘리지 않고 작업 완료를 알 수 있을까?</p><p class="a">A. 말로 보고하면 AI가 예정 작업과 맞춰 보고, 사람은 예외만 봐요.</p></div>
+          </div>
+        </article>
+        <article class="work" data-reveal>
+          <div class="work-thumb t-purple"><div class="shots" data-shots>
+            <span class="frames">
               <img class="on" src="/assets/work/pria/01.webp" alt="PRIA 기자 검색 화면." loading="lazy">
               <img src="/assets/work/pria/02.webp" alt="기자 프로파일 화면." loading="lazy">
               <img src="/assets/work/pria/03.webp" alt="캠페인 매칭 화면." loading="lazy">
-            </span></span>
+            </span>
             <span class="dots" role="group" aria-label="화면 넘기기"><button type="button" aria-label="1번 화면" aria-pressed="true"></button><button type="button" aria-label="2번 화면" aria-pressed="false"></button><button type="button" aria-label="3번 화면" aria-pressed="false"></button></span>
           </div></div>
           <div class="work-body">
-            <span class="work-meta">2026.01 <i class="tag own">PoC</i></span>
+            <span class="tag">PoC</span>
             <h3>PRIA</h3>
             <p class="what">이슈를 넣으면 맞는 기자를 추천하고 피칭 초안을 써 주는 PR 담당자용 AI</p>
-            <p class="q"><b>질문</b>돈 내고 쓸 만큼 아픈 문제일까?</p>
-            <p class="a"><b>답</b>인터뷰로 먼저 확인하고, 기능을 절반 넘게 덜어낸 뒤 다시 만들었습니다.</p>
-            <a class="more" href="/work/#pria">자세히 보기 →</a>
-          </div>
-        </article>
-
-        <article class="work wip" data-reveal>
-          <div class="work-thumb"><div class="wip-box"><div><b>화면 비공개</b>진행 중인 고객사 작업이라 화면은 싣지 않습니다.</div></div></div>
-          <div class="work-body">
-            <span class="work-meta">2026.11 <i class="tag wip">PoC 진행 중</i></span>
-            <h3>건물청소 운영 PoC</h3>
-            <p class="what">현장 직원의 영상·음성 보고로 청소 작업이 끝났는지 확인하는 운영 도구</p>
-            <p class="q"><b>질문</b>입력을 하나도 늘리지 않고 작업 완료를 알 수 있을까?</p>
-            <p class="a"><b>답</b>말로 보고하면 AI가 예정 작업과 맞춰 보고, 사람은 예외만 봅니다.</p>
-          </div>
-        </article>
-
-        <article class="work" data-reveal>
-          <div class="work-thumb"><div class="shots" data-shots>
-            <span class="browser-mini"><span class="bar"><i></i><i></i><i></i></span><span class="frames">
-              <img class="on" src="/assets/work/listenote/01.webp" alt="listenote 첫 화면." loading="lazy">
-              <img src="/assets/work/listenote/02.webp" alt="스크립트 화면." loading="lazy">
-              <img src="/assets/work/listenote/03.webp" alt="연습지 미리보기 화면." loading="lazy">
-            </span></span>
-            <span class="dots" role="group" aria-label="화면 넘기기"><button type="button" aria-label="1번 화면" aria-pressed="true"></button><button type="button" aria-label="2번 화면" aria-pressed="false"></button><button type="button" aria-label="3번 화면" aria-pressed="false"></button></span>
-          </div></div>
-          <div class="work-body">
-            <span class="work-meta">2026.10 <i class="tag live">운영 중</i></span>
-            <h3>listenote</h3>
-            <p class="what">유튜브 링크를 넣으면 스크립트를 뽑아, 레벨에 맞는 빈칸 연습지와 발음기호, 정답지를 PDF로 만들어 줍니다.</p>
-            <a class="more" href="/work/#listenote">자세히 보기 →</a>
+            <div class="qa"><p class="q">Q. 돈 내고 쓸 만큼 아픈 문제일까?</p><p class="a">A. 인터뷰로 먼저 확인하고, 기능을 절반 넘게 덜어낸 뒤 다시 만들었어요.</p></div>
           </div>
         </article>
       </div>
-      <a class="work-more" href="/work/">작업 전체 보기 →</a>
+      <p class="smalls"><span>작은 AI 도구도 만들어요</span><a href="/work/#listenote">listenote · 유튜브로 영어 리스닝 연습지</a><span class="chip-s">디스코드 영어 작문 도우미</span></p>
     </div>
   </section>
 
-  <section class="belief" aria-label="일하는 방식">
+  <section class="plans-sec" id="plans" data-src>
     <div class="wrap">
-      <p>화면을 읽을 여유가 없는 사람들이 쓰는 도구를 주로 만들었습니다. <span>그래서 기능을 더하기 전에, 누르는 횟수부터 줄입니다.</span></p>
-    </div>
-  </section>
-
-  <!-- 3. 맡길 일 + 받게 되는 것 -->
-  <section id="plans" data-src>
-    <div class="wrap">
-      <div class="sec-head">
-        <div><span class="label">맡길 수 있는 일</span><h2>무엇을 맡길 수 있나요.</h2></div>
-        <p class="muted">범위와 비용은 문의 후 함께 정합니다. 48시간 안에 답장드립니다.</p>
+      <div class="head">
+        <span class="eyebrow">맡길 수 있는 일</span>
+        <h2>이런 일을 맡겨 주세요</h2>
+        <p>범위와 비용은 이야기를 듣고 함께 정해요. 30분 진단은 무료예요.</p>
       </div>
       <div class="plans">
-        <article class="plan rec">
-          <i class="tag">가장 먼저 하는 일</i>
-          <span class="name">PoC</span>
-          <p class="who">되는지 먼저 확인해야 하는 팀</p>
-          <ul><li>핵심 기능 하나가 실제 데이터로 도는 화면</li><li>검증 계획(누구에게 무엇을 물을지)</li><li>심사·IR용 화면 캡처</li></ul>
-          <a class="btn btn-primary" href="/listening/?plan=poc" data-track="price_poc">PoC 문의하기</a>
+        <article class="plan rec" data-reveal>
+          <p class="top"><span class="emo" aria-hidden="true">🔁</span><span class="pill">가장 많이 맡기는 일</span></p>
+          <h3>반복 업무 자동화</h3>
+          <p class="who">매주 같은 일을 손으로 하는 가게·팀</p>
+          <ul><li>어디서 시간이 새는지 같이 찾기</li><li>가장 귀찮은 일 하나부터</li><li>카톡·슬랙·구글 시트 안에서</li><li>원하면 월 관리</li></ul>
+          <a class="btn btn-dark" href="/listening/?plan=auto" data-track="plan_auto">문의하기</a>
         </article>
-        <article class="plan">
-          <span class="name">MVP</span>
-          <p class="who">실사용자를 받아 봐야 하는 팀</p>
-          <ul><li>로그인</li><li>데이터 저장·관리자 화면</li><li>배포</li><li>사용 기록·방문 분석</li></ul>
-          <a class="btn btn-line" href="/listening/?plan=launch" data-track="price_launch">MVP 문의하기</a>
+        <article class="plan" data-reveal>
+          <p class="top"><span class="emo" aria-hidden="true">⏰</span><span class="pill">구독료 0원</span></p>
+          <h3>출퇴근·정산</h3>
+          <p class="who">작은 매장·사무실</p>
+          <ul><li>매장 폰이나 와이파이로 출퇴근</li><li>구글 시트에 자동 기록, 3년 보관</li><li>우리 가게 규칙대로 월말 정산</li><li>매달 나가는 구독료 없음</li></ul>
+          <a class="btn btn-soft" href="/listening/?plan=attendance" data-track="plan_attendance">문의하기</a>
         </article>
-        <article class="plan">
-          <span class="name">사업계획서 지원</span>
-          <p class="who">서류 마감이 다가오는 팀</p>
-          <ul><li>아이디어 구체화</li><li>문제·해결·검증 계획 문구</li><li>PoC 화면·자료 정리</li></ul>
-          <a class="btn btn-line" href="/listening/?plan=plan" data-track="price_plan">문의하기</a>
+        <article class="plan" data-reveal>
+          <p class="top"><span class="emo" aria-hidden="true">🚀</span></p>
+          <h3>창업팀 PoC·MVP</h3>
+          <p class="who">심사·투자 미팅 전에 보여 줄 게 필요한 팀</p>
+          <ul><li>핵심 기능이 실제로 도는 화면</li><li>누구에게 무엇을 물을지 검증 계획</li><li>심사용 화면·자료 정리</li><li>MVP는 로그인·저장·관리자까지</li></ul>
+          <a class="btn btn-soft" href="/listening/?plan=poc" data-track="plan_poc">문의하기</a>
         </article>
       </div>
-
-      <div class="deliver">
-        <h3>받게 되는 것</h3>
-        <table>
-          <thead><tr><th scope="col">산출물</th><th scope="col">PoC</th><th scope="col">MVP</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">PRD<small>무엇을, 왜, 어디까지 만들지 한 장으로</small></th><td><span class="yes">●</span>한 장 요약</td><td><span class="yes">●</span></td></tr>
-            <tr><th scope="row">기능 명세<small>화면마다 할 수 있는 일과 예외</small></th><td><span class="yes">●</span>핵심 기능만</td><td><span class="yes">●</span></td></tr>
-            <tr><th scope="row">유저 플로우<small>처음 들어와서 목적을 이룰 때까지</small></th><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
-            <tr><th scope="row">와이어프레임<small>개발 전에 같이 보는 화면 초안</small></th><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
-            <tr><th scope="row">작동하는 화면<small>링크로 바로 눌러 볼 수 있게</small></th><td><span class="yes">●</span>핵심 기능 하나</td><td><span class="yes">●</span>로그인·저장·관리자까지</td></tr>
-            <tr><th scope="row">검증 계획·심사용 캡처</th><td><span class="yes">●</span></td><td><span class="yes">●</span></td></tr>
-            <tr><th scope="row">코드·계정 인계<small>처음부터 팀 이름으로</small></th><td><span class="yes">●</span></td><td><span class="yes">●</span>운영 설명서 포함</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="extras">그 밖에 설득용 랜딩페이지, <a href="/listening/?plan=fixing">AI로 만들다 막힌 사이트 뒷수습</a>, 월 운영 관리도 맡을 수 있습니다.</p>
     </div>
   </section>
 
-  <section id="process" class="line-top" data-src>
+  <section id="deliver">
     <div class="wrap">
-      <div class="sec-head"><div><span class="label">진행 방식</span><h2>연락부터 인계까지, 6단계.</h2></div></div>
-      <ol class="steps">
-        <li data-reveal><span class="n">01</span><h3>문의</h3><p>누구에게 보여줄 PoC인지, 마감이 언제인지부터 듣습니다.</p></li>
-        <li data-reveal><span class="n">02</span><h3>범위 한 장</h3><p>검증할 가설 하나와, 지금 만들지 않을 기능을 한 장에 적습니다.</p></li>
-        <li data-reveal><span class="n">03</span><h3>48시간 무료 시안</h3><p>첫 화면을 먼저 보여드립니다. 마음에 들 때 계약합니다.</p></li>
-        <li data-reveal><span class="n">04</span><h3>제작</h3><p>매일 진행 상황을 링크로 보내고, 결정한 이유는 기록으로 남깁니다.</p></li>
-        <li data-reveal><span class="n">05</span><h3>검증</h3><p>실제 사용자에게 써 보게 하고, 사업계획서에 넣을 화면을 정리합니다.</p></li>
-        <li data-reveal><span class="n">06</span><h3>인계</h3><p>코드, 계정과 함께 운영 설명서를 문서로 넘겨드립니다.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="maker" id="maker">
-    <div class="wrap">
-      <div><span class="label">만든 사람</span><h2>기획한 것을<br>직접 만드는 PM.</h2></div>
-      <ul class="facts">
-        <li><b>지금 하는 일</b><span>이커머스 회사 PM. 현업의 반복 업무를 AI로 바꾸는 일을 기획하고 직접 만듭니다.</span></li>
-        <li><b>검증 먼저</b><span>인터뷰와 지불 의사 설문으로 범위를 줄인 뒤 만듭니다.</span></li>
-        <li><b>쉬운 설명</b><span>개발 용어 없이, 팀이 결정할 것만 짚어 드립니다. 진행 상황은 매일 공유합니다.</span></li>
-        <li><b>이 사이트도</b><span>직접 만들었습니다. 위쪽 <b>코드 보기</b>를 누르면 화면 뒤의 구조가 보입니다.</span></li>
+      <div class="head">
+        <span class="eyebrow">받게 되는 것</span>
+        <h2>끝나면 이렇게 넘겨드려요</h2>
+      </div>
+      <ul class="tiles">
+        <li data-reveal><span aria-hidden="true">📱</span><b>작동하는 도구</b>링크나 매장 폰에서 바로 써요</li>
+        <li data-reveal><span aria-hidden="true">📄</span><b>범위 한 장</b>무엇을 바꾸고, 무엇을 안 할지</li>
+        <li data-reveal><span aria-hidden="true">🗺️</span><b>흐름도·화면 초안</b>만들기 전에 같이 봐요</li>
+        <li data-reveal><span aria-hidden="true">📘</span><b>인계 문서</b>관리 방법·계정·결정 기록</li>
+        <li data-reveal><span aria-hidden="true">🛠️</span><b>한 달 무상 수정</b>써 보고 불편한 점을 고쳐요</li>
+        <li data-reveal><span aria-hidden="true">🔑</span><b>모든 계정은 내 이름으로</b>제가 빠져도 그대로 돌아가요</li>
       </ul>
     </div>
   </section>
 
-  <section id="faq" data-src>
+  <section class="process-sec" id="process" data-src>
     <div class="wrap">
-      <div class="sec-head"><div><span class="label">자주 묻는 질문</span><h2>궁금한 것.</h2></div></div>
+      <div class="head">
+        <span class="eyebrow">진행 방식</span>
+        <h2>연락부터 인계까지 네 단계</h2>
+      </div>
+      <ol class="steps4">
+        <li data-reveal><span class="n">1</span><b>30분 진단</b>매주 반복되는 일을 듣고, 줄일 수 있는 부분을 짚어요.</li>
+        <li data-reveal><span class="n">2</span><b>범위 한 장</b>바꿀 일 하나와, 지금 안 할 일을 정해요.</li>
+        <li data-reveal><span class="n">3</span><b>48시간 시안</b>먼저 돌아가는 모습을 보여 드려요. 마음에 들 때 계약해요.</li>
+        <li data-reveal><span class="n">4</span><b>적용·인계</b>실제 업무에 붙이고, 관리 방법을 문서로 넘겨요.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap narrow">
+      <div class="head"><span class="eyebrow">자주 묻는 질문</span><h2>궁금한 것</h2></div>
       <div class="faq">
-        <details><summary>AI로 만드세요?</summary><p>네. Claude Code·Codex 같은 AI 도구로 빠르게 만들고, 기획과 검수는 직접 합니다.</p></details>
-        <details><summary>PoC와 MVP는 뭐가 다른가요?</summary><p>PoC는 “이게 되나?”를 확인하는 단계라 핵심 기능 하나만 만듭니다. MVP는 실제 사용자가 가입하고 계속 쓰는 단계라 로그인, 데이터 저장, 관리자 화면이 들어갑니다. 대부분 PoC부터 권합니다.</p></details>
-        <details><summary>지원사업 서류에 쓸 수 있나요?</summary><p>네. PoC 화면 캡처, 검증 계획, 사용자 반응을 사업계획서에 바로 넣을 수 있게 정리해 드립니다.</p></details>
-        <details><summary>코드와 도메인은 누구 소유인가요?</summary><p>처음부터 팀 이름으로 만듭니다. 제가 없어도 그대로 돌아가고, 다른 개발자에게 넘겨도 이어서 쓸 수 있습니다.</p></details>
-        <details><summary>시안이 마음에 안 들면요?</summary><p>무료 시안 단계라 비용 없이 그만두실 수 있습니다.</p></details>
-        <details><summary>해외에서도 진행되나요?</summary><p>처음부터 끝까지 비대면입니다. 시차가 있어도 하루 안에 답장드립니다.</p></details>
+        <details><summary>정말 서버비가 안 드나요?</summary><p>작은 매장·팀 규모라면 대부분 구글 시트, 앱스 스크립트, 카톡·슬랙처럼 이미 쓰는 도구 안에서 돌아가게 만들어요. 규모가 커져 별도 서버가 필요해지면 미리 말씀드리고 비용을 같이 정해요.</p></details>
+        <details><summary>AI로 만드세요?</summary><p>네. Claude Code 같은 AI 도구로 빠르게 만들고, 무엇을 만들지 정하는 기획과 검수는 직접 합니다.</p></details>
+        <details><summary>카톡으로도 알림을 받을 수 있나요?</summary><p>네. 카카오톡 채널의 알림 메시지나 챗봇으로 받을 수 있어요. 사업자 등록이 된 채널이 필요하고, 방식에 따라 건당 소액이 들어요.</p></details>
+        <details><summary>코드와 계정은 누구 소유인가요?</summary><p>처음부터 맡기신 분 이름으로 만듭니다. 제가 없어도 그대로 돌아가고, 다른 개발자에게 넘겨도 이어서 쓸 수 있어요.</p></details>
+        <details><summary>시안이 마음에 안 들면요?</summary><p>48시간 시안까지는 비용 없이 그만두실 수 있어요.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="contact-sec line-top" id="listening">
+  <section class="contact-sec" id="listening">
     <div class="wrap">
-      <span class="label">문의</span>
-      <h2>어떤 아이디어인지<br>들려주세요.</h2>
-      <p class="muted">48시간 안에 답장드립니다. 주말에도 확인합니다.</p>
-      <div class="row">
-        <a class="btn btn-primary" href="/listening/" data-track="cta_form">문의서 쓰기 (3분)</a>
-        <a class="btn btn-line" data-link="kmongProfile" data-track="cta_kmong" href="/listening/">크몽에서 문의하기</a>
+      <h2>매주 반복되는 일,<br>하나만 알려 주세요.</h2>
+      <p>30분 진단은 무료예요. 48시간 안에 답장드려요.</p>
+      <div class="row center">
+        <a class="btn btn-dark" href="/listening/" data-track="cta_form">문의서 쓰기 (3분)</a>
+        <a class="btn btn-soft" data-link="kmongProfile" data-track="cta_kmong" href="/listening/">크몽에서 문의하기</a>
       </div>
       <p class="mail">hello@bibiis.ai</p>
     </div>
@@ -312,13 +334,12 @@
 
 <footer>
   <div class="wrap">
-    <span>bibi.is(building) · 비비이즈 · bibiis.ai</span>
+    <span>bibi is building · 비비이즈 · bibiis.ai</span>
     <a href="/privacy/">개인정보처리방침</a>
   </div>
 </footer>
 
 <script src="/assets/js/config.js"></script>
-<script src="/assets/js/preview-kit.js?v=12"></script>
-<script src="/assets/js/home.js?v=1"></script>
+<script src="/assets/js/home.js?v=3"></script>
 </body>
 </html>
