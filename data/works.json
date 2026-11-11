@@ -1,5 +1,5 @@
 {
-  "_안내": "작업 목록은 이 파일 하나로 관리해요. 첫 화면과 /work/ 페이지가 모두 여기서 읽어요.\n- 새 작업: 캡처를 assets/work/<slug>/01.webp … 로 넣고 아래에 항목 하나를 추가(순서 = 보이는 순서).\n- shots의 kind는 pc 또는 mobile. 화면을 못 보여 주면 shots를 비우고 locked에 이유를 적어요.\n- situation·problem·q·a = 상황·문제·질문·답. built = 무엇을 만들었는지 한두 문장.\n- home: true → 첫 화면 작업 카드(앞에서부터 3개). cardA는 카드에 들어갈 짧은 답(없으면 a).\n- feature: true → 첫 화면 큰 사례(식당 앱처럼 따로 꾸민 것, HTML에 직접 있음).\n- small: true → 첫 화면 '작은 AI 도구' 줄에 이름이 나옴. smallLine은 짧은 설명.\n- draft: true → /work/ 페이지에는 아직 안 나옴(캡처·설명 준비 전).",
+  "_안내": "작업 목록은 이 파일 하나로 관리해요. 첫 화면과 /work/ 페이지가 모두 여기서 읽어요.\n- 새 작업: 캡처를 assets/work/<slug>/01.webp … 로 넣고 아래에 항목 하나를 추가(순서 = 보이는 순서).\n- shots의 kind는 pc 또는 mobile. 화면을 못 보여 주면 shots를 비우고 locked에 이유를 적어요.\n- situation·problem·q·a = 상황·문제·질문·답. built = 무엇을 만들었는지 한두 문장.\n- home: true → 첫 화면 작업 카드(앞에서부터 3개). cardA는 카드에 들어갈 짧은 답(없으면 a).\n- feature: true → 첫 화면 큰 사례(식당 앱처럼 따로 꾸민 것, HTML에 직접 있음).\n- small: true → 첫 화면 '작은 AI 도구' 줄에 이름이 나옴. smallLine은 짧은 설명.\n- illustration: \"checkin\" → 캡처 대신 다시 그린 화면(캡처를 못 쓸 때).\n- draft: true → /work/ 페이지에는 아직 안 나옴(캡처·설명 준비 전).",
   "works": [
     {
       "slug": "restaurant",
@@ -84,13 +84,35 @@
       "cardA": "기능을 더하지 않고, 규칙 안내와 확인 창 하나로 풀었어요."
     },
     {
+      "slug": "store-checkin",
+      "title": "직영점 출퇴근 웹앱",
+      "line": "서버비 없이 구글 앱스 스크립트로 만든 여러 매장용 출퇴근 기록",
+      "date": "2026",
+      "tag": "매장에서 사용 중",
+      "tagKind": "live",
+      "home": true,
+      "tint": "t-brand",
+      "illustration": "checkin",
+      "situation": "직영점 여러 곳의 교대 근무 출퇴근을 한곳에서 모아야 했습니다.",
+      "problem": "매장 밖이나 남의 폰으로 찍으면 기록을 믿을 수 없고, 매장마다 장비나 서버를 들일 수도 없었습니다.",
+      "q": "별도 장비나 서버 없이, 매장에 있는 본인만 출근을 찍게 하려면?",
+      "a": "매장에 붙은 QR로 들어와 처음 한 번만 본인 계정을 등록하고, 그 매장 와이파이에 연결돼 있을 때만 출근 버튼이 눌리게 했습니다.",
+      "cardA": "매장 QR로 들어와 처음 한 번만 등록하고, 매장 와이파이에서만 출근 버튼이 눌려요.",
+      "built": "기록은 매장별로 구글 시트에 쌓이고, 관리 권한은 인사 담당 팀에 넘겨 지금은 그 팀이 운영합니다.",
+      "stack": [
+        "Google Apps Script",
+        "Google Sheets"
+      ],
+      "shots": []
+    },
+    {
       "slug": "cleaning",
       "title": "건물청소 운영 PoC",
       "line": "현장 직원의 영상·음성 보고로 청소가 끝났는지 확인하는 운영 도구",
       "date": "2026.11",
       "tag": "진행 중",
       "tagKind": "own",
-      "home": true,
+      "home": false,
       "tint": "t-green",
       "locked": "고객사 요청으로 화면 비공개",
       "situation": "현장 직원이 건물 곳곳을 청소하고, 관리자는 작업이 끝났는지 따로 확인해야 했습니다.",

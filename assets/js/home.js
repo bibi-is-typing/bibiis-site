@@ -182,9 +182,19 @@
     });
   }
   function h(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function redraw(kind) {
+    if (kind !== 'checkin') return '';
+    return '<div class="redraw" role="img" aria-label="다시 그린 화면: 매장 QR을 찍고, 처음 한 번 본인을 등록하고, 매장 와이파이에서 출근 버튼을 누름">' +
+      '<span class="cap">다시 그린 화면</span>' +
+      '<span class="ph"><b>매장 QR</b><i class="qr"></i>찍어서 들어가기</span>' +
+      '<span class="ph"><b>처음 한 번</b><i class="field on"></i><i class="field"></i>본인 등록</span>' +
+      '<span class="ph"><b>출근</b><i class="go">출근</i><i class="wifi">매장 와이파이 ✓</i></span></div>';
+  }
   function workCard(w) {
     var thumb;
-    if (w.shots && w.shots.length) {
+    if (w.illustration) {
+      thumb = redraw(w.illustration);
+    } else if (w.shots && w.shots.length) {
       var imgs = w.shots.map(function (s, i) { return '<img' + (i ? '' : ' class="on"') + ' src="/assets/work/' + h(w.slug) + '/' + h(s.src) + '" alt="' + h(s.caption) + '" loading="lazy">'; }).join('');
       var dots = w.shots.length > 1 ? '<span class="dots" role="group" aria-label="화면 넘기기">' + w.shots.map(function (s, i) { return '<button type="button" aria-label="' + (i + 1) + '번 화면" aria-pressed="' + (i === 0) + '"></button>'; }).join('') + '</span>' : '';
       thumb = '<div class="shots" data-shots><span class="frames">' + imgs + '</span>' + dots + '</div>';
