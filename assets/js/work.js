@@ -1,45 +1,59 @@
-// 작업 목록은 data/works.json 한 곳에서 관리합니다.
+// 만든 것 페이지. 작업 목록은 data/works.json 한 곳에서 관리합니다.
 (function () {
   'use strict';
-  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-  var img = function (w, s, lazy) { return '<img src="/assets/work/' + esc(w.slug) + '/' + esc(s.src) + '" alt="' + esc(s.caption) + '"' + (lazy ? ' loading="lazy"' : '') + ' class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '">'; };
-  var frame = function (w, s, lazy) {
-    return s.kind === 'mobile'
-      ? '<span class="dev-phone"><span class="dev-notch" aria-hidden="true"></span>' + img(w, s, lazy) + '</span>'
-      : '<span class="dev-browser"><span class="dev-bar" aria-hidden="true"><i></i><i></i><i></i></span>' + img(w, s, lazy) + '</span>';
-  };
-  var tag = function (w) { return w.tag ? '<i class="tag ' + esc(w.tagKind || 'own') + '">' + esc(w.tag) + '</i>' : ''; };
-
-  function card(w) {
-    var s = w.shots && w.shots[0];
-    return '<a class="work-card" href="/work/#' + esc(w.slug) + '">' +
-      '<span class="work-thumb' + (s && s.kind === 'mobile' ? ' is-mobile' : '') + '">' + (s ? frame(w, s, true) : '') + '</span>' +
-      '<span class="work-meta"><span class="d">' + esc(w.date) + '</span>' + tag(w) + '</span>' +
-      '<b class="work-title">' + esc(w.title) + '</b><span class="work-line">' + esc(w.line) + '</span></a>';
-  }
-
-  function detail(w) {
-    var shots = (w.shots || []).map(function (s) { return '<figure class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '">' + frame(w, s, true) + '<figcaption>' + esc(s.caption) + '</figcaption></figure>'; }).join('');
-    return '<article class="work-item" id="' + esc(w.slug) + '">' +
-      '<header><span class="work-meta"><span class="d">' + esc(w.date) + '</span>' + tag(w) + '</span>' +
-      '<h2>' + esc(w.title) + '</h2><p class="work-line">' + esc(w.line) + '</p></header>' +
-      '<div class="work-text"><p>' + esc(w.problem) + '</p><p>' + esc(w.built) + '</p>' +
-      '<p class="work-stack">' + (w.stack || []).map(esc).join(' · ') + '</p>' +
-      (w.url ? '<a class="work-link" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' ↗</a>' : '') + '</div>' +
-      '<div class="work-shots">' + shots + '</div></article>';
-  }
-
-  var home = document.getElementById('work-cards');
   var list = document.getElementById('work-list');
-  if (!home && !list) return;
+  var index = document.getElementById('work-index');
+  if (!list) return;
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+
+  function shots(w) {
+    if (!w.shots || !w.shots.length) return '<div class="locked">🔒 ' + esc(w.locked || '화면 비공개') + '</div>';
+    var figs = w.shots.map(function (s, i) {
+      var big = s.kind === 'mobile' ? ' width="640" height="1385"' : '';
+      return '<figure class="' + (s.kind === 'mobile' ? 'is-mobile' : 'is-pc') + '"><span class="shot"><img src="/assets/work/' + esc(w.slug) + '/' + esc(s.src) + '" alt="' + esc(s.caption) + '"' + big + (i ? ' loading="lazy"' : '') + '></span><figcaption>' + esc(s.caption) + '</figcaption></figure>';
+    }).join('');
+    var nav = w.shots.length > 1 ? '<div class="strip-nav"><button type="button" data-dir="-1" aria-label="이전 화면">←</button><button type="button" data-dir="1" aria-label="다음 화면">→</button></div>' : '';
+    return '<div class="strip" tabindex="0" aria-label="' + esc(w.title) + ' 화면">' + figs + '</div>' + nav;
+  }
+
+  function item(w) {
+    var dl = '<dl class="scqa">' +
+      (w.situation ? '<div><dt>상황</dt><dd>' + esc(w.situation) + '</dd></div>' : '') +
+      (w.problem ? '<div><dt>문제</dt><dd>' + esc(w.problem) + '</dd></div>' : '') +
+      (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') +
+      (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
+    return '<article class="case-item" id="' + esc(w.slug) + '">' +
+      '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
+      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + dl +
+      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') +
+      (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '') +
+      '</div><div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div></article>';
+  }
+
+  function wire(art) {
+    var strip = art.querySelector('.strip'); if (!strip) return;
+    var btns = art.querySelectorAll('.strip-nav button');
+    var sync = function () {
+      if (!btns.length) return;
+      btns[0].disabled = strip.scrollLeft < 4;
+      btns[1].disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+    };
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var fig = strip.querySelector('figure');
+        strip.scrollBy({ left: (fig ? fig.offsetWidth + 16 : 300) * Number(b.dataset.dir), behavior: 'smooth' });
+      });
+    });
+    strip.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
   fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
-    var works = d.works || [];
-    if (home) home.innerHTML = works.filter(function (w) { return w.home; }).slice(0, 4).map(card).join('');
-    if (list) {
-      var nav = document.getElementById('work-nav');
-      if (nav) nav.innerHTML = works.map(card).join('');
-      list.innerHTML = works.map(detail).join('');
-      if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
-    }
-  }).catch(function () { if (home) home.innerHTML = '<p class="muted">작업 목록을 불러오지 못했습니다. <a href="/work/">작업 페이지</a>에서 보세요.</p>'; });
+    var works = (d.works || []).filter(function (w) { return !w.draft; });
+    if (index) index.innerHTML = works.map(function (w) { return '<a href="#' + esc(w.slug) + '"><i class="' + (w.tagKind === 'live' ? 'live' : '') + '"></i>' + esc(w.title) + '</a>'; }).join('');
+    list.innerHTML = works.map(item).join('');
+    list.querySelectorAll('.case-item').forEach(wire);
+    if (location.hash) { var t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) t.scrollIntoView(); }
+  }).catch(function () { list.innerHTML = '<p style="text-align:center;color:var(--ink-2)">작업 목록을 불러오지 못했어요. 새로고침해 주세요.</p>'; });
 })();

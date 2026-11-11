@@ -308,3 +308,4 @@ html.view-source [data-src] .src{display:block}
   .msg,.lane li{animation:none}
   .flow-phone img,.frames img{transition:none}
 }
+.work h3 a{color:inherit;text-decoration:none}.work h3 a:hover{color:var(--brand-ink)}

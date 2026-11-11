@@ -1,17 +1,17 @@
 /**
- * bibiis.ai 상담 폼 수신기
- * 상담 폼 → 이 웹 앱 → 구글 시트 한 줄 + hello@bibiis.ai 알림 메일
+ * bibiis.ai 문의서 수신기
+ * 문의서 → 이 웹 앱 → 구글 시트 한 줄 + hello@bibiis.ai 알림 메일
  * 설치 방법은 같은 폴더의 README.md를 보세요.
  */
-var SHEET_NAME = '상담';
+var SHEET_NAME = '문의';
 var NOTIFY_TO = 'hello@bibiis.ai';
-var FIELDS = ['submittedAt', 'source', 'plan', 'name', 'channel', 'contact', 'situation', 'audience', 'action', 'idea', 'have', 'when', 'budget', 'agree'];
+var FIELDS = ['submittedAt', 'source', 'plan', 'idea', 'tools', 'situation', 'size', 'when', 'budget', 'name', 'channel', 'contact', 'agree'];
 
 function doPost(e) {
   var data = {};
   try { data = JSON.parse(e.postData.contents); } catch (err) { return out_({ ok: false }); }
   var sheet = sheet_();
-  sheet.appendRow(FIELDS.map(function (k) { return String(data[k] || '').slice(0, 1000); }).concat(['새 상담']));
+  sheet.appendRow(FIELDS.map(function (k) { return String(data[k] || '').slice(0, 1000); }).concat(['새 문의']));
   MailApp.sendEmail({
     to: NOTIFY_TO,
     subject: '[bibi is listening] ' + (data.name || '이름 없음') + ' · ' + (data.situation || ''),
@@ -27,7 +27,7 @@ function sheet_() {
   return sh;
 }
 
-/** 매일 한 번 돌려서, 3개월 지난 미계약 상담을 지워요 (트리거로 등록) */
+/** 매일 한 번 돌려서, 3개월 지난 미계약 문의를 지워요 (트리거로 등록) */
 function purgeOld() {
   var sh = sheet_();
   var rows = sh.getDataRange().getValues();
