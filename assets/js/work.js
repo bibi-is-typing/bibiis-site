@@ -50,7 +50,7 @@
   }
 
   fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
-    var works = d.works || [];
+    var works = (d.works || []).filter(function (w) { return !w.draft; });
     if (index) index.innerHTML = works.map(function (w) { return '<a href="#' + esc(w.slug) + '"><i class="' + (w.tagKind === 'live' ? 'live' : '') + '"></i>' + esc(w.title) + '</a>'; }).join('');
     list.innerHTML = works.map(item).join('');
     list.querySelectorAll('.case-item').forEach(wire);

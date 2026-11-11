@@ -165,19 +165,58 @@
     }
   }
 
-  /* ---------- 작업 카드: 캡처 넘겨 보기 ---------- */
-  document.querySelectorAll('[data-shots]').forEach(function (box) {
-    var imgs = box.querySelectorAll('.frames img');
-    var dots = box.querySelectorAll('.dots button');
-    var cur = 0;
-    function show(n) {
-      cur = (n + imgs.length) % imgs.length;
-      imgs.forEach(function (f, i) { f.classList.toggle('on', i === cur); });
-      dots.forEach(function (d, i) { d.setAttribute('aria-pressed', i === cur); });
+  /* ---------- 작업 카드: data/works.json 한 곳에서 읽어 그리기 ---------- */
+  // HTML에 적힌 카드는 JS가 꺼져 있거나 목록을 못 읽을 때 보이는 기본값이에요.
+  function bindShots(scope) {
+    scope.querySelectorAll('[data-shots]').forEach(function (box) {
+      var imgs = box.querySelectorAll('.frames img');
+      var dots = box.querySelectorAll('.dots button');
+      var cur = 0;
+      function show(n) {
+        cur = (n + imgs.length) % imgs.length;
+        imgs.forEach(function (f, i) { f.classList.toggle('on', i === cur); });
+        dots.forEach(function (d, i) { d.setAttribute('aria-pressed', i === cur); });
+      }
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
+      box.querySelector('.frames').addEventListener('click', function () { show(cur + 1); });
+    });
+  }
+  function h(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function workCard(w) {
+    var thumb;
+    if (w.shots && w.shots.length) {
+      var imgs = w.shots.map(function (s, i) { return '<img' + (i ? '' : ' class="on"') + ' src="/assets/work/' + h(w.slug) + '/' + h(s.src) + '" alt="' + h(s.caption) + '" loading="lazy">'; }).join('');
+      var dots = w.shots.length > 1 ? '<span class="dots" role="group" aria-label="화면 넘기기">' + w.shots.map(function (s, i) { return '<button type="button" aria-label="' + (i + 1) + '번 화면" aria-pressed="' + (i === 0) + '"></button>'; }).join('') + '</span>' : '';
+      thumb = '<div class="shots" data-shots><span class="frames">' + imgs + '</span>' + dots + '</div>';
+    } else {
+      thumb = '<div class="locked">🔒 ' + h(w.locked || '화면 비공개') + '</div>';
     }
-    dots.forEach(function (d, i) { d.addEventListener('click', function () { show(i); }); });
-    box.querySelector('.frames').addEventListener('click', function () { show(cur + 1); });
-  });
+    return '<article class="work" data-reveal><div class="work-thumb ' + h(w.tint || 't-blue') + '">' + thumb + '</div>' +
+      '<div class="work-body"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + h(w.tag) + '</span>' +
+      '<h3><a href="/work/#' + h(w.slug) + '">' + h(w.title) + '</a></h3><p class="what">' + h(w.line) + '</p>' +
+      '<div class="qa"><p class="q">Q. ' + h(w.q) + '</p><p class="a">A. ' + h(w.cardA || w.a) + '</p></div></div></article>';
+  }
+  var worksBox = document.querySelector('#work .works');
+  var smallsBox = document.querySelector('#work .smalls');
+  bindShots(document);
+  if (worksBox && window.fetch) {
+    fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
+      var all = d.works || [];
+      var cards = all.filter(function (w) { return w.home && !w.feature; }).slice(0, 3);
+      if (cards.length) {
+        worksBox.innerHTML = cards.map(workCard).join('');
+        bindShots(worksBox);
+        worksBox.querySelectorAll('[data-reveal]').forEach(function (n) { n.classList.add('is-in'); });
+      }
+      var smalls = all.filter(function (w) { return w.small; });
+      if (smallsBox && smalls.length) {
+        smallsBox.innerHTML = '<span>작은 AI 도구도 만들어요</span>' + smalls.map(function (w) {
+          var label = h(w.title) + (w.smallLine ? ' · ' + h(w.smallLine) : '');
+          return w.draft ? '<span class="chip-s">' + label + '</span>' : '<a href="/work/#' + h(w.slug) + '">' + label + '</a>';
+        }).join('');
+      }
+    }).catch(function () {});
+  }
 
   /* ---------- 코드 보기: 이 페이지의 실제 구조 ---------- */
   var srcBtn = document.getElementById('src-toggle');

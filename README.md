@@ -31,6 +31,6 @@ python3 -m http.server 4173
 ## 작업 추가하기
 
 1. 캡처를 `assets/work/<slug>/01.webp`, `02.webp` … 로 넣어요. 가로 1600px(모바일 캡처는 640px) WebP면 충분해요.
-2. `data/works.json`의 `works` 맨 위에 항목을 하나 추가해요. 형식은 기존 항목을 그대로 따라 하면 돼요.
+2. `data/works.json`의 `works`에 항목을 하나 추가해요(순서 = 보이는 순서). 첫 화면 카드로 올리려면 `home: true`, 캡처가 아직 없으면 `draft: true`. 칸 설명은 파일 맨 위 `_안내`에 있어요.
 3. `home: true`인 작업 중 앞의 4개가 첫 화면 "작업" 칸에 나와요. 나머지는 `/work/` 페이지에만 나와요.
 4. 실적 숫자·금액·실명은 넣지 않아요.
