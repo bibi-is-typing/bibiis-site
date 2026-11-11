@@ -26,11 +26,11 @@
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibi is building","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"창업팀을 위한 AI 기반 PoC·MVP 제작, 사업계획서 검증 자료, 설득용 랜딩페이지.","makesOffer":[
-    {"@type":"Offer","name":"PoC","description":"핵심 기능 1개가 실제 데이터로 돌아가는 화면과 검증 계획. 상담 후 견적."},
-    {"@type":"Offer","name":"MVP","price":"1000000","priceCurrency":"KRW","description":"로그인, 데이터 저장, 관리자 화면, 배포, 사용 기록. 2~3주."},
-    {"@type":"Offer","name":"사업계획서 지원","description":"문제·해결·검증 계획 문구와 PoC 화면 자료. 상담 후 견적."},
-    {"@type":"Offer","name":"설득용 랜딩","price":"500000","priceCurrency":"KRW","description":"한 페이지 5~6개 구역, 사전 신청 폼, 검색 등록. 5일."},
-    {"@type":"Offer","name":"뒷수습","price":"100000","priceCurrency":"KRW","description":"인터넷 공개, 도메인 연결, 오류 수정. 1~3일."}]}
+    {"@type":"Offer","name":"PoC","description":"핵심 기능 1개가 실제 데이터로 돌아가는 화면과 검증 계획. 범위는 상담에서 정함."},
+    {"@type":"Offer","name":"MVP","description":"로그인, 데이터 저장, 관리자 화면, 배포, 사용 기록. 2~3주."},
+    {"@type":"Offer","name":"사업계획서 지원","description":"문제·해결·검증 계획 문구와 PoC 화면 자료. 범위는 상담에서 정함."},
+    {"@type":"Offer","name":"설득용 랜딩","description":"한 페이지 5~6개 구역, 사전 신청 폼, 검색 등록. 5일."},
+    {"@type":"Offer","name":"뒷수습","description":"인터넷 공개, 도메인 연결, 오류 수정. 1~3일."}]}
   </script>
 </head>
 <body>
@@ -49,7 +49,7 @@
       <a href="#try">만들어 보기</a>
       <a href="#stuck">이런 팀께</a>
       <a href="#shipping">작업</a>
-      <a href="#pricing">요금</a>
+      <a href="#pricing">맡길 일</a>
     </nav>
     <div class="nav-tools">
       <button class="icon-btn" id="src-toggle" type="button" aria-pressed="false" title="이 페이지의 코드 보기">&lt;/&gt;<span class="src-label">코드 보기</span></button>
@@ -146,7 +146,7 @@
       <div class="scenes" role="tabpanel" id="panel-job" aria-labelledby="tab-job" hidden>
         <a class="scene" href="#pricing"><q>첫 고객 10명에게 실제로 써 보게 하고 싶어요.</q><span>→ <b>MVP</b> · 로그인·데이터 저장·관리자 화면</span></a>
         <a class="scene" href="#pricing"><q>기능은 계속 늘어나는데, 뭘 빼야 할지 모르겠어요.</q><span>→ <b>PoC</b> · 만들지 않을 것부터</span></a>
-        <a class="scene" href="#fix-check"><q>AI로 90%는 만들었는데, 결제에서 3일째 막혀 있어요.</q><span>→ <b>뒷수습</b> · 10만 원부터</span></a>
+        <a class="scene" href="#fix-check"><q>AI로 90%는 만들었는데, 결제에서 3일째 막혀 있어요.</q><span>→ <b>뒷수습</b> · 1~3일</span></a>
         <a class="scene" href="#pricing"><q>설명하면 다들 고개는 끄덕이는데, 신청은 안 해요.</q><span>→ <b>설득용 랜딩</b> · 신청 동선부터 다시</span></a>
       </div>
       <div class="check" id="fix-check">
@@ -161,7 +161,7 @@
         </div>
         <p class="check-result" id="check-result" aria-live="polite"></p>
         <div class="check-row">
-          <a class="btn btn-primary" data-link="kmongFixing" data-track="fixing_kmong" href="/listening/?plan=fixing">뒷수습 맡기기 · 10만 원부터</a>
+          <a class="btn btn-primary" data-link="kmongFixing" data-track="fixing_kmong" href="/listening/?plan=fixing">뒷수습 맡기기</a>
           <span class="muted">저도 매일 AI 도구로 만듭니다. 어디서 자주 꼬이는지 압니다.</span>
         </div>
       </div>
@@ -181,8 +181,8 @@
         <h2>기획한 것을<br>직접 만드는 PM.</h2>
         <div class="term dracula">
           <div class="row"><span class="bullet">●</span><span class="k">지금 하는 일</span><span class="v">이커머스 회사 PM. 현업의 반복 업무를 AI로 바꾸는 일을 기획하고 직접 만듭니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">검증 먼저</span><span class="v">인터뷰와 지불 의사 설문으로 범위를 줄인 뒤 만듭니다. PoC 하나를 관리자 기능과 매칭 로직 22개를 덜어내고 4일 만에 다시 만든 적이 있습니다.</span></div>
-          <div class="row"><span class="bullet">●</span><span class="k">직접 운영</span><span class="v">슬랙과 연결한 근태 플랫폼을 개발자 없이 만들어 14개 법인 200명이 씁니다.</span></div>
+          <div class="row"><span class="bullet">●</span><span class="k">검증 먼저</span><span class="v">인터뷰와 지불 의사 설문으로 범위를 줄인 뒤 만듭니다. 검증 결과를 보고 기능 절반 이상을 덜어낸 뒤 며칠 만에 다시 만든 적이 있습니다.</span></div>
+          <div class="row"><span class="bullet">●</span><span class="k">직접 운영</span><span class="v">슬랙과 연결한 근태 플랫폼을 개발자 없이 만들어 전 직원이 매일 씁니다.</span></div>
           <div class="row"><span class="bullet">●</span><span class="k">쉬운 설명</span><span class="v">개발 용어 없이, 팀이 결정할 것만 짚어 드립니다. 진행 상황은 매일 공유합니다.</span></div>
           <div class="row"><span class="bullet">●</span><span class="k">경력 7년</span><span class="v">마케터 2년 8개월, 커뮤니케이션 그룹 리더 3년 8개월, 프로젝트 매니저. 심사위원과 고객이 어디서 고개를 끄덕이는지 압니다.</span></div>
           <div class="row"><span class="bullet">●</span><span class="k">소유권</span><span class="v">코드, 도메인, 계정은 처음부터 팀 이름으로.</span></div>
@@ -192,10 +192,10 @@
         <span class="label">작업</span>
         <h2>직접 만들고,<br>실제로 쓰이는 것.</h2>
         <div class="shiplog">
-          <details open><summary><span class="d">2026.01</span><span class="t"><b>●</b> PR 기자 매칭 AI PoC <i class="tag own">PoC</i></span><span class="r">검증 후 4일 만에 재구축</span></summary><div class="body"><p>기사 58만 건을 분석해 기자 7,115명·매체 324곳의 관심사와 보도 성향을 정리하고, 이슈를 넣으면 기자 매칭과 피칭 초안을 만드는 PoC입니다. 링크드인 공개 후 지불 의사 설문과 현업 인터뷰로 검증해 보니, 실사용자(주니어)와 도입 결정권자(시니어)의 니즈가 달랐습니다. 관리자 기능 10개와 매칭 로직 12개를 덜어내고 남은 범위를 4일 만에 다시 만들었습니다.</p></div></details>
-          <details><summary><span class="d">2026.06</span><span class="t"><b>●</b> 사내 근태 플랫폼 <i class="tag live">운영 중</i></span><span class="r">14개 법인 200명 사용</span></summary><div class="body"><p>두 개의 SaaS로 나뉘어 있던 근태 관리를 슬랙 기반 플랫폼 하나로 통합했습니다. 만들기 전에 문서 없이 운영되던 인사 정책부터 근거와 함께 명문화했습니다. 오픈 첫 주 하루 10건 넘던 문의를 분류해 보니 기능이 없어서가 아니라 규칙을 몰라서 생긴 문의였습니다. 알림 기능을 더하는 대신 규칙 공지와 확인 창 하나만 추가해, 8월 말에는 하루 0~1건이 됐습니다.</p></div></details>
+          <details open><summary><span class="d">2026.01</span><span class="t"><b>●</b> PR 기자 매칭 AI PoC <i class="tag own">PoC</i></span><span class="r">검증 후 범위를 줄여 재구축</span></summary><div class="body"><p>대규모 기사 데이터를 분석해 기자·매체별 관심사와 보도 성향을 정리하고, 이슈를 넣으면 기자 매칭과 피칭 초안을 만드는 PoC입니다. 링크드인 공개 후 지불 의사 설문과 현업 인터뷰로 검증해 보니, 실사용자(주니어)와 도입 결정권자(시니어)의 니즈가 달랐습니다. 관리자 기능과 매칭 로직 대부분을 덜어내고, 남은 범위를 며칠 만에 다시 만들었습니다.</p></div></details>
+          <details><summary><span class="d">2026.06</span><span class="t"><b>●</b> 사내 근태 플랫폼 <i class="tag live">운영 중</i></span><span class="r">전사 운영 중</span></summary><div class="body"><p>두 개의 SaaS로 나뉘어 있던 근태 관리를 슬랙 기반 플랫폼 하나로 통합했습니다. 만들기 전에 문서 없이 운영되던 인사 정책부터 근거와 함께 명문화했습니다. 오픈 첫 주에 몰린 문의를 분류해 보니 기능이 없어서가 아니라 규칙을 몰라서 생긴 문의였습니다. 알림 기능을 더하는 대신 규칙 공지와 확인 창 하나만 추가했고, 문의는 거의 사라졌습니다.</p></div></details>
           <details><summary><span class="d">2026.10</span><span class="t"><b>●</b> listenote <i class="tag live">운영 중</i></span><span class="r">AI 영어 리스닝 학습지</span></summary><div class="body"><p>영상을 넣으면 AI가 스크립트를 뽑아 빈칸 채우기 리스닝 문제지와 발음기호·정답지를 PDF로 만들어 줍니다. 태블릿으로 공부하는 학습자를 위해 만들었고, 같은 영어학원 수강생들이 실제로 쓰고 있습니다.</p></div></details>
-          <details><summary><span class="d">2026.09</span><span class="t"><b>●</b> 동네 식당 출퇴근·급여 도구 <i class="tag live">운영 중</i></span><span class="r">서버 비용 0원</span></summary><div class="body"><p>직원은 매장 와이파이에서만 출퇴근을 기록하고, 주휴수당까지 계산한 월 정산을 세무사에게 바로 넘깁니다. 같은 식당의 메뉴판과 포스터도 AI 이미지로 만들었습니다.</p></div></details>
+          <details><summary><span class="d">2026.09</span><span class="t"><b>●</b> 동네 식당 출퇴근·급여 도구 <i class="tag live">운영 중</i></span><span class="r">서버 비용 없이</span></summary><div class="body"><p>직원은 매장 와이파이에서만 출퇴근을 기록하고, 주휴수당까지 계산한 월 정산을 세무사에게 바로 넘깁니다. 같은 식당의 메뉴판과 포스터도 AI 이미지로 만들었습니다.</p></div></details>
           <details><summary><span class="d">2026.10</span><span class="t"><b>●</b> 1인 마케팅 컨설팅 회사 홈페이지 <i class="tag client">고객 작업</i></span><span class="r">소개에서 상담 신청까지</span></summary><div class="body"><p>회사 소개를 읽다가 바로 상담을 신청할 수 있도록 한 흐름으로 만들었습니다.</p></div></details>
           <details><summary><span class="d">2025.10</span><span class="t"><b>●</b> 릴리즈 → 마케팅 콘텐츠 자동 변환 <i class="tag own">해커톤 우승</i></span><span class="r">BeSir × Zerobase AI 해커톤</span></summary><div class="body"><p>GitHub 릴리즈를 세일즈·CX·마케팅용 콘텐츠로 자동 변환하는 시스템으로 우승했습니다.</p></div></details>
           <details><summary><span class="d">2026.10</span><span class="t"><b>●</b> bibiis.ai <i class="tag live">운영 중</i></span><span class="r">이름부터 사이트까지</span></summary><div class="body"><p>이름, 색, 로고, 이 사이트까지 직접 만들었습니다. 위의 <code>&lt;/&gt; 코드 보기</code>를 눌러 보세요.</p></div></details>
@@ -220,12 +220,11 @@
 
   <section id="pricing" data-src data-word="building">
     <div class="wrap">
-      <div class="section-head"><span class="label">요금</span><h2>금액은 먼저.</h2><p class="muted">정한 범위를 넘는 비용은 동의를 받은 뒤에만 청구합니다. 문의하면 48시간 안에 견적을 보내드립니다.</p></div>
+      <div class="section-head"><span class="label">맡길 수 있는 일</span><h2>무엇을 맡길 수 있나요.</h2><p class="muted">범위와 비용은 상담에서 함께 정합니다. 문의하면 48시간 안에 답장드립니다.</p></div>
       <div class="plans">
         <article class="plan rec">
           <span class="tag">가장 먼저 하는 일</span>
           <span class="name">PoC</span>
-          <span class="price"><b>상담 후</b><small>견적</small></span>
           <p class="muted">되는지 먼저 확인해야 하는 팀</p>
           <ul><li>핵심 기능 1개가 실제 데이터로 도는 화면</li><li>검증 계획(누구에게 무엇을 물을지)</li><li>심사·IR용 화면 캡처</li></ul>
           <span class="when">범위에 따라</span>
@@ -235,7 +234,6 @@
         <article class="plan">
           <span class="tag"></span>
           <span class="name">MVP</span>
-          <span class="price"><b data-count="100">100</b>만 원<small>부터</small></span>
           <p class="muted">실사용자를 받아 봐야 하는 팀</p>
           <ul><li>로그인</li><li>데이터 저장·관리자 화면</li><li>배포</li><li>사용 기록·방문 분석</li></ul>
           <span class="when">2~3주</span>
@@ -245,7 +243,6 @@
         <article class="plan">
           <span class="tag"></span>
           <span class="name">사업계획서 지원</span>
-          <span class="price"><b>상담 후</b><small>견적</small></span>
           <p class="muted">서류 마감이 다가오는 팀</p>
           <ul><li>아이디어 구체화</li><li>문제·해결·검증 계획 문구</li><li>PoC 화면·자료 정리</li></ul>
           <span class="when">마감에 맞춰</span>
@@ -254,8 +251,8 @@
         </article>
       </div>
       <div class="extras">
-        <p>설득용 랜딩 50만 원·5일 · <a href="/listening/?plan=fixing">뒷수습</a> 10만 원부터·1~3일 · 월 운영 관리 5만~10만 원</p>
-        <p>VAT 별도. 도메인과 서버 비용은 팀 계정으로 직접 결제합니다(보통 연 2만~3만 원).</p>
+        <p>그 밖에 설득용 랜딩페이지(5일), <a href="/listening/?plan=fixing">AI로 만들다 막힌 사이트 뒷수습</a>(1~3일), 월 운영 관리도 맡을 수 있습니다.</p>
+        <p>도메인과 서버는 팀 계정으로 직접 만들어 처음부터 팀 소유로 둡니다.</p>
       </div>
     </div>
   </section>
@@ -271,7 +268,6 @@
         <details><summary>코드와 도메인은 누구 소유인가요?</summary><p>처음부터 고객님 이름으로 만듭니다. 제가 없어도 사이트는 그대로 돌아가고, 다른 개발자에게 넘겨도 이어서 쓸 수 있습니다.</p></details>
         <details><summary>끝나고 나서 직접 고칠 수 있나요?</summary><p>네. 글자와 사진 바꾸는 법, 자주 묻는 문제 해결법을 문서로 정리해 드립니다. 개발자가 아니어도 따라 할 수 있게 씁니다.</p></details>
         <details><summary>검색에 등록하면 상위에 뜨나요?</summary><p>검색 등록은 구글과 네이버가 사이트를 찾을 수 있게 하는 작업입니다. 순위는 누구도 보장할 수 없어서 약속하지 않습니다. 대신 제목, 설명, 공유 이미지까지 검색과 공유에 맞게 정리해 드립니다.</p></details>
-        <details><summary>월 관리비가 있나요?</summary><p>없습니다. 수정을 맡기고 싶을 때만 월 운영 관리를 따로 신청하시면 됩니다.</p></details>
         <details><summary>시안이 마음에 안 들면요?</summary><p>무료 시안 단계라 비용 없이 그만두실 수 있습니다.</p></details>
         <details><summary>해외에서도 진행되나요?</summary><p>처음부터 끝까지 비대면입니다. 시차가 있어도 하루 안에 답장드립니다.</p></details>
       </div>
@@ -285,7 +281,7 @@
       <p class="muted">정리가 덜 됐어도 괜찮습니다. 한 줄이면 충분합니다.</p>
       <div class="row">
         <a class="btn btn-primary" data-link="kmongProfile" data-track="cta_kmong" href="/listening/">크몽에서 문의하기</a>
-        <a class="btn btn-secondary" data-link="soomgo" data-track="cta_soomgo" href="/listening/">숨고에서 견적 받기</a>
+        <a class="btn btn-secondary" data-link="soomgo" data-track="cta_soomgo" href="/listening/">숨고에서 문의하기</a>
         <a class="btn btn-ghost" href="/listening/" data-track="cta_form">상담 신청서 쓰기 (3분)</a>
       </div>
       <p class="promise">● 어느 쪽으로 보내도 48시간 안에 답장드립니다. 주말에도 확인합니다.</p>
