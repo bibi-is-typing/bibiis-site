@@ -79,7 +79,7 @@ img{max-width:100%;display:block}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .note-card{display:flex;align-items:center;gap:12px;padding:14px 18px 14px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);text-align:left;white-space:nowrap}
 .note-card .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:15px;color:#fff;flex:none}
-.ic.sheet{background:#34A853}.ic.kakao{background:#FEE500;color:#191919}.ic.slack{background:#4A154B}.ic.bibi{background:var(--brand)}
+.ic.sheet{background:#34A853}.ic.kakao{background:#FEE500;color:#191919}.ic.slack{background:#4A154B}.ic.bibi{background:var(--brand)}.ic.tg{background:#229ED9}
 .note-card b{display:block;font-size:15px;font-weight:600}
 .note-card small{font-size:13px;color:var(--ink-2)}
 
