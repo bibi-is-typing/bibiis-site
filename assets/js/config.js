@@ -6,7 +6,7 @@ window.BIBI = {
     kmongFixing: '',  // 크몽 뒷수습 상품 주소
     kmongProfile: '', // 크몽 판매자 프로필 주소
     soomgo: '',       // 숨고 고수 프로필 주소
-    telegram: ''      // 텔레그램 문의 주소. 예: 'https://t.me/bibiis_bot' (비어 있으면 버튼이 숨겨져요)
+    telegram: 'https://t.me/bibiis_ai'      // 텔레그램 문의 주소 (비우면 버튼이 숨겨져요)
   },
   threads: '',        // 스레드 아이디 (@ 없이). 예: 'bibi_is_building'
   formEndpoint: '',   // 상담 폼을 받을 구글 앱스 스크립트 웹 앱 주소 (apps-script/README.md 참고)
