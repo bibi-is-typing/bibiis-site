@@ -191,6 +191,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .more{display:inline-block;margin-top:16px;font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid currentColor}
 
 /* 작업 카드: 질문과 답, 캡처 넘기기 */
+.what{margin:0 0 10px !important;color:var(--ink-2) !important;font-size:15.5px}
+.feature .what{margin:-6px 0 18px !important}
 .work .q,.work .a{margin:0;font-size:15.5px;line-height:1.5}
 .work .q{color:var(--ink);font-weight:600}
 .work .a{color:var(--ink-2)}
