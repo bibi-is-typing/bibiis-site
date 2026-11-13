@@ -206,8 +206,11 @@
     if (w.illustration) {
       thumb = redraw(w.illustration);
     } else if (w.shots && w.shots.length) {
-      var imgs = w.shots.map(function (s, i) { return '<img' + (i ? '' : ' class="on"') + ' src="/assets/work/' + h(w.slug) + '/' + h(s.src) + '" alt="' + h(s.caption) + '" loading="lazy">'; }).join('');
-      var dots = w.shots.length > 1 ? '<span class="dots" role="group" aria-label="화면 넘기기">' + w.shots.map(function (s, i) { return '<button type="button" aria-label="' + (i + 1) + '번 화면" aria-pressed="' + (i === 0) + '"></button>'; }).join('') + '</span>' : '';
+      // 카드 틀은 가로형이라 PC 캡처만 넣는다(휴대폰 캡처는 /work/에서)
+      var list = w.shots.filter(function (s) { return s.kind !== 'mobile'; });
+      if (!list.length) list = w.shots;
+      var imgs = list.map(function (s, i) { return '<img' + (i ? '' : ' class="on"') + ' src="/assets/work/' + h(w.slug) + '/' + h(s.src) + '" alt="' + h(s.caption) + '" loading="lazy">'; }).join('');
+      var dots = list.length > 1 ? '<span class="dots" role="group" aria-label="화면 넘기기">' + list.map(function (s, i) { return '<button type="button" aria-label="' + (i + 1) + '번 화면" aria-pressed="' + (i === 0) + '"></button>'; }).join('') + '</span>' : '';
       thumb = '<div class="shots" data-shots><span class="frames">' + imgs + '</span>' + dots + '</div>';
     } else {
       thumb = '<div class="locked">🔒 ' + h(w.locked || '화면 비공개') + '</div>';

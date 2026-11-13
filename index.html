@@ -207,12 +207,20 @@
           </div>
         </article>
         <article class="work">
-          <div class="work-thumb t-green"><div class="locked">🔒 고객사 요청으로 화면 비공개</div></div>
+          <div class="work-thumb t-green"><div class="shots" data-shots>
+            <span class="frames">
+              <img class="on" src="/assets/work/buildops/01.webp" alt="BuildOps 소개 페이지." loading="lazy">
+              <img src="/assets/work/buildops/02.webp" alt="사장님 오늘 화면." loading="lazy">
+              <img src="/assets/work/buildops/03.webp" alt="현장 지도 화면." loading="lazy">
+              <img src="/assets/work/buildops/04.webp" alt="청소 전·후 사진 화면." loading="lazy">
+            </span>
+            <span class="dots" role="group" aria-label="화면 넘기기"><button type="button" aria-label="1번 화면" aria-pressed="true"></button><button type="button" aria-label="2번 화면" aria-pressed="false"></button><button type="button" aria-label="3번 화면" aria-pressed="false"></button><button type="button" aria-label="4번 화면" aria-pressed="false"></button></span>
+          </div></div>
           <div class="work-body">
             <span class="tag">진행 중</span>
-            <h3>건물청소 운영 PoC</h3>
-            <p class="what">현장 직원의 영상·음성 보고로 청소가 끝났는지 확인하는 운영 도구</p>
-            <div class="qa"><p class="q">Q. 입력을 하나도 늘리지 않고 작업 완료를 알 수 있을까?</p><p class="a">A. 말로 보고하면 AI가 예정 작업과 맞춰 보고, 사람은 예외만 봐요.</p></div>
+            <h3>BuildOps</h3>
+            <p class="what">청소 직원이 말로 보고하면 AI가 정리해 사장님과 고객에게 전하는 청소업체 운영 앱</p>
+            <div class="qa"><p class="q">Q. 입력을 하나도 늘리지 않고 작업 완료를 알 수 있을까?</p><p class="a">A. 말로 보고하면 AI가 정리하고, 사장님은 승인할 것만 봐요.</p></div>
           </div>
         </article>
         <article class="work">
@@ -232,7 +240,7 @@
           </div>
         </article>
       </div>
-      <p class="smalls"><span>작은 AI 도구도 만들어요</span><a href="/work/#listenote"><b>listenote</b> 유튜브로 영어 리스닝 연습지</a><span class="chip-s">디스코드 영어 작문 도우미</span></p>
+      <p class="smalls"><span>작은 AI 도구도 만들어요</span><a href="/work/#listenote"><b>listenote</b> 유튜브로 영어 리스닝 연습지</a><a href="/work/#discord-writing"><b>Benny</b> 디스코드 영어 작문 도우미</a></p>
     </div>
   </section>
 
@@ -331,6 +339,6 @@
 </footer>
 
 <script src="/assets/js/config.js?v=4"></script>
-<script src="/assets/js/home.js?v=7"></script>
+<script src="/assets/js/home.js?v=8"></script>
 </body>
 </html>
