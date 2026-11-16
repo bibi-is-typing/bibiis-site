@@ -1,4 +1,4 @@
-/* bibi is building — industry stage, manifesto word light-up, section counter */
+/* bibiis.ai — industry stage, manifesto word light-up, section counter */
 (function () {
   'use strict';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
