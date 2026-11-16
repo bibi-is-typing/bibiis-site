@@ -1,4 +1,4 @@
-/* bibi is building — "만들어 보기" mini-site generator.
+/* bibiis.ai — "만들어 보기" mini-site generator.
    The idea text picks an industry; the industry decides copy, tone, palette and layout.
    The same idea always renders the same page (seeded by a hash of the text). */
 (function () {

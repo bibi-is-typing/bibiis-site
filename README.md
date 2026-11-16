@@ -1,6 +1,6 @@
 # bibiis.ai
 
-bibi is building 홈페이지. 빌드 도구 없는 정적 사이트(HTML·CSS·JS)라 GitHub Pages에 그대로 올라가요.
+bibiis.ai 홈페이지. 빌드 도구 없는 정적 사이트(HTML·CSS·JS)라 GitHub Pages에 그대로 올라가요.
 
 ## 고칠 곳
 
