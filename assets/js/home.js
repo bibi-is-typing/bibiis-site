@@ -205,6 +205,10 @@
     var thumb;
     if (w.illustration) {
       thumb = redraw(w.illustration);
+    } else if (w.covers && w.covers.length) {
+      var cimgs = w.covers.map(function (c, i) { return '<img' + (i ? '' : ' class="on"') + ' src="/assets/work/' + h(w.slug) + '/' + h(c.src) + '" alt="' + h(c.alt) + '" loading="lazy">'; }).join('');
+      var cdots = w.covers.length > 1 ? '<span class="dots" role="group" aria-label="이미지 넘기기">' + w.covers.map(function (c, i) { return '<button type="button" aria-label="' + (i + 1) + '번 이미지" aria-pressed="' + (i === 0) + '"></button>'; }).join('') + '</span>' : '';
+      thumb = '<div class="shots is-cover" data-shots><span class="frames">' + cimgs + '</span>' + cdots + '</div>';
     } else if (w.shots && w.shots.length) {
       // 카드 틀은 가로형이라 PC 캡처만 넣는다(휴대폰 캡처는 /work/에서)
       var list = w.shots.filter(function (s) { return s.kind !== 'mobile'; });
@@ -215,7 +219,7 @@
     } else {
       thumb = '<div class="locked">🔒 ' + h(w.locked || '화면 비공개') + '</div>';
     }
-    return '<article class="work"><div class="work-thumb ' + h(w.tint || 't-blue') + '">' + thumb + '</div>' +
+    return '<article class="work"><div class="work-thumb ' + h(w.tint || 't-blue') + (w.covers && w.covers.length ? ' is-cover' : '') + '">' + thumb + '</div>' +
       '<div class="work-body"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + h(w.tag) + '</span>' +
       '<h3><a href="/work/#' + h(w.slug) + '">' + h(w.title) + '</a></h3><p class="what">' + h(w.line) + '</p>' +
       '<div class="qa"><p class="q">Q. ' + h(w.q) + '</p><p class="a">A. ' + h(w.cardA || w.a) + '</p></div></div></article>';
