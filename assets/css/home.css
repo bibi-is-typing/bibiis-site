@@ -145,6 +145,11 @@ section{padding:104px 0}
 .step-img:hover img{transform:translateY(-3px)}
 .step-vis{height:auto;aspect-ratio:16/10}
 .step .cat-links{margin-top:auto}
+.step-go{margin-top:auto;padding-top:6px;font-size:14.5px;font-weight:700;color:var(--ink);text-decoration:none}
+.step-go:hover{text-decoration:underline}
+.craft-line{margin:28px 0 0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;font-size:15px;color:var(--ink-2)}
+.craft-line b{font-weight:600;color:var(--ink)}
+.craft-line span{padding:5px 11px;border-radius:999px;background:var(--soft);font-weight:600;color:var(--ink);font-size:14px}
 .cats-more{margin:18px 0 0;text-align:center}
 .wall{margin:28px 0 0}
 .wall .track{gap:12px;padding:6px 0}
