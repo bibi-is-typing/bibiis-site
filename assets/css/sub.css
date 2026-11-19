@@ -90,6 +90,21 @@
 .strip-nav{display:flex;gap:6px;justify-content:flex-end;padding-right:28px}
 .strip-nav button{width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--ink);cursor:pointer;font-size:16px;box-shadow:var(--shadow)}
 .strip-nav button:disabled{opacity:.35;cursor:default}
+.case-cover{grid-column:1/-1;position:relative;border-bottom:1px solid var(--line);background:var(--soft)}
+.cover-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 24px 24px;scrollbar-width:none}
+.cover-track::-webkit-scrollbar{display:none}
+.cover-track a{flex:none;width:min(820px,78%);scroll-snap-align:center;border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.cover-track a:only-child{width:min(820px,100%);margin:0 auto}
+.cover-track img{display:block;width:100%;height:auto}
+.cover-nav{position:absolute;right:24px;bottom:36px;display:flex;gap:6px}
+.cover-nav button{width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--ink);cursor:pointer;font-size:16px;box-shadow:var(--shadow)}
+.cover-nav button:disabled{opacity:.35;cursor:default}
+.case-copy .roles{margin:10px 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.case-copy .roles div{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:baseline}
+.case-copy .roles dt{font-size:12.5px;font-weight:700;color:var(--brand-ink);letter-spacing:-.01em}
+.case-copy .roles dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
+.case-copy .stack{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.case-copy .stack li{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
 .case-shots .locked{align-self:center;padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;color:var(--ink-2)}
 .work-cta{text-align:center;padding:40px 0 104px}
 .work-cta h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;margin:0 0 18px}
@@ -117,6 +132,9 @@
   .picks.big span{min-width:0}
   .case-copy{padding:24px 20px}
   .case-shots{padding:20px 0 20px 20px}
+  .cover-track{padding:16px 20px;gap:10px}
+  .cover-track a{width:88%;border-radius:12px}
+  .cover-nav{display:none}
   .strip-nav{display:none}
   .strip figure.is-pc{width:86%}
   .strip figure.is-mobile{width:62%}

@@ -24,37 +24,52 @@
     return '<div class="strip" tabindex="0" aria-label="' + esc(w.title) + ' 화면">' + figs + '</div>' + nav;
   }
 
+  function cover(w) {
+    if (!w.covers || !w.covers.length) return '';
+    var imgs = w.covers.map(function (c, i) {
+      var src = '/assets/work/' + esc(w.slug) + '/' + esc(c.src);
+      return '<a href="' + src + '" target="_blank" rel="noopener"><img src="' + src + '" alt="' + esc(c.alt) + '" width="1600" height="1000"' + (i ? ' loading="lazy"' : '') + '></a>';
+    }).join('');
+    var nav = w.covers.length > 1 ? '<div class="cover-nav"><button type="button" data-dir="-1" aria-label="이전 이미지">←</button><button type="button" data-dir="1" aria-label="다음 이미지">→</button></div>' : '';
+    return '<div class="case-cover"><div class="cover-track" tabindex="0" aria-label="' + esc(w.title) + ' 소개 이미지">' + imgs + '</div>' + nav + '</div>';
+  }
+  function roles(w) {
+    var r = (w.roles || []).map(function (x) { return '<div><dt>' + esc(x.k) + '</dt><dd>' + esc(x.v) + '</dd></div>'; }).join('');
+    var st = (w.stack || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    return (r ? '<dl class="roles">' + r + '</dl>' : '') + (st ? '<ul class="stack" aria-label="사용 기술">' + st + '</ul>' : '');
+  }
+
   function item(w) {
     var dl = '<dl class="scqa">' +
       (w.situation ? '<div><dt>상황</dt><dd>' + esc(w.situation) + '</dd></div>' : '') +
       (w.problem ? '<div><dt>문제</dt><dd>' + esc(w.problem) + '</dd></div>' : '') +
       (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') +
       (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
-    return '<article class="case-item" id="' + esc(w.slug) + '">' +
+    return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
       '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + dl +
-      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') +
+      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + roles(w) +
       (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '') +
       '</div><div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div></article>';
   }
 
-  function wire(art) {
-    var strip = art.querySelector('.strip'); if (!strip) return;
-    var btns = art.querySelectorAll('.strip-nav button');
+  function slider(track, btns, step) {
+    if (!track) return;
     var sync = function () {
       if (!btns.length) return;
-      btns[0].disabled = strip.scrollLeft < 4;
-      btns[1].disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4;
+      btns[0].disabled = track.scrollLeft < 4;
+      btns[1].disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
     };
     btns.forEach(function (b) {
-      b.addEventListener('click', function () {
-        var fig = strip.querySelector('figure');
-        strip.scrollBy({ left: (fig ? fig.offsetWidth + 16 : 300) * Number(b.dataset.dir), behavior: 'smooth' });
-      });
+      b.addEventListener('click', function () { track.scrollBy({ left: step(track) * Number(b.dataset.dir), behavior: 'smooth' }); });
     });
-    strip.addEventListener('scroll', sync, { passive: true });
+    track.addEventListener('scroll', sync, { passive: true });
     window.addEventListener('resize', sync);
     sync();
+  }
+  function wire(art) {
+    slider(art.querySelector('.strip'), art.querySelectorAll('.strip-nav button'), function (t) { var f = t.querySelector('figure'); return f ? f.offsetWidth + 16 : 300; });
+    slider(art.querySelector('.cover-track'), art.querySelectorAll('.cover-nav button'), function (t) { var a = t.querySelector('a'); return a ? a.offsetWidth + 16 : 600; });
   }
 
   fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
