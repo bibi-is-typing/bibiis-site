@@ -255,3 +255,28 @@
   .case-head h2{font-size:26px}
   .ba2 .a{margin-left:0}
 }
+
+/* 카드 v3: 왼쪽 프로덕트 한 장 + 오른쪽 설명 한 덩어리 */
+.case-item.v3{grid-template-columns:minmax(0,7fr) minmax(0,5fr);align-items:stretch}
+.v3 .case-cover{grid-column:auto;border-bottom:0;border-right:1px solid var(--line);display:flex;align-items:center}
+.v3 .cover-track{padding:22px;scroll-padding-inline:22px;width:100%}
+.v3 .cover-track a{width:100%;scroll-snap-align:start}
+.v3 .cover-nav{right:34px;bottom:34px}
+.v3 .cover-count{left:34px;bottom:40px}
+.case-desc{padding:30px 32px;display:flex;flex-direction:column;gap:12px}
+.case-desc .meta{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink-2)}
+.case-desc h2{font-size:28px;letter-spacing:-.035em;margin:0}
+.case-desc .what{margin:-4px 0 0;color:var(--ink-2);font-size:15.5px;word-break:keep-all}
+.case-desc .scale{margin:0;font-size:13.5px;font-weight:700;color:var(--acc-ink,var(--brand-ink))}
+.case-desc .ba2 .a{margin-left:0}
+.case-desc .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--acc-ink,var(--brand-ink));text-decoration:none}
+.case-desc .stack-line{margin:0}
+@media (max-width:1000px){
+  .case-item.v3{grid-template-columns:minmax(0,1fr)}
+  .v3 .case-cover{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .v3 .cover-track{padding:14px}
+  .case-desc{padding:22px 20px 24px}
+  .case-desc h2{font-size:24px}
+}
