@@ -99,12 +99,18 @@
 .cover-nav{position:absolute;right:24px;bottom:36px;display:flex;gap:6px}
 .cover-nav button{width:36px;height:36px;border-radius:50%;border:0;background:var(--card);color:var(--ink);cursor:pointer;font-size:16px;box-shadow:var(--shadow)}
 .cover-nav button:disabled{opacity:.35;cursor:default}
-.case-copy .roles{margin:10px 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
-.case-copy .roles div{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:baseline}
-.case-copy .roles dt{font-size:12.5px;font-weight:700;color:var(--brand-ink);letter-spacing:-.01em}
-.case-copy .roles dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
-.case-copy .stack{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.case-copy .stack li{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.roles{margin:10px 0 0;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.roles div{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;align-items:baseline}
+.roles dt{font-size:12.5px;font-weight:700;color:var(--brand-ink);letter-spacing:-.01em}
+.roles dd{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink)}
+.stack{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.stack li{font-size:12.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.case-roles{padding:34px 36px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.case-roles .roles{margin:0;padding:0;border:0;gap:18px}
+.case-roles .roles div{grid-template-columns:64px minmax(0,1fr);gap:14px}
+.case-roles .roles dt{font-size:13.5px}
+.case-roles .roles dd{font-size:16px;line-height:1.6}
+.case-roles .stack li{background:var(--card)}
 .case-shots .locked{align-self:center;padding:10px 16px;border-radius:999px;background:var(--card);font-size:14px;color:var(--ink-2)}
 .work-cta{text-align:center;padding:40px 0 104px}
 .work-cta h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.03em;margin:0 0 18px}
@@ -131,6 +137,9 @@
   .picks.big{grid-template-columns:1fr}
   .picks.big span{min-width:0}
   .case-copy{padding:24px 20px}
+  .case-roles{padding:24px 20px}
+  .case-roles .roles div{grid-template-columns:52px minmax(0,1fr);gap:10px}
+  .case-roles .roles dd{font-size:15px}
   .case-shots{padding:20px 0 20px 20px}
   .cover-track{padding:16px 20px;gap:10px}
   .cover-track a{width:88%;border-radius:12px}

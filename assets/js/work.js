@@ -40,6 +40,7 @@
   }
 
   function item(w) {
+    var hasCover = !!(w.covers && w.covers.length);
     var dl = '<dl class="scqa">' +
       (w.situation ? '<div><dt>상황</dt><dd>' + esc(w.situation) + '</dd></div>' : '') +
       (w.problem ? '<div><dt>문제</dt><dd>' + esc(w.problem) + '</dd></div>' : '') +
@@ -48,9 +49,11 @@
     return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
       '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + dl +
-      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + roles(w) +
+      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + (hasCover ? '' : roles(w)) +
       (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '') +
-      '</div><div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div></article>';
+      '</div>' + (hasCover
+        ? '<div class="case-roles ' + esc(w.tint || 't-blue') + '">' + roles(w) + '</div>'
+        : '<div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div>') + '</article>';
   }
 
   function slider(track, btns, step) {
