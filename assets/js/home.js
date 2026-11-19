@@ -73,41 +73,46 @@
   }
   fillFeed('feed-a', FEED_A); fillFeed('feed-b', FEED_B);
 
-  /* ---------- 사장님 대화: 보이면 차례로 오고, 직접 답해 볼 수 있음 ---------- */
-  var chatBody = document.getElementById('chat-body');
-  var chatReply = document.getElementById('chat-reply');
-  var chatStarted = false;
-  function say(text, me, delay) {
-    return new Promise(function (res) {
-      if (reduceMotion || me) { setTimeout(function () { chatBody.appendChild(el('div', 'msg' + (me ? ' me' : ''), text)); res(); }, reduceMotion ? 0 : (me ? 120 : delay)); return; }
-      var dots = el('div', 'msg typing', '•••');
-      setTimeout(function () {
-        chatBody.appendChild(dots);
-        setTimeout(function () { dots.remove(); chatBody.appendChild(el('div', 'msg', text)); res(); }, 700);
-      }, delay);
+  /* ---------- 자동 정리 데모: 받은 메시지를 브라우저 안에서 표로 (assets/js/tidy.js) ---------- */
+  var AI_SAMPLES = {
+    work: '사장님 저 민지예요! 어제 10시에 와서 4시에 갔어요\n오늘은 11시에 왔고 6시 반까지 할게요\n아 그리고 토요일은 못 나와요 ㅠㅠ',
+    booking: '안녕하세요~ 내일 저녁 7시에 4명 예약 될까요? 이름은 박서준이고 010-0000-1234예요. 아기 의자 하나 부탁드려요!',
+    order: '카페라떼 2잔이랑 아아 1잔이요! 3시에 가지러 갈게요. 라떼 하나는 디카페인으로 해 주세요'
+  };
+  var aiCard = document.getElementById('ai-card');
+  if (aiCard && window.BibiTidy) {
+    var aiText = document.getElementById('ai-text'), aiOut = document.getElementById('ai-out'), aiGo = document.getElementById('ai-go'), aiN = document.getElementById('ai-n');
+    var aiKind = 'work';
+    var count = function () { aiN.textContent = aiText.value.length + ' / 400'; };
+    var setKind = function (k) {
+      aiKind = k;
+      aiCard.querySelectorAll('.ai-tabs button').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.kind === k); });
+      aiText.value = AI_SAMPLES[k]; aiOut.hidden = true; aiOut.innerHTML = ''; count();
+    };
+    var render = function (d) {
+      aiOut.innerHTML = '';
+      var head = el('p', 'ai-head'); head.appendChild(el('b', null, d.title)); aiOut.appendChild(head);
+      if (d.rows.length) {
+        var wrap = el('div', 'ai-table'), t = el('table'), tr = el('tr'), th = el('thead'), tb = el('tbody');
+        d.columns.forEach(function (c) { tr.appendChild(el('th', null, c)); }); th.appendChild(tr); t.appendChild(th);
+        d.rows.forEach(function (r, i) { var row = el('tr'); row.style.animationDelay = (i * 90) + 'ms'; r.forEach(function (v) { row.appendChild(el('td', v ? null : 'empty', v || '–')); }); tb.appendChild(row); });
+        t.appendChild(tb); wrap.appendChild(t); aiOut.appendChild(wrap);
+      }
+      if (d.checks.length) { var ul = el('ul', 'ai-checks'); d.checks.forEach(function (c) { ul.appendChild(el('li', null, c)); }); aiOut.appendChild(ul); }
+      aiOut.appendChild(el('p', 'ai-reply', d.reply));
+      aiOut.hidden = false;
+    };
+    aiCard.querySelector('.ai-tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setKind(b.dataset.kind); });
+    aiText.addEventListener('input', count);
+    document.getElementById('ai-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = aiText.value.trim(); if (!text) { aiText.focus(); return; }
+      aiGo.disabled = true;
+      aiOut.hidden = false; aiOut.innerHTML = ''; aiOut.appendChild(el('p', 'ai-wait', '메시지를 읽고 있어요 •••'));
+      setTimeout(function () { render(window.BibiTidy.parse(aiKind, text)); aiGo.disabled = false; }, reduceMotion ? 0 : 450);
+      track('tidy_demo', { kind: aiKind, edited: text !== AI_SAMPLES[aiKind].trim() });
     });
-  }
-  function startChat() {
-    if (chatStarted || !chatBody) return; chatStarted = true;
-    say('이번 달 정산표 만들어 뒀어요. 확인할 기록은 1건이에요.', false, 300)
-      .then(function () { return say('뭐가 이상한데?', true, 900); })
-      .then(function () { return say('수요일 홀 직원 퇴근이 안 찍혔어요. 평소처럼 18시로 할까요?', false, 500); })
-      .then(function () { chatReply.hidden = false; });
-  }
-  if (chatReply) chatReply.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    chatReply.hidden = true;
-    var ok = b.dataset.reply === 'ok';
-    say(b.textContent, true, 0)
-      .then(function () { return say(ok ? '18시로 반영했어요. 정산표 보내 드릴게요 📄' : '17시로 고쳤어요. 고친 기록은 이력에 남겨 둘게요.', false, 300); })
-      .then(function () { return say('다른 기록은 모두 평소와 같았어요. 이번 달 정산 끝!', false, 400); });
-    track('chat_reply', { ok: ok });
-  });
-  if (chatBody) {
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var cio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { startChat(); cio.disconnect(); } }, { threshold: 0.4 });
-      cio.observe(chatBody);
-    } else startChat();
+    setKind('work');
   }
 
   /* ---------- 직접 해 보기: 반복되는 일 한 줄 → 바뀌는 흐름 ---------- */

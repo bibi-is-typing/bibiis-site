@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/home.css?v=10">
+  <link rel="stylesheet" href="/assets/css/home.css?v=11">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibiis.ai","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"작은 매장과 팀의 반복 업무 자동화, 구독료 없는 출퇴근·정산, 창업팀 PoC·MVP 제작.","makesOffer":[
@@ -66,22 +66,27 @@
     </div>
   </section>
 
-  <section class="scene" id="scene">
+  <section class="scene ai" id="scene">
     <div class="wrap">
-      <div class="chat" id="chat" aria-live="polite">
-        <p class="chat-head"><i></i>매장 알림 <span>사장님 폰</span></p>
-        <div class="chat-body" id="chat-body"></div>
-        <div class="chat-reply" id="chat-reply" hidden>
-          <button type="button" data-reply="ok">응 그렇게 해 줘</button>
-          <button type="button" data-reply="no">아니, 17시에 퇴근했어</button>
+      <div class="ai-card" id="ai-card">
+        <div class="ai-tabs" role="tablist" aria-label="메시지 종류">
+          <button type="button" role="tab" aria-selected="true" data-kind="work">알바 근무 카톡</button>
+          <button type="button" role="tab" aria-selected="false" data-kind="booking">예약 문자</button>
+          <button type="button" role="tab" aria-selected="false" data-kind="order">주문 카톡</button>
         </div>
+        <form class="ai-form" id="ai-form">
+          <label class="visually-hidden" for="ai-text">받은 메시지</label>
+          <textarea id="ai-text" rows="4" maxlength="400"></textarea>
+          <div class="ai-row"><span class="ai-n" id="ai-n"></span><button class="btn btn-brand" type="submit" id="ai-go">표로 정리해 줘</button></div>
+        </form>
+        <div class="ai-out" id="ai-out" aria-live="polite" hidden></div>
       </div>
       <div class="scene-copy">
-        <span class="eyebrow">식당 출퇴근 앱</span>
-        <h2>사장님은 이상한 기록만<br>대답하면 됩니다.</h2>
-        <p>직원은 매장 폰에서 자기 얼굴만 누르고, 기록과 정산은 알아서 쌓여요. 사장님에게는 평소와 달라 보이는 것만 물어요. 첫 버전은 식당에서 매일 쓰고 있고, 지금은 이 새 버전을 만들고 있어요.</p>
-        <p class="hint"><span class="pc">← 왼쪽</span><span class="mo">↑ 위</span> 대화에서 직접 답해 보세요.</p>
-        <a class="more" href="#restaurant">실제 화면 보기</a>
+        <span class="eyebrow">직접 해 보기</span>
+        <h2>받은 카톡 그대로 넣으면,<br>표로 정리해 드려요.</h2>
+        <p>알바 근무 시간, 예약 문의, 주문 카톡. 매일 받는 메시지를 표 한 줄로 바꾸고, 사장님에게는 확인할 것만 물어요. 이름이나 시간을 바꿔서 넣어 봐도 돼요.</p>
+        <p class="hint"><span class="pc">← 왼쪽</span><span class="mo">↑ 위</span>에서 바로 눌러 보세요.</p>
+        <a class="more" href="/work/">이렇게 만든 것들 보기</a>
       </div>
     </div>
   </section>
@@ -351,8 +356,9 @@
   </div>
 </footer>
 
-<script src="/assets/js/config.js?v=4"></script>
-<script src="/assets/js/home.js?v=9"></script>
+<script src="/assets/js/config.js?v=5"></script>
+<script src="/assets/js/tidy.js?v=1"></script>
+<script src="/assets/js/home.js?v=10"></script>
 <script src="/assets/js/hero-dither.js?v=1"></script>
 </body>
 </html>
