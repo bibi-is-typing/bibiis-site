@@ -5,12 +5,12 @@
   var params = new URLSearchParams(location.search);
   var form = document.getElementById('intake');
   var err = document.getElementById('form-err');
-  var NEED = ['idea', 'situation', 'name', 'contact', 'agree'];
+  var NEED = ['idea', 'name', 'contact', 'agree'];
   var LABEL = { idea: '귀찮은 일', situation: '일하는 곳', name: '부를 이름', contact: '답장 받을 곳', agree: '개인정보 동의' };
 
   document.getElementById('f-source').value = params.get('from') || 'direct';
 
-  var PLAN = { auto: '반복 업무 자동화', attendance: '출퇴근·정산', poc: '창업팀 PoC·MVP' };
+  var PLAN = { app: '가게·현장 앱', attendance: '가게·현장 앱', auto: '반복 업무 자동화', ai: 'AI 정리 도구', poc: '아직 모름' };
   var plan = PLAN[params.get('plan')];
   if (plan) {
     var r = form.querySelector('input[name="plan"][value="' + plan + '"]');
@@ -27,7 +27,7 @@
   /* 답장 방법에 맞춰 입력 예시 바꾸기 */
   var channel = document.getElementById('f-channel');
   var contact = document.getElementById('f-contact');
-  var HOLD = { '이메일': 'name@example.com', '텔레그램': '@아이디', '전화번호': '010-0000-0000' };
+  var HOLD = { '카카오톡': '카톡 아이디나 전화번호', '이메일': 'name@example.com', '텔레그램': '@아이디', '전화번호': '010-0000-0000' };
   channel.addEventListener('change', function () { contact.placeholder = HOLD[channel.value] || ''; });
 
   function collect() {

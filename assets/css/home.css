@@ -132,6 +132,7 @@ section{padding:104px 0}
 .ai-checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .ai-checks li{font-size:14px;padding:8px 12px;border-radius:12px;background:var(--brand-soft);color:var(--brand-ink);font-weight:600}
 .ai-checks li::before{content:"확인 ";font-weight:700}
+.ai-ask{align-self:flex-start;font-size:14.5px;font-weight:700;color:var(--brand-ink);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
 .ai-reply{margin:0;align-self:flex-start;max-width:92%;padding:11px 15px;border-radius:18px;background:var(--soft);font-size:15px;line-height:1.55;animation:pop .35s cubic-bezier(.16,1,.3,1) both}
 .scene-copy h2{font-size:clamp(30px,3.6vw,42px);line-height:1.25;letter-spacing:-.035em;margin:10px 0 16px}
 .scene-copy p{color:var(--ink-2);margin:0 0 12px;max-width:32em}

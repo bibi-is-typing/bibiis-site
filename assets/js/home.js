@@ -100,6 +100,9 @@
       }
       if (d.checks.length) { var ul = el('ul', 'ai-checks'); d.checks.forEach(function (c) { ul.appendChild(el('li', null, c)); }); aiOut.appendChild(ul); }
       aiOut.appendChild(el('p', 'ai-reply', d.reply));
+      var ask = el('a', 'ai-ask', '이 일로 문의하기 →');
+      ask.href = '/listening/?plan=' + (aiKind === 'work' ? 'app' : 'auto') + '&from=tidy&idea=' + encodeURIComponent(aiText.value.trim().slice(0, 400));
+      aiOut.appendChild(ask);
       aiOut.hidden = false;
     };
     aiCard.querySelector('.ai-tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setKind(b.dataset.kind); });
