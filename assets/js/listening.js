@@ -10,7 +10,7 @@
 
   document.getElementById('f-source').value = params.get('from') || 'direct';
 
-  var PLAN = { app: '가게·현장 앱', attendance: '가게·현장 앱', auto: '반복 업무 자동화', ai: 'AI 정리 도구', poc: '아직 모름' };
+  var PLAN = { app: '가게·현장 앱', attendance: '가게·현장 앱', auto: '반복 업무 자동화', poc: 'PoC·MVP' };
   var plan = PLAN[params.get('plan')];
   if (plan) {
     var r = form.querySelector('input[name="plan"][value="' + plan + '"]');
