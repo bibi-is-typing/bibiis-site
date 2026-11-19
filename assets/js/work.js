@@ -50,7 +50,7 @@
       : '<dl class="scqa">' + (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') + (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
     return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
-      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + body +
+      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + (w.scale ? '<p class="scale">' + esc(w.scale) + '</p>' : '') + body +
       (hasCover ? '' : side(w)) +
       (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 직접 열어 보기 ↗</a>' : '') +
       '</div>' + (hasCover
