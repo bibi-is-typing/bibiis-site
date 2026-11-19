@@ -48,7 +48,8 @@
     var body = (w.before || w.after)
       ? '<dl class="ba">' + (w.before ? '<div class="b"><dt>전에는</dt><dd>' + esc(w.before) + '</dd></div>' : '') + (w.after ? '<div class="a"><dt>이제는</dt><dd>' + esc(w.after) + '</dd></div>' : '') + '</dl>'
       : '<dl class="scqa">' + (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') + (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
-    return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
+    var acc = w.accent ? ' style="--acc:' + esc(w.accent) + ';--acc-ink:' + esc(w.accentInk || w.accent) + '"' : '';
+    return '<article class="case-item' + (w.accent ? ' has-acc' : '') + '" id="' + esc(w.slug) + '"' + acc + '>' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
       '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + (w.scale ? '<p class="scale">' + esc(w.scale) + '</p>' : '') + body +
       (hasCover ? '' : side(w)) +

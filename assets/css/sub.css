@@ -196,3 +196,20 @@
   .send{bottom:10px}
 }
 .done .note-card{white-space:normal}
+
+/* 제품 메인 컬러: 작업마다 --acc(쇼케이스 색), --acc-ink(글자용) */
+.case-item.has-acc{--acc-soft:color-mix(in srgb,var(--acc) 10%,var(--card));--acc-line:color-mix(in srgb,var(--acc) 28%,var(--card))}
+.has-acc .case-roles{background:var(--acc-soft)}
+.has-acc .case-cover{background:color-mix(in srgb,var(--acc) 6%,var(--soft))}
+.has-acc .case-copy .scale{color:var(--acc-ink)}
+.has-acc .ba .a{background:var(--acc-soft);box-shadow:inset 0 0 0 1px var(--acc-line)}
+.has-acc .ba .a dt{color:var(--acc-ink)}
+.has-acc .roles3 span::before,.has-acc .builds li::before{color:var(--acc-ink)}
+.has-acc .roles3 span.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.has-acc .roles3 span.on::before{color:#fff}
+.has-acc .builds li{border-color:var(--acc-line)}
+.has-acc .case-copy .go{color:var(--acc-ink)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .case-item.has-acc{--acc-ink:color-mix(in srgb,var(--acc) 55%,#fff)}
+}
+:root[data-theme="dark"] .case-item.has-acc{--acc-ink:color-mix(in srgb,var(--acc) 55%,#fff)}
