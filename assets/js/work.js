@@ -33,28 +33,35 @@
     var nav = w.covers.length > 1 ? '<div class="cover-nav"><button type="button" data-dir="-1" aria-label="이전 이미지">←</button><button type="button" data-dir="1" aria-label="다음 이미지">→</button></div>' : '';
     return '<div class="case-cover"><div class="cover-track" tabindex="0" aria-label="' + esc(w.title) + ' 소개 이미지">' + imgs + '</div>' + nav + '</div>';
   }
-  function lead(w) {
-    var l = w.lead, st = (w.stack || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+  function side(w) {
+    var l = w.lead;
+    var bl = (w.builds || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    var st = (w.stack || []).join(' · ');
     return (l ? '<div class="lead"><span class="role">' + esc(l.role) + '</span><h3>' + esc(l.title) + '</h3><p>' + esc(l.body) + '</p></div>' : '') +
-      (st ? '<ul class="stack" aria-label="사용 기술">' + st + '</ul>' : '');
+      (bl ? '<div class="builds"><p class="builds-h">직접 만든 것</p><ul>' + bl + '</ul></div>' : '') +
+      (st ? '<p class="stack-line">' + esc(st) + '</p>' : '');
   }
 
   function item(w) {
     var hasCover = !!(w.covers && w.covers.length);
-    var dl = '<dl class="scqa">' +
-      (w.situation ? '<div><dt>상황</dt><dd>' + esc(w.situation) + '</dd></div>' : '') +
-      (w.problem ? '<div><dt>문제</dt><dd>' + esc(w.problem) + '</dd></div>' : '') +
-      (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') +
-      (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
+    var body = (w.before || w.after)
+      ? '<dl class="ba">' + (w.before ? '<div class="b"><dt>전에는</dt><dd>' + esc(w.before) + '</dd></div>' : '') + (w.after ? '<div class="a"><dt>이제는</dt><dd>' + esc(w.after) + '</dd></div>' : '') + '</dl>'
+      : '<dl class="scqa">' + (w.q ? '<div class="q"><dt>질문</dt><dd>' + esc(w.q) + '</dd></div>' : '') + (w.a ? '<div class="a"><dt>답</dt><dd>' + esc(w.a) + '</dd></div>' : '') + '</dl>';
     return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
-      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + dl +
-      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + (hasCover ? '' : lead(w)) +
-      (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '') +
+      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + body +
+      (hasCover ? '' : side(w)) +
+      (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 직접 열어 보기 ↗</a>' : '') +
       '</div>' + (hasCover
-        ? '<div class="case-roles ' + esc(w.tint || 't-blue') + '">' + lead(w) + '</div>'
+        ? '<div class="case-roles ' + esc(w.tint || 't-blue') + '">' + side(w) + '</div>'
         : '<div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div>') + '</article>';
   }
+
+  var GROUPS = [
+    ['plan', '기획', '무엇을 만들지부터 같이 정해요', '요청을 그대로 만들지 않고, 진짜 문제와 규칙부터 정리했어요.'],
+    ['dev', '개발', '화면부터 알림, 연동, 운영까지 직접 만들어요', '서버가 있든 없든, 실제로 매일 돌아가게 만들었어요.'],
+    ['design', '디자인', '설명 없이도 쓰이는 화면을 그려요', '읽지 않아도, 처음 봐도 손이 가게 그렸어요.']
+  ];
 
   function slider(track, btns, step) {
     if (!track) return;
@@ -76,9 +83,16 @@
   }
 
   fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
-    var works = (d.works || []).filter(function (w) { return !w.draft; });
-    if (index) index.innerHTML = works.map(function (w) { return '<a href="#' + esc(w.slug) + '"><i class="' + (w.tagKind === 'live' ? 'live' : '') + '"></i>' + esc(w.title) + '</a>'; }).join('');
-    list.innerHTML = works.map(item).join('');
+    var works = (d.works || []).filter(function (w) { return !w.draft && w.group; });
+    var html = '', idx = '';
+    GROUPS.forEach(function (g) {
+      var ws = works.filter(function (w) { return w.group === g[0]; });
+      if (!ws.length) return;
+      idx += '<a href="#g-' + g[0] + '"><b>' + g[1] + '</b><span>' + ws.length + '</span></a>';
+      html += '<section class="work-group" id="g-' + g[0] + '"><header class="group-head"><span class="pill">' + g[1] + '</span><h2>' + esc(g[2]) + '</h2><p>' + esc(g[3]) + '</p></header>' + ws.map(item).join('') + '</section>';
+    });
+    if (index) index.innerHTML = idx;
+    list.innerHTML = html;
     list.querySelectorAll('.case-item').forEach(wire);
     if (location.hash) { var t = document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) t.scrollIntoView(); }
   }).catch(function () { list.innerHTML = '<p style="text-align:center;color:var(--ink-2)">작업 목록을 불러오지 못했어요. 새로고침해 주세요.</p>'; });
