@@ -1,0 +1,16 @@
+# 첫 화면 'AI로 정리해 보기' 데모용 Worker.
+# 배포: cd worker && npx wrangler deploy
+# 키:   npx wrangler secret put GEMINI_API_KEY
+name = "bibiis-try"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash"
+ALLOW_ORIGINS = "https://bibiis.ai,https://www.bibiis.ai,http://localhost:4173"
+
+# 같은 IP에서 1분에 6번까지
+[[ratelimits]]
+name = "LIMIT"
+namespace_id = "2611"
+simple = { limit = 6, period = 60 }

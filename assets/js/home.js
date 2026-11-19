@@ -73,41 +73,65 @@
   }
   fillFeed('feed-a', FEED_A); fillFeed('feed-b', FEED_B);
 
-  /* ---------- 사장님 대화: 보이면 차례로 오고, 직접 답해 볼 수 있음 ---------- */
-  var chatBody = document.getElementById('chat-body');
-  var chatReply = document.getElementById('chat-reply');
-  var chatStarted = false;
-  function say(text, me, delay) {
-    return new Promise(function (res) {
-      if (reduceMotion || me) { setTimeout(function () { chatBody.appendChild(el('div', 'msg' + (me ? ' me' : ''), text)); res(); }, reduceMotion ? 0 : (me ? 120 : delay)); return; }
-      var dots = el('div', 'msg typing', '•••');
-      setTimeout(function () {
-        chatBody.appendChild(dots);
-        setTimeout(function () { dots.remove(); chatBody.appendChild(el('div', 'msg', text)); res(); }, 700);
-      }, delay);
+  /* ---------- 진짜 AI 데모: 받은 메시지를 표로 정리 ---------- */
+  var AI_SAMPLES = {
+    work: '사장님 저 민지예요! 어제 10시에 와서 4시에 갔어요\n오늘은 11시에 왔고 6시 반까지 할게요\n아 그리고 토요일은 못 나와요 ㅠㅠ',
+    booking: '안녕하세요~ 내일 저녁 7시에 4명 예약 될까요? 이름은 박서준이고 010-0000-1234예요. 아기 의자 하나 부탁드려요!',
+    order: '카페라떼 2잔이랑 아아 1잔이요! 3시에 가지러 갈게요. 라떼 하나는 디카페인으로 해 주세요'
+  };
+  var AI_CANNED = {
+    work: { title: '출퇴근 기록', columns: ['이름', '날짜', '출근', '퇴근', '메모'], rows: [['민지', '어제', '10:00', '16:00', ''], ['민지', '오늘', '11:00', '18:30', '퇴근은 예정'], ['민지', '토요일', '', '', '결근']], checks: ['오늘 퇴근은 아직 예정이에요', '토요일 대신 나올 사람 필요'], reply: '어제와 오늘 근무를 기록했어요. 토요일에 민지 님이 빠지는데, 대신 나올 사람을 찾아 둘까요?' },
+    booking: { title: '예약표', columns: ['날짜', '시간', '인원', '이름', '연락처', '요청'], rows: [['내일', '19:00', '4', '박서준', '010-0000-1234', '아기 의자 1개']], checks: ['내일 7시 자리 확인 필요'], reply: '예약 한 건을 정리했어요. 내일 7시에 4명 자리가 있으면 확정 문자를 보낼까요?' },
+    order: { title: '주문 정리', columns: ['메뉴', '수량', '옵션', '받는 방법', '시간'], rows: [['카페라떼', '1', '', '픽업', '15:00'], ['카페라떼', '1', '디카페인', '픽업', '15:00'], ['아이스 아메리카노', '1', '', '픽업', '15:00']], checks: [], reply: '주문 세 잔을 정리했어요. 3시 픽업에 맞춰 준비하면 돼요.' }
+  };
+  var aiCard = document.getElementById('ai-card');
+  if (aiCard) {
+    var aiText = document.getElementById('ai-text'), aiOut = document.getElementById('ai-out'), aiGo = document.getElementById('ai-go'), aiN = document.getElementById('ai-n');
+    var aiKind = 'work';
+    var setKind = function (k) {
+      aiKind = k;
+      aiCard.querySelectorAll('.ai-tabs button').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.kind === k); });
+      aiText.value = AI_SAMPLES[k]; aiOut.hidden = true; aiOut.innerHTML = ''; count();
+    };
+    var count = function () { aiN.textContent = aiText.value.length + ' / 400'; };
+    var render = function (d, live) {
+      aiOut.innerHTML = '';
+      var head = el('p', 'ai-head'); head.appendChild(el('b', null, d.title)); if (d.rows && d.rows.length) head.appendChild(el('span', 'ai-src', live ? 'AI가 방금 정리' : '예시 답'));
+      aiOut.appendChild(head);
+      if (d.rows && d.rows.length) {
+        var wrap = el('div', 'ai-table'), t = el('table'), tr = el('tr');
+        d.columns.forEach(function (c) { tr.appendChild(el('th', null, c)); }); var th = el('thead'); th.appendChild(tr); t.appendChild(th);
+        var tb = el('tbody');
+        d.rows.forEach(function (r, i) { var row = el('tr'); row.style.animationDelay = (i * 90) + 'ms'; r.forEach(function (v) { row.appendChild(el('td', v ? null : 'empty', v || '–')); }); tb.appendChild(row); });
+        t.appendChild(tb); wrap.appendChild(t); aiOut.appendChild(wrap);
+      }
+      if (d.checks && d.checks.length) { var ul = el('ul', 'ai-checks'); d.checks.forEach(function (c) { ul.appendChild(el('li', null, c)); }); aiOut.appendChild(ul); }
+      aiOut.appendChild(el('p', 'ai-reply', d.reply));
+      aiOut.hidden = false;
+    };
+    var C2 = window.BIBI || {};
+    aiCard.querySelector('.ai-tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setKind(b.dataset.kind); });
+    aiText.addEventListener('input', count);
+    document.getElementById('ai-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var text = aiText.value.trim(); if (!text) { aiText.focus(); return; }
+      var canned = text === AI_SAMPLES[aiKind].trim() ? AI_CANNED[aiKind] : null;
+      aiGo.disabled = true; aiGo.textContent = '정리하는 중…';
+      aiOut.hidden = false; aiOut.innerHTML = ''; aiOut.appendChild(el('p', 'ai-wait', 'AI가 메시지를 읽고 있어요 •••'));
+      var done = function () { aiGo.disabled = false; aiGo.textContent = '표로 정리해 줘'; };
+      var fallback = function (why) {
+        if (canned) render(canned, false);
+        else render({ title: '잠깐 쉬는 중', columns: [], rows: [], checks: [], reply: why === 'too_many' ? '너무 빨리 여러 번 눌렀어요. 1분 뒤에 다시 해 주세요.' : '지금은 AI가 답하지 못했어요. 위 예시 탭을 누르면 정리 예시를 볼 수 있어요.' }, false);
+        done();
+      };
+      track('ai_demo', { kind: aiKind, edited: !canned });
+      if (!C2.aiEndpoint || !window.fetch) { setTimeout(function () { fallback(); }, 600); return; }
+      fetch(C2.aiEndpoint.replace(/\/$/, '') + '/parse', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ kind: aiKind, text: text }) })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'fail'); return j; }); })
+        .then(function (d) { render(d, true); done(); })
+        .catch(function (err) { fallback(err && err.message); });
     });
-  }
-  function startChat() {
-    if (chatStarted || !chatBody) return; chatStarted = true;
-    say('이번 달 정산표 만들어 뒀어요. 확인할 기록은 1건이에요.', false, 300)
-      .then(function () { return say('뭐가 이상한데?', true, 900); })
-      .then(function () { return say('수요일 홀 직원 퇴근이 안 찍혔어요. 평소처럼 18시로 할까요?', false, 500); })
-      .then(function () { chatReply.hidden = false; });
-  }
-  if (chatReply) chatReply.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    chatReply.hidden = true;
-    var ok = b.dataset.reply === 'ok';
-    say(b.textContent, true, 0)
-      .then(function () { return say(ok ? '18시로 반영했어요. 정산표 보내 드릴게요 📄' : '17시로 고쳤어요. 고친 기록은 이력에 남겨 둘게요.', false, 300); })
-      .then(function () { return say('다른 기록은 모두 평소와 같았어요. 이번 달 정산 끝!', false, 400); });
-    track('chat_reply', { ok: ok });
-  });
-  if (chatBody) {
-    if ('IntersectionObserver' in window && !reduceMotion) {
-      var cio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { startChat(); cio.disconnect(); } }, { threshold: 0.4 });
-      cio.observe(chatBody);
-    } else startChat();
+    setKind('work');
   }
 
   /* ---------- 직접 해 보기: 반복되는 일 한 줄 → 바뀌는 흐름 ---------- */
