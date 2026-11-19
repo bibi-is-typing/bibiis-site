@@ -280,3 +280,7 @@
   .case-desc{padding:22px 20px 24px}
   .case-desc h2{font-size:24px}
 }
+
+.case-desc{gap:14px;justify-content:center}
+.case-desc .now{margin:4px 0 0;font-size:18px;font-weight:700;line-height:1.55;letter-spacing:-.02em;word-break:keep-all;padding-left:14px;border-left:3px solid var(--acc,var(--brand))}
+.case-desc .roles3{margin-top:2px}

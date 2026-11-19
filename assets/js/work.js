@@ -39,13 +39,12 @@
     var acc = w.accent ? ' style="--acc:' + esc(w.accent) + ';--acc-ink:' + esc(w.accentInk || w.accent) + '"' : '';
     var l = w.lead || {};
     var roles = '<p class="roles3" aria-label="직접 한 일: 기획, 개발, 디자인">' + ['기획', '개발', '디자인'].map(function (r) { return '<span' + (l.role === r ? ' class="on"' : '') + '>' + r + '</span>'; }).join('') + '</p>';
-    var ba = (w.before || w.after) ? '<div class="ba2">' + (w.before ? '<p class="b"><span>전에는</span>' + esc(w.before) + '</p>' : '') + (w.after ? '<p class="a"><span>이제는</span>' + esc(w.after) + '</p>' : '') + '</div>' : '';
-    var bl = (w.builds || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    var ba = w.after ? '<p class="now">' + esc(w.after) + '</p>' : '';
+    var bl = (w.builds || []).slice(0, 4).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
     var go = w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '';
     var desc = '<div class="case-desc"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
-      '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + (w.scale ? '<p class="scale">' + esc(w.scale) + '</p>' : '') +
-      roles + ba + (bl ? '<ul class="builds2" aria-label="직접 만든 것">' + bl + '</ul>' : '') +
-      ((w.stack || []).length ? '<p class="stack-line">' + esc(w.stack.join(' · ')) + '</p>' : '') + go + '</div>';
+      '<h2>' + esc(w.title) + '</h2>' + (w.scale ? '<p class="scale">' + esc(w.scale) + '</p>' : '') +
+      ba + (bl ? '<ul class="builds2" aria-label="직접 만든 것">' + bl + '</ul>' : '') + roles + go + '</div>';
     var vis = hasCover ? cover(w) : '<div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div>';
     return '<article class="case-item v3' + (w.accent ? ' has-acc' : '') + '" id="' + esc(w.slug) + '"' + acc + '>' + vis + desc + '</article>';
   }
@@ -84,7 +83,7 @@
       var ws = works.filter(function (w) { return w.group === g[0]; });
       if (!ws.length) return;
       idx += '<a href="#g-' + g[0] + '"><b>' + g[1] + '</b><span>' + ws.length + '</span></a>';
-      html += '<section class="work-group" id="g-' + g[0] + '"><header class="group-head"><span class="pill">' + g[1] + '</span><h2>' + esc(g[2]) + '</h2><p>' + esc(g[3]) + '</p></header>' + ws.map(item).join('') + '</section>';
+      html += '<section class="work-group" id="g-' + g[0] + '"><header class="group-head"><span class="pill">' + g[1] + '</span><h2>' + esc(g[2]) + '</h2></header>' + ws.map(item).join('') + '</section>';
     });
     if (index) index.innerHTML = idx;
     list.innerHTML = html;
