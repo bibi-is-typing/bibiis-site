@@ -33,10 +33,10 @@
     var nav = w.covers.length > 1 ? '<div class="cover-nav"><button type="button" data-dir="-1" aria-label="이전 이미지">←</button><button type="button" data-dir="1" aria-label="다음 이미지">→</button></div>' : '';
     return '<div class="case-cover"><div class="cover-track" tabindex="0" aria-label="' + esc(w.title) + ' 소개 이미지">' + imgs + '</div>' + nav + '</div>';
   }
-  function roles(w) {
-    var r = (w.roles || []).map(function (x) { return '<div><dt>' + esc(x.k) + '</dt><dd>' + esc(x.v) + '</dd></div>'; }).join('');
-    var st = (w.stack || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
-    return (r ? '<dl class="roles">' + r + '</dl>' : '') + (st ? '<ul class="stack" aria-label="사용 기술">' + st + '</ul>' : '');
+  function lead(w) {
+    var l = w.lead, st = (w.stack || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
+    return (l ? '<div class="lead"><span class="role">' + esc(l.role) + '</span><h3>' + esc(l.title) + '</h3><p>' + esc(l.body) + '</p></div>' : '') +
+      (st ? '<ul class="stack" aria-label="사용 기술">' + st + '</ul>' : '');
   }
 
   function item(w) {
@@ -49,10 +49,10 @@
     return '<article class="case-item" id="' + esc(w.slug) + '">' + cover(w) +
       '<div class="case-copy"><div class="meta"><span class="tag' + (w.tagKind === 'live' ? ' live' : '') + '">' + esc(w.tag) + '</span><span>' + esc(w.date) + '</span></div>' +
       '<h2>' + esc(w.title) + '</h2><p class="what">' + esc(w.line) + '</p>' + dl +
-      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + (hasCover ? '' : roles(w)) +
+      (w.built ? '<p class="built">' + esc(w.built) + '</p>' : '') + (hasCover ? '' : lead(w)) +
       (w.url ? '<a class="go" href="' + esc(w.url) + '" target="_blank" rel="noopener">' + esc(w.url.replace(/^https?:\/\//, '')) + ' 열어 보기 ↗</a>' : '') +
       '</div>' + (hasCover
-        ? '<div class="case-roles ' + esc(w.tint || 't-blue') + '">' + roles(w) + '</div>'
+        ? '<div class="case-roles ' + esc(w.tint || 't-blue') + '">' + lead(w) + '</div>'
         : '<div class="case-shots ' + esc(w.tint || 't-blue') + '">' + shots(w) + '</div>') + '</article>';
   }
 
