@@ -113,6 +113,26 @@ section{padding:104px 0}
 .more{display:inline-block;margin-top:10px;font-weight:600;text-decoration:none;border-bottom:1.5px solid currentColor}
 
 /* 자동화 → 프로덕트 사다리 */
+.cats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cat{border-radius:24px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line)}
+.cat-main{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center}
+.cat-copy{padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cat-main .cat-copy{padding:40px 8px 40px 40px}
+.cat .pill{align-self:flex-start;background:var(--card)}
+.cat h3{margin:2px 0 0;font-size:21px;line-height:1.35;letter-spacing:-.03em;word-break:keep-all}
+.cat-main h3{font-size:clamp(26px,2.6vw,34px);line-height:1.3}
+.cat p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.6;word-break:keep-all}
+.cat-points{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.cat-points li::before{content:"✓";color:var(--brand);font-weight:700;margin-right:8px}
+.cat-links{margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:8px}
+.cat-links a{font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.cat-links a:hover{border-color:var(--ink-2)}
+.cat-img{display:block;padding:18px 18px 0}
+.cat-img img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:var(--shadow);transition:transform .2s ease}
+.cat-img:hover img{transform:translateY(-3px)}
+.cat-main .cat-img{padding:28px 28px 28px 8px}
+.cat-vis{margin:18px 18px 0;height:auto;aspect-ratio:16/10}
+.cat.t-brand{background:var(--t-2)}
 .steps3{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
 .step{border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:10px}
 .step:nth-child(1){background:var(--t-1)}.step:nth-child(2){background:var(--t-2)}.step:nth-child(3){background:var(--t-3)}
@@ -281,7 +301,10 @@ html.view-source [data-src] .src{display:block}
 @media (max-width:1000px){
   .scene .wrap,.feature{grid-template-columns:1fr;gap:36px}
   .chat{max-width:380px;margin:0 auto;width:100%}
-  .steps3,.plans,.works{grid-template-columns:1fr}
+  .steps3,.plans,.works,.cats{grid-template-columns:1fr}
+  .cat-main{grid-template-columns:1fr}
+  .cat-main .cat-copy{padding:26px 26px 8px}
+  .cat-main .cat-img{padding:18px 18px 0;order:-1}
   .craft ul{grid-template-columns:repeat(2,1fr)}
   .steps4,.tiles{grid-template-columns:1fr 1fr}
   section{padding:80px 0}
