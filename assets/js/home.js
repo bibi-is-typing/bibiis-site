@@ -77,7 +77,8 @@
   var AI_SAMPLES = {
     work: '사장님 저 민지예요! 어제 10시에 와서 4시에 갔어요\n오늘은 11시에 왔고 6시 반까지 할게요\n아 그리고 토요일은 못 나와요 ㅠㅠ',
     booking: '안녕하세요~ 내일 저녁 7시에 4명 예약 될까요? 이름은 박서준이고 010-0000-1234예요. 아기 의자 하나 부탁드려요!',
-    order: '카페라떼 2잔이랑 아아 1잔이요! 3시에 가지러 갈게요. 라떼 하나는 디카페인으로 해 주세요'
+    order: '카페라떼 2잔이랑 아아 1잔이요! 3시에 가지러 갈게요. 라떼 하나는 디카페인으로 해 주세요',
+    leave: '팀장님, 김하늘입니다. 12월 1일 연차 하루 쓰고, 12월 5일은 오후 반차 쓰겠습니다. 사유는 가족 행사예요!'
   };
   var aiCard = document.getElementById('ai-card');
   if (aiCard && window.BibiTidy) {
@@ -100,6 +101,9 @@
       }
       if (d.checks.length) { var ul = el('ul', 'ai-checks'); d.checks.forEach(function (c) { ul.appendChild(el('li', null, c)); }); aiOut.appendChild(ul); }
       aiOut.appendChild(el('p', 'ai-reply', d.reply));
+      var ask = el('a', 'ai-ask', '이 일로 문의하기 →');
+      ask.href = '/listening/?plan=' + (aiKind === 'work' ? 'app' : aiKind === 'leave' ? 'poc' : 'auto') + '&from=tidy&idea=' + encodeURIComponent(aiText.value.trim().slice(0, 400));
+      aiOut.appendChild(ask);
       aiOut.hidden = false;
     };
     aiCard.querySelector('.ai-tabs').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) setKind(b.dataset.kind); });

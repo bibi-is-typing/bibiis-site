@@ -9,7 +9,7 @@ window.BIBI = {
     telegram: 'https://t.me/bibiis_ai'      // 텔레그램 문의 주소 (비우면 버튼이 숨겨져요)
   },
   threads: '',        // 스레드 아이디 (@ 없이). 예: 'bibi_is_building'
-  formEndpoint: '',   // 문의서를 받을 구글 앱스 스크립트 웹 앱 주소 (apps-script/README.md 참고)
+  formEndpoint: 'https://script.google.com/macros/s/AKfycbxMp2WEFW26EL0TeER3XZyCiRrayTxZQ_NN5EOHKP-16Ld_I_eo2C5_Fy6nIRoiLslKDw/exec',   // 문의서를 받을 구글 앱스 스크립트 웹 앱 주소 (apps-script/README.md 참고)
   ga4: '',            // 구글 애널리틱스 측정 ID. 예: 'G-XXXXXXX'
   status: { mode: 'building', active: 2, next: '11.12' } // data/status.json이 있으면 그 값을 써요
 };

@@ -212,11 +212,40 @@
     return { title: '주문 정리', columns: ['메뉴', '수량', '옵션', '받는 방법', '시간'], rows: rows, checks: checks, reply: reply };
   }
 
+  /* ---------- 휴가 신청 (회사) ---------- */
+  function parseLeave(text) {
+    var nm = text.match(/([가-힣]{2,4})\s*(?:드림|올림)/) || text.match(/([가-힣]{2,4})(?:입니다|이에요|예요)/) || text.match(/(?:저는?|전)\s*([가-힣]{2,4}?)(?:인데요|이고|이에요|예요)/);
+    var name = nm && !STOP.test(nm[1]) && !/팀장|부장|과장|대리|실장|대표/.test(nm[1]) ? nm[1] : '';
+    var rm = text.match(/사유(?:는|은)?\s*:?\s*([^.!?\n]{2,24}?)(?:이에요|예요|입니다|이요|요)?[.!?\n]|사유(?:는|은)?\s*:?\s*([^.!?\n]{2,24})$/);
+    var reason = rm ? (rm[1] || rm[2] || '').trim() : '';
+    var rows = [];
+    splitSegs(text.replace(/,\s*/g, '\n')).forEach(function (seg) {
+      var type = /오전\s*반차/.test(seg) ? '오전 반차' : /오후\s*반차/.test(seg) ? '오후 반차' : /반차/.test(seg) ? '반차' : /병가|아파서/.test(seg) ? '병가' : /경조|결혼|장례/.test(seg) ? '경조 휴가' : /연차|휴가|쉬겠|쉴게/.test(seg) ? '연차' : '';
+      if (!type) return;
+      var d = dayOf(seg);
+      var rng = seg.match(/(\d{1,2}월\s*\d{1,2}일|\d{1,2}일)\s*(?:부터|~|-)\s*(\d{1,2}월\s*\d{1,2}일|\d{1,2}일)/);
+      var days = /반차/.test(type) ? '0.5' : '1';
+      var nd = seg.match(/(\d+|하루|이틀|사흘)\s*(?:일간|일 동안|일)?\s*(?:연차|휴가)/);
+      if (rng) { d = rng[1].replace(/\s+/g, ' ') + '~' + rng[2].replace(/\s+/g, ' '); var a = parseInt(rng[1].replace(/.*월\s*/, ''), 10), b = parseInt(rng[2].replace(/.*월\s*/, ''), 10); if (b >= a) days = String(b - a + 1); }
+      else if (nd && /이틀/.test(nd[1])) days = '2'; else if (nd && /사흘/.test(nd[1])) days = '3'; else if (nd && /^\d+$/.test(nd[1]) && !/월/.test(seg.slice(nd.index - 2, nd.index))) { /* 날짜 숫자와 겹치면 무시 */ }
+      rows.push([name, type, d, days, reason]);
+    });
+    var checks = [];
+    if (rows.length && !name) checks.push('신청한 사람 이름이 없어요');
+    rows.forEach(function (r) { if (!r[2]) checks.push(r[1] + ' 날짜가 없어요'); });
+    if (rows.length && !reason && !rows.every(function (r) { return r[1] === '병가'; })) checks.push('사유가 없어요');
+    var total = rows.reduce(function (s, r) { return s + parseFloat(r[3] || 0); }, 0);
+    var reply = !rows.length ? '휴가 신청이 보이지 않아요. "12월 1일 연차 쓸게요"처럼 넣어 보세요.'
+      : (name ? name + ' 님 ' : '') + '휴가 ' + rows.length + '건(' + total + '일)을 정리했어요. ' + (checks.length ? checks[0].replace(/요$/, '') + '요. 물어볼까요?' : '팀장님께 결재 요청을 보낼까요?');
+    return { title: '휴가 결재', columns: ['신청자', '종류', '날짜', '일수', '사유'], rows: rows, checks: checks.slice(0, 3), reply: reply };
+  }
+
   root.BibiTidy = {
     parse: function (kind, text) {
       text = String(text || '').slice(0, 400);
       if (kind === 'booking') return parseBooking(text);
       if (kind === 'order') return parseOrder(text);
+      if (kind === 'leave') return parseLeave(text);
       return parseWork(text);
     }
   };

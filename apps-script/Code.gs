@@ -5,7 +5,7 @@
  */
 var SHEET_NAME = '문의';
 var NOTIFY_TO = 'hello@bibiis.ai';
-var FIELDS = ['submittedAt', 'source', 'plan', 'idea', 'tools', 'situation', 'size', 'when', 'budget', 'name', 'channel', 'contact', 'agree'];
+var FIELDS = ['submittedAt', 'source', 'plan', 'idea', 'ref', 'tools', 'situation', 'size', 'when', 'budget', 'name', 'channel', 'contact', 'agree'];
 
 function doPost(e) {
   var data = {};
@@ -14,7 +14,7 @@ function doPost(e) {
   sheet.appendRow(FIELDS.map(function (k) { return String(data[k] || '').slice(0, 1000); }).concat(['새 문의']));
   MailApp.sendEmail({
     to: NOTIFY_TO,
-    subject: '[bibi is listening] ' + (data.name || '이름 없음') + ' · ' + (data.situation || ''),
+    subject: '[bibi is listening] ' + (data.name || '이름 없음') + ' · ' + (data.plan || ''),
     body: FIELDS.map(function (k) { return k + ': ' + (data[k] || ''); }).join('\n')
   });
   return out_({ ok: true });

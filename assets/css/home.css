@@ -107,6 +107,9 @@ section{padding:104px 0}
 .chat-reply[hidden]{display:none}
 .chat-reply button{font:inherit;font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;border:1.5px solid var(--dark);background:transparent;color:var(--ink);cursor:pointer}
 .chat-reply button:first-child{background:var(--dark);color:var(--on-dark)}
+.proof{list-style:none;margin:28px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;max-width:880px}
+.proof li{font-size:14.5px;color:var(--ink-2);padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.proof b{color:var(--ink);font-weight:700}
 .scene.ai .wrap{grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:56px}
 .ai-card{background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:14px}
 .ai-tabs{display:flex;gap:6px;flex-wrap:wrap}
@@ -132,10 +135,16 @@ section{padding:104px 0}
 .ai-checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .ai-checks li{font-size:14px;padding:8px 12px;border-radius:12px;background:var(--brand-soft);color:var(--brand-ink);font-weight:600}
 .ai-checks li::before{content:"확인 ";font-weight:700}
+.ai-ask{align-self:flex-start;font-size:14.5px;font-weight:700;color:var(--brand-ink);text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:1px}
 .ai-reply{margin:0;align-self:flex-start;max-width:92%;padding:11px 15px;border-radius:18px;background:var(--soft);font-size:15px;line-height:1.55;animation:pop .35s cubic-bezier(.16,1,.3,1) both}
 .scene-copy h2{font-size:clamp(30px,3.6vw,42px);line-height:1.25;letter-spacing:-.035em;margin:10px 0 16px}
 .scene-copy p{color:var(--ink-2);margin:0 0 12px;max-width:32em}
 .scene-copy .made{font-size:14.5px;color:var(--ink);font-weight:600;margin:0 0 6px}
+.step-img{display:block;margin:6px 0}
+.step-img img{display:block;width:100%;height:auto;border-radius:14px;box-shadow:var(--shadow);transition:transform .2s ease}
+.step-img:hover img{transform:translateY(-3px)}
+.step-vis{height:auto;aspect-ratio:16/10}
+.step .cat-links{margin-top:auto}
 .cats-more{margin:24px 0 0;text-align:center}
 .scene-copy .hint{font-size:14px;color:var(--brand-ink)}
 .more{display:inline-block;margin-top:10px;font-weight:600;text-decoration:none;border-bottom:1.5px solid currentColor}

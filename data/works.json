@@ -1,5 +1,5 @@
 {
-  "_안내": "작업 목록은 이 파일 하나로 관리해요. 첫 화면과 /work/ 페이지가 모두 여기서 읽어요.\n- 새 작업: 캡처를 assets/work/<slug>/01.webp … 로 넣고 아래에 항목 하나를 추가(순서 = 보이는 순서).\n- shots의 kind는 pc 또는 mobile. 화면을 못 보여 주면 shots를 비우고 locked에 이유를 적어요.\n- situation·problem·q·a = 상황·문제·질문·답. built = 무엇을 만들었는지 한두 문장.\n- home: true → 첫 화면 작업 카드(앞에서부터 3개). cardA는 카드에 들어갈 짧은 답(없으면 a).\n- feature: true → 첫 화면 큰 사례(식당 앱처럼 따로 꾸민 것, HTML에 직접 있음).\n- small: true → 첫 화면 '작은 AI 도구' 줄에 이름이 나옴. smallLine은 짧은 설명.\n- illustration: \"checkin\" → 캡처 대신 다시 그린 화면(캡처를 못 쓸 때).\n- draft: true → /work/ 페이지에는 아직 안 나옴(캡처·설명 준비 전).\n- covers: 작업 맨 위 쇼케이스 이미지(16:10, assets/work/<slug>/sc-01.webp …). lead: 이 작업에서 가장 잘 보이는 역할(기획·개발·디자인) 하나와 한 문장 제목, 짧은 설명.\n- group: plan(기획)·dev(개발)·design(디자인). /work/는 이 묶음 순서로 보여 줘요. before·after = 전에는·이제는 한 줄씩. builds = 직접 만든 것(칩).",
+  "_안내": "작업 목록은 이 파일 하나로 관리해요. 첫 화면과 /work/ 페이지가 모두 여기서 읽어요.\n- 새 작업: 캡처를 assets/work/<slug>/01.webp … 로 넣고 아래에 항목 하나를 추가(순서 = 보이는 순서).\n- shots의 kind는 pc 또는 mobile. 화면을 못 보여 주면 shots를 비우고 locked에 이유를 적어요.\n- situation·problem·q·a = 상황·문제·질문·답. built = 무엇을 만들었는지 한두 문장.\n- home: true → 첫 화면 작업 카드(앞에서부터 3개). cardA는 카드에 들어갈 짧은 답(없으면 a).\n- feature: true → 첫 화면 큰 사례(식당 앱처럼 따로 꾸민 것, HTML에 직접 있음).\n- small: true → 첫 화면 '작은 AI 도구' 줄에 이름이 나옴. smallLine은 짧은 설명.\n- illustration: \"checkin\" → 캡처 대신 다시 그린 화면(캡처를 못 쓸 때).\n- draft: true → /work/ 페이지에는 아직 안 나옴(캡처·설명 준비 전).\n- covers: 작업 맨 위 쇼케이스 이미지(16:10, assets/work/<slug>/sc-01.webp …). lead: 이 작업에서 가장 잘 보이는 역할(기획·개발·디자인) 하나와 한 문장 제목, 짧은 설명.\n- group: plan(기획)·dev(개발)·design(디자인). /work/는 이 묶음 순서로 보여 줘요. before·after = 전에는·이제는 한 줄씩. builds = 직접 만든 것(칩).\n- scale: 규모 한 줄(누가, 얼마나). 확인된 사실만.",
   "works": [
     {
       "slug": "attendance",
@@ -61,7 +61,8 @@
         "결재함·결재선",
         "관리자 대시보드",
         "구글 캘린더 연동"
-      ]
+      ],
+      "scale": "5개 법인 · 오픈 첫날 178명 · 기획부터 오픈까지 26일"
     },
     {
       "slug": "pria",
@@ -126,7 +127,8 @@
         "기자 추천",
         "피칭 초안 AI",
         "수집 현황 관리 화면"
-      ]
+      ],
+      "scale": "기자 7,600여 명 데이터 · 외부 공개 테스트까지"
     },
     {
       "slug": "buildops",
@@ -214,7 +216,8 @@
         "AI 보고 정리",
         "사장님 승인 화면",
         "고객 보고서 링크"
-      ]
+      ],
+      "scale": "실제 청소업체와 파일럿 중"
     },
     {
       "slug": "restaurant",
@@ -285,7 +288,8 @@
         "사장님 폰 알림",
         "담당자 관리 화면",
         "월별 기록 내려받기"
-      ]
+      ],
+      "scale": "식당에서 매일 사용 중"
     },
     {
       "slug": "listenote",
@@ -353,7 +357,8 @@
         "A4 PDF 만들기",
         "AI 요약·단어장",
         "아이패드용 화면"
-      ]
+      ],
+      "scale": "listenote.bibiis.ai에서 운영 중"
     },
     {
       "slug": "say-it-back",
@@ -404,7 +409,8 @@
         "듣기·따라 말하기",
         "하루 한 토픽 흐름",
         "폰·노트북 화면"
-      ]
+      ],
+      "scale": "say.bibiis.ai에서 매일 쓰는 중"
     },
     {
       "slug": "bibiis",
@@ -459,7 +465,8 @@
         "자동 정리 데모",
         "문의서·구글 시트 연동",
         "라이트·다크 모드"
-      ]
+      ],
+      "scale": "지금 보고 계신 이 사이트"
     },
     {
       "slug": "discord-writing",
