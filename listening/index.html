@@ -65,8 +65,8 @@
           <p class="hint" id="plan-hint" hidden>앞에서 고른 걸 미리 골라 뒀어요. 바꿔도 돼요.</p>
           <div class="picks big">
             <label><input type="radio" name="plan" value="반복 업무 자동화"><span>반복 업무 자동화<small>쓰던 시트·카톡에 붙여서</small></span></label>
-            <label><input type="radio" name="plan" value="가게·현장 앱"><span>가게·현장 전용 앱<small>직원은 누르기만, 사장님은 확인만</small></span></label>
-            <label><input type="radio" name="plan" value="PoC·MVP"><span>PoC·MVP<small>아이디어를 실제로 도는 화면으로</small></span></label>
+            <label><input type="radio" name="plan" value="전용 앱"><span>우리 회사·가게 전용 앱<small>직원·고객이 매일 쓰는 화면</small></span></label>
+            <label><input type="radio" name="plan" value="PoC부터 서비스까지"><span>PoC부터 서비스까지<small>새 서비스·사내 시스템</small></span></label>
             <label><input type="radio" name="plan" value="아직 모름"><span>아직 모르겠어요<small>들어 보고 같이 정해요</small></span></label>
           </div>
         </fieldset>
@@ -79,7 +79,7 @@
 
         <div class="q-block" data-q="name">
           <label for="f-name">어떻게 불러 드릴까요?</label>
-          <input id="f-name" name="name" type="text" maxlength="40" required placeholder="이름이나 가게 이름">
+          <input id="f-name" name="name" type="text" maxlength="40" required placeholder="이름이나 회사·가게 이름">
         </div>
 
         <div class="q-block" data-q="contact">
@@ -109,7 +109,7 @@
           <fieldset class="q-block" data-q="situation">
             <legend>지금 어디에서 일하세요?</legend>
             <div class="picks">
-              <label><input type="radio" name="situation" value="가게·매장 운영"><span>가게·매장 운영</span></label>
+              <label><input type="radio" name="situation" value="가게·매장 운영"><span>가게·매장</span></label>
               <label><input type="radio" name="situation" value="회사·팀"><span>회사·팀</span></label>
               <label><input type="radio" name="situation" value="창업 준비"><span>창업 준비</span></label>
               <label><input type="radio" name="situation" value="그 밖에"><span>그 밖에</span></label>
@@ -135,9 +135,10 @@
             <legend>생각하는 예산<span class="opt">선택</span></legend>
             <div class="picks">
               <label><input type="radio" name="budget" value="아직 모름"><span>아직 모름</span></label>
-              <label><input type="radio" name="budget" value="50만 원 이하"><span>50만 원 이하</span></label>
-              <label><input type="radio" name="budget" value="50~100만"><span>50~100만</span></label>
-              <label><input type="radio" name="budget" value="100만 이상"><span>100만 이상</span></label>
+              <label><input type="radio" name="budget" value="300만 원 이하"><span>300만 원 이하</span></label>
+              <label><input type="radio" name="budget" value="300~1,000만"><span>300~1,000만</span></label>
+              <label><input type="radio" name="budget" value="1,000~3,000만"><span>1,000~3,000만</span></label>
+              <label><input type="radio" name="budget" value="3,000만 이상"><span>3,000만 이상</span></label>
             </div>
           </fieldset>
         </details>
@@ -171,6 +172,6 @@
 </footer>
 <script src="/assets/js/config.js?v=4"></script>
 <script src="/assets/js/sub.js?v=1"></script>
-<script src="/assets/js/listening.js?v=3"></script>
+<script src="/assets/js/listening.js?v=4"></script>
 </body>
 </html>
