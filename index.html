@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
-  <link rel="stylesheet" href="/assets/css/home.css?v=13">
+  <link rel="stylesheet" href="/assets/css/home.css?v=14">
   <script>try{var t=localStorage.getItem('bibi:theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"bibiis.ai","alternateName":"비비이즈","url":"https://bibiis.ai/","email":"hello@bibiis.ai","areaServed":"KR","description":"작은 매장과 팀의 반복 업무 자동화, 구독료 없는 출퇴근·정산, 창업팀 PoC·MVP 제작.","makesOffer":[
@@ -38,7 +38,8 @@
     <a class="logo" href="/" aria-label="bibiis.ai 처음으로"><i></i>bibiis.ai</a>
     <nav class="nav-links" aria-label="페이지 안내">
       <a href="#scene">해 보기</a>
-      <a href="#ladder">만든 것</a>
+      <a href="#ladder">하는 일</a>
+      <a href="/work/">만든 것</a>
       <a href="#plans">맡길 일</a>
       <a href="#process">진행 방식</a>
     </nav>
@@ -56,7 +57,7 @@
       <p class="lead">출퇴근 기록, 월말 정산, 주문 정리처럼 손이 가는 일을 <br class="pc">이미 쓰는 구글 시트와 메신저 안에서 끝나게 만들어 드립니다.</p>
       <div class="row center">
         <a class="btn btn-dark" href="#scene" data-track="hero_try">직접 해 보기</a>
-        <a class="btn btn-soft" href="#ladder">만든 것 보기</a>
+        <a class="btn btn-soft" href="#ladder">하는 일 보기</a>
       </div>
     </div>
     <div class="feed" aria-label="이런 일이 알아서 끝나요 (예시)">
@@ -95,48 +96,35 @@
   <section class="ladder" id="ladder" data-src>
     <div class="wrap">
       <div class="head">
-        <h2>매일 쓰이는 걸<br>직접 만들어요</h2>
-        <p>작게 시작해 쓰이는 만큼 키워요. 아래는 모두 실제로 만든 것들이에요.</p>
+        <h2>자동화 하나가<br>프로덕트가 되기까지</h2>
+        <p>처음부터 큰 걸 만들지 않아요. 작게 붙여 보고, 쓰이는 만큼 키워요. 세 단계 모두 직접 만들어요.</p>
       </div>
-      <div class="cats">
-        <article class="cat cat-main t-blue">
-          <div class="cat-copy">
-            <span class="pill">사내 시스템</span>
-            <h3>여러 법인이 매일 쓰는 근태·결재를 처음부터</h3>
-            <p>외부 HR 서비스를 대체했어요. 규칙을 먼저 문서로 쓰고, 웹과 슬랙 봇이 그 규칙대로 판정해요.</p>
-            <ul class="cat-points"><li>정책 문서부터 쓰는 기획</li><li>웹 + 슬랙 봇 + 구글 워크스페이스</li><li>검증하고 덜어낸 뒤 다시 만들기</li></ul>
-            <div class="cat-links"><a href="/work/#attendance">사내 근태·결재 플랫폼 →</a><a href="/work/#pria">PRIA →</a></div>
-          </div>
-          <a class="cat-img" href="/work/#attendance"><img src="/assets/work/attendance/sc-01.webp" alt="정책을 먼저 쓰고 시스템이 판정하는 사내 근태·결재 플랫폼" width="1600" height="1000" loading="lazy"></a>
-        </article>
-        <article class="cat t-brand">
-          <a class="cat-img" href="/work/#restaurant"><img src="/assets/work/restaurant/sc-01.webp" alt="사장님은 말하고 맞아요만 누르는 식당 출퇴근 앱" width="1600" height="1000" loading="lazy"></a>
-          <div class="cat-copy">
-            <span class="pill">현장 앱</span>
-            <h3>직원은 누르거나 말하기만, 사장님은 확인만</h3>
-            <p>화면을 읽을 틈 없는 매장·현장에서도 기록이 맞게 남아요.</p>
-            <div class="cat-links"><a href="/work/#restaurant">식당 출퇴근 앱 →</a><a href="/work/#buildops">BuildOps →</a></div>
-          </div>
-        </article>
-        <article class="cat t-purple">
-          <a class="cat-img" href="/work/#say-it-back"><img src="/assets/work/say-it-back/sc-01.webp" alt="개념은 지도로, 영어는 내 말로. Say It Back" width="1600" height="1000" loading="lazy"></a>
-          <div class="cat-copy">
-            <span class="pill">AI 도구</span>
-            <h3>AI는 필요한 만큼만 부르는 도구</h3>
-            <p>링크 하나로 리스닝 연습지를, 개념 지도로 영어 설명 연습을. 끄면 과금 호출이 없어요.</p>
-            <div class="cat-links"><a href="/work/#listenote">listenote →</a><a href="/work/#say-it-back">Say It Back →</a></div>
-          </div>
-        </article>
-        <article class="cat t-green">
-          <div class="vis vis-sheet cat-vis" aria-hidden="true"><span class="sheet"><span class="r h"><b>이름</b><b>출근</b><b>퇴근</b></span><span class="r"><i></i><i></i><i></i></span><span class="r"><i></i><i></i><i></i></span><span class="r"><i></i><i></i><i></i></span></span><span class="done">정산 완료</span></div>
-          <div class="cat-copy">
-            <span class="pill">업무 자동화</span>
-            <h3>이미 쓰는 시트와 메신저에 붙여요</h3>
-            <p>서버비도 구독료도 없이, 며칠이면 돌아가요.</p>
-            <div class="cat-links"><a href="/listening/?plan=auto&amp;from=cats">이런 일 문의하기 →</a></div>
-          </div>
-        </article>
-      </div>
+      <ol class="steps3">
+        <li class="step">
+          <span class="pill">1단계</span>
+          <h3>자동화</h3>
+          <p class="sub">이미 쓰는 시트·카톡에 붙이기</p>
+          <div class="vis vis-sheet step-vis" aria-hidden="true"><span class="sheet"><span class="r h"><b>이름</b><b>출근</b><b>퇴근</b></span><span class="r"><i></i><i></i><i></i></span><span class="r"><i></i><i></i><i></i></span><span class="r"><i></i><i></i><i></i></span></span><span class="done">정산 완료</span></div>
+          <ul><li>구글 시트·카톡·슬랙 알림</li><li>며칠이면 돌아가요</li><li>구독료 없음</li></ul>
+          <div class="cat-links"><a href="#scene">위에서 해 본 정리기 ↑</a><a href="/work/#restaurant">식당 앱 첫 버전 →</a></div>
+        </li>
+        <li class="step">
+          <span class="pill">2단계</span>
+          <h3>전용 앱 · PoC</h3>
+          <p class="sub">우리 가게·팀만의 화면</p>
+          <a class="step-img" href="/work/#buildops"><img src="/assets/work/buildops/sc-02.webp" alt="말로 보고하고 사람이 승인하는 BuildOps" width="1600" height="1000" loading="lazy"></a>
+          <ul><li>직원 화면과 사장님 화면</li><li>AI로 정리·요약</li><li>돌아가는 시안부터 보고 결정</li></ul>
+          <div class="cat-links"><a href="/work/#restaurant">식당 출퇴근 앱 →</a><a href="/work/#buildops">BuildOps →</a><a href="/work/#pria">PRIA →</a></div>
+        </li>
+        <li class="step">
+          <span class="pill">3단계</span>
+          <h3>프로덕트 · 운영</h3>
+          <p class="sub">여러 팀이 매일 쓰는 서비스</p>
+          <a class="step-img" href="/work/#attendance"><img src="/assets/work/attendance/sc-01.webp" alt="정책을 먼저 쓰고 시스템이 판정하는 사내 근태·결재 플랫폼" width="1600" height="1000" loading="lazy"></a>
+          <ul><li>로그인·권한·관리자 화면</li><li>정책·결재 같은 규칙까지</li><li>배포하고 운영까지</li></ul>
+          <div class="cat-links"><a href="/work/#attendance">사내 근태·결재 플랫폼 →</a></div>
+        </li>
+      </ol>
       <p class="cats-more"><a class="btn btn-soft" href="/work/">만든 것 전부 보기 →</a></p>
       <div class="craft">
         <h3>프로덕트로 갈 때는 이것까지 같이 만들어요</h3>
