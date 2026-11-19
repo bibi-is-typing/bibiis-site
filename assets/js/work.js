@@ -37,7 +37,8 @@
     var l = w.lead;
     var bl = (w.builds || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('');
     var st = (w.stack || []).join(' · ');
-    return (l ? '<div class="lead"><span class="role">' + esc(l.role) + '</span><h3>' + esc(l.title) + '</h3><p>' + esc(l.body) + '</p></div>' : '') +
+    var roles = '<p class="roles3" aria-label="직접 한 일: 기획, 개발, 디자인">' + ['기획', '개발', '디자인'].map(function (r) { return '<span' + (l && l.role === r ? ' class="on"' : '') + '>' + r + '</span>'; }).join('') + '</p>';
+    return roles + (l ? '<div class="lead"><h3>' + esc(l.title) + '</h3><p>' + esc(l.body) + '</p></div>' : '') +
       (bl ? '<div class="builds"><p class="builds-h">직접 만든 것</p><ul>' + bl + '</ul></div>' : '') +
       (st ? '<p class="stack-line">' + esc(st) + '</p>' : '');
   }
@@ -58,9 +59,9 @@
   }
 
   var GROUPS = [
-    ['plan', '기획', '무엇을 만들지부터 같이 정해요', '요청을 그대로 만들지 않고, 진짜 문제와 규칙부터 정리했어요.'],
-    ['dev', '개발', '화면부터 알림, 연동, 운영까지 직접 만들어요', '서버가 있든 없든, 실제로 매일 돌아가게 만들었어요.'],
-    ['design', '디자인', '설명 없이도 쓰이는 화면을 그려요', '읽지 않아도, 처음 봐도 손이 가게 그렸어요.']
+    ['plan', '기획', '무엇을 만들지부터 같이 정해요', '모두 기획·개발·디자인을 직접 했고, 그중 기획이 특히 잘 보이는 작업이에요.'],
+    ['dev', '개발', '화면부터 알림, 연동, 운영까지 직접 만들어요', '모두 기획·개발·디자인을 직접 했고, 그중 개발이 특히 잘 보이는 작업이에요.'],
+    ['design', '디자인', '설명 없이도 쓰이는 화면을 그려요', '모두 기획·개발·디자인을 직접 했고, 그중 디자인이 특히 잘 보이는 작업이에요.']
   ];
 
   function slider(track, btns, step) {
