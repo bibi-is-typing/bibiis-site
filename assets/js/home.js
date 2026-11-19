@@ -254,6 +254,24 @@
     }).catch(function () {});
   }
 
+  /* ---------- 만든 것 썸네일 벽: 쇼케이스와 실제 화면을 두 줄로 흘려 보여 주기 ---------- */
+  var wallA = document.getElementById('wall-a'), wallB = document.getElementById('wall-b');
+  if (wallA && wallB && window.fetch) {
+    fetch('/data/works.json').then(function (r) { return r.json(); }).then(function (d) {
+      var ws = (d.works || []).filter(function (w) { return !w.draft && w.group; });
+      var all = [];
+      ws.forEach(function (w) { (w.covers || []).forEach(function (c) { all.push([w.slug, c.src, w.title + ' · ' + c.alt]); }); });
+      var a = all.filter(function (x, i) { return i % 2 === 0; }).concat(all.filter(function (x, i) { return i % 2 === 1; }));
+      var b = a.slice(Math.ceil(a.length / 2)).concat(a.slice(0, Math.ceil(a.length / 2))).reverse();
+      var fill = function (box, list) {
+        var html = list.map(function (t) { return '<a class="thumb" href="/work/#' + h(t[0]) + '"><img src="/assets/work/' + h(t[0]) + '/' + h(t[1]) + '" alt="' + h(t[2]) + '" loading="lazy" width="240" height="150"></a>'; }).join('');
+        box.innerHTML = html + html.replace(/ alt="[^"]*"/g, ' alt=""').replace(/<a class="thumb"/g, '<a class="thumb" tabindex="-1" aria-hidden="true"');
+      };
+      fill(wallA, a); fill(wallB, b);
+      var n = document.getElementById('wall-n'); if (n) n.textContent = '만든 것 ' + ws.length + '개 전부 보기 →';
+    }).catch(function () {});
+  }
+
   /* ---------- 코드 보기: 이 페이지의 실제 구조 ---------- */
   var srcBtn = document.getElementById('src-toggle');
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
