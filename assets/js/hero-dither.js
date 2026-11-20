@@ -28,7 +28,13 @@
     // 점 색은 주황을 바탕색 쪽으로 조금 섞어서 덜 튀게 (다크 모드는 더 많이 섞음)
     var base = hex('--bg'), brand = hex('--brand');
     var dark = (base[0] + base[1] + base[2]) / 3 < 128, k = dark ? 0.55 : 0.8;
-    colors = { base: base, ink: brand.map(function (c, i) { return Math.round(base[i] + (c - base[i]) * k); }) };
+    colors = { base: base, ink: brand.map(function (c, i) { return Math.round(base[i] + (c - base[i]) * k); }), iris: null };
+    // --iris-1..4가 있으면 점 색을 무지갯빛 그라데이션으로 (물에 번진 파스텔)
+    var stops = [1, 2, 3, 4].map(function (n) { return getComputedStyle(document.documentElement).getPropertyValue('--iris-' + n).trim(); }).filter(Boolean);
+    if (stops.length >= 2) {
+      var kk = dark ? 0.7 : 1;
+      colors.iris = stops.map(function (v) { var h = v.replace('#', ''); var n = parseInt(h, 16); var c = [(n >> 16) & 255, (n >> 8) & 255, n & 255]; return c.map(function (x, i) { return Math.round(base[i] + (x - base[i]) * kk); }); });
+    }
   }
   function resize() {
     W = hero.clientWidth; H = hero.clientHeight;
@@ -47,7 +53,14 @@
       for (var x = 0; x < cw; x++, i += 4) {
         var g = 1 - Math.hypot((x + 0.5) * CELL - cx, (y + 0.5) * CELL - cy) / rad;
         var on = g > 0 && Math.pow(g, FALLOFF) * INTENSITY > BAYER[(y & 7) * 8 + (x & 7)];
-        var c = on ? ink : base;
+        var c = base;
+        if (on) {
+          if (colors.iris) {
+            var st = colors.iris, u = ((x / cw) * 0.8 + (1 - y / ch) * 0.6 + t * 0.03) % 1 * (st.length - 1);
+            var a = Math.floor(u), f = u - a, p0 = st[a], p1 = st[Math.min(a + 1, st.length - 1)];
+            c = [p0[0] + (p1[0] - p0[0]) * f, p0[1] + (p1[1] - p0[1]) * f, p0[2] + (p1[2] - p0[2]) * f];
+          } else c = ink;
+        }
         d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = on ? 255 : 0;
       }
     }
