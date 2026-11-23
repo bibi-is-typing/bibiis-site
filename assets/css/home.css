@@ -1,23 +1,24 @@
 /* bibiis.ai 첫 화면 (2026-11 D안): 밝은 일상 장면, 끝난 일을 보여 주기 */
 :root{
   --bg:#FFFFFF; --soft:#F4F5F7; --card:#FFFFFF; --ink:#18181B; --ink-2:#6B6B73; --line:#EAEAEE;
-  --brand:#FF6B3D; --brand-soft:#FFF1EC; --brand-ink:#C2410C; --dark:#18181B; --on-dark:#FFFFFF;
-  --t-blue:#EEF3FF; --t-green:#EFF8F1; --t-purple:#F6F0FF; --t-1:#FFF7F3; --t-2:#FFF1EC; --t-3:#FFE6DB;
+  --brand:#6D4AE8; --brand-soft:#F0EDFD; --brand-ink:#5636CC; --dark:#18181B; --on-dark:#FFFFFF;
+  --t-blue:#EEF3FF; --t-green:#EFF8F1; --t-purple:#F6F0FF; --t-1:#EEF8FF; --t-2:#F0ECFF; --t-3:#FDE9F7;
+  --iris-1:#B9A7FF; --iris-2:#F7B2E1; --iris-3:#9FD8FF; --iris-4:#B9F0DA;
   --shadow:0 10px 30px -12px rgba(24,24,27,.14);
   --wrap:1160px; color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#111113; --soft:#1A1A1E; --card:#1E1E23; --ink:#F4F4F5; --ink-2:#A1A1AA; --line:#2A2A30;
-    --brand:#FF7A50; --brand-soft:#2A1A14; --brand-ink:#FFB199; --dark:#F4F4F5; --on-dark:#111113;
-    --t-blue:#1A1F2C; --t-green:#17231B; --t-purple:#221B2C; --t-1:#221813; --t-2:#2A1A14; --t-3:#331D14;
+    --brand:#9C86FF; --brand-soft:#322F46; --brand-ink:#C7B8FF; --dark:#F4F4F5; --on-dark:#111113;
+    --t-blue:#1A1F2C; --t-green:#17231B; --t-purple:#221B2C; --t-1:#2D343D; --t-2:#343142; --t-3:#3C333E;
     --shadow:0 10px 30px -12px rgba(0,0,0,.6); color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --bg:#111113; --soft:#1A1A1E; --card:#1E1E23; --ink:#F4F4F5; --ink-2:#A1A1AA; --line:#2A2A30;
-  --brand:#FF7A50; --brand-soft:#2A1A14; --brand-ink:#FFB199; --dark:#F4F4F5; --on-dark:#111113;
-  --t-blue:#1A1F2C; --t-green:#17231B; --t-purple:#221B2C; --t-1:#221813; --t-2:#2A1A14; --t-3:#331D14;
+  --brand:#9C86FF; --brand-soft:#322F46; --brand-ink:#C7B8FF; --dark:#F4F4F5; --on-dark:#111113;
+  --t-blue:#1A1F2C; --t-green:#17231B; --t-purple:#221B2C; --t-1:#2D343D; --t-2:#343142; --t-3:#3C333E;
   --shadow:0 10px 30px -12px rgba(0,0,0,.6); color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -453,3 +454,11 @@ section:not(#try) > .wrap > .head p{max-width:440px;padding-bottom:8px}
 
 .note-card .ic.mark{background:none;width:36px;height:36px;border-radius:0}
 .note-card .ic.mark.bibi{width:22px;height:22px;margin:7px;border-radius:50%;background:var(--brand)}
+
+/* 무지갯빛(아이리스) 시그니처: --iris-1..4가 있을 때만 */
+.hero::after{content:"";position:absolute;inset:-20% -10% auto auto;width:70%;height:90%;pointer-events:none;z-index:0;background:radial-gradient(closest-side,color-mix(in srgb,var(--iris-1,transparent) 45%,transparent),transparent),radial-gradient(closest-side at 70% 60%,color-mix(in srgb,var(--iris-2,transparent) 35%,transparent),transparent),radial-gradient(closest-side at 30% 70%,color-mix(in srgb,var(--iris-3,transparent) 35%,transparent),transparent);filter:blur(20px);opacity:.9}
+.hero > .wrap,.hero > .feed{position:relative;z-index:1}
+.badge{background:linear-gradient(90deg,color-mix(in srgb,var(--iris-1,var(--brand-soft)) 35%,var(--card)),color-mix(in srgb,var(--iris-2,var(--brand-soft)) 35%,var(--card)),color-mix(in srgb,var(--iris-3,var(--brand-soft)) 35%,var(--card)))}
+.logo i{background:conic-gradient(from 200deg,var(--iris-1,var(--brand)),var(--iris-2,var(--brand)),var(--iris-3,var(--brand)),var(--iris-4,var(--brand)),var(--iris-1,var(--brand)))}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .hero::after{opacity:.3} }
+:root[data-theme="dark"] .hero::after{opacity:.3}
